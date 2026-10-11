@@ -2,24 +2,26 @@
 <html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta name="theme-color" content="#191918" />
-  <meta name="description" content="TriXAI — A modern, soulful Claude-inspired AI workspace. Crafted with bespoke craftsmanship, artifacts engine, and intelligent reasoning by Namith RN." />
-  <meta name="keywords" content="TriXAI, Claude AI, Namith RN, AI Interface, React Bits, ShinyText, ScrollExpand, Awwwards, Creative Developer" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#121110" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="TriXAI — World-Class Next-Generation AI Workspace & Cognitive Studio. Mobile-first responsive craftsmanship by Namith RN." />
+  <meta name="keywords" content="TriXAI, Namith RN, Mobile Friendly AI, React Bits, ShinyText, ScrollExpand, Awwwards, Creative Developer" />
   <meta name="author" content="Namith RN" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="TriXAI — Intelligence Crafted with Soul | by Namith RN" />
-  <meta property="og:description" content="A modern Claude-inspired AI experience engineered for deep work, live artifacts, and transparent reasoning. Created by Namith RN." />
+  <meta property="og:description" content="A world-class, award-winning AI studio engineered for deep work, live artifacts, and transparent reasoning. Created by Namith RN." />
   <meta property="og:image" content="https://plain-apac-prod-public.komododecks.com/202610/10/xeNXT7AzxbFHHxMUAGbr/image.jpg" />
   <meta property="og:url" content="https://trixai.vercel.app/" />
 
   <title>TriXAI — Intelligence Crafted with Soul | by Namith RN</title>
 
-  <!-- Favicon: Claude-inspired Radiant Sparkle -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E88D6D'/%3E%3Cstop offset='45%25' stop-color='%23D97757'/%3E%3Cstop offset='100%25' stop-color='%23AD4729'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M32 12 C32 21 23 32 12 32 C23 32 32 43 32 52 C32 43 41 32 52 32 C41 32 32 21 32 12 Z' fill='%23FFFFFF'/%3E%3Ccircle cx='32' cy='32' r='3.2' fill='%23D97757'/%3E%3C/svg%3E" />
+  <!-- Favicon: TriX Radiant Emblem -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FF6B35'/%3E%3Cstop offset='45%25' stop-color='%23D97757'/%3E%3Cstop offset='100%25' stop-color='%23AD4729'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M32 10 C32 20 22 32 10 32 C22 32 32 44 32 54 C32 44 42 32 54 32 C42 32 32 20 32 10 Z' fill='%23FFFFFF'/%3E%3Ccircle cx='32' cy='32' r='3.4' fill='%23D97757'/%3E%3C/svg%3E" />
 
-  <!-- Google Fonts: Editorial Serif + Clean Sans + JetBrains Mono -->
+  <!-- Google Fonts: Editorial Serif + Modern Clean Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -30,11 +32,19 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Tailwind Configuration matching Claude Aesthetic -->
+  <!-- Tailwind Configuration with Mobile Breakpoints & Colors -->
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
+        screens: {
+          'xs': '420px',
+          'sm': '640px',
+          'md': '768px',
+          'lg': '1024px',
+          'xl': '1280px',
+          '2xl': '1536px',
+        },
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
@@ -42,28 +52,29 @@
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            claude: {
+            trix: {
               terracotta: '#D97757',
               terracottaHover: '#C86849',
               coral: '#E28768',
+              ember: '#FF6B35',
               amber: '#E59866',
               warmIvory: '#FAF9F5',
               warmCard: '#F3F2EC',
               lightBorder: '#E5E4DC',
               lightSubtext: '#74726C',
-              darkBg: '#181716',
-              darkSidebar: '#141312',
-              darkCard: '#222120',
-              darkCardHover: '#2A2927',
-              darkBorder: '#343330',
+              darkBg: '#121110',
+              darkSidebar: '#171615',
+              darkCard: '#1E1D1B',
+              darkCardHover: '#262522',
+              darkBorder: '#2E2D2A',
               darkSubtext: '#9E9D95',
               darkText: '#F5F5F0',
             }
           },
           boxShadow: {
-            'claude-glow': '0 0 35px -5px rgba(217, 119, 87, 0.28)',
+            'trix-glow': '0 0 45px -5px rgba(217, 119, 87, 0.35)',
             'subtle-card': '0 12px 30px -10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.05)',
-            'deep-card': '0 25px 60px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.07)',
+            'deep-card': '0 25px 60px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08)',
           }
         }
       }
@@ -72,8 +83,44 @@
 
   <style>
     /* -------------------------------------------------------------
+       MOBILE FIRST STYLING & TOUCH ERGONOMICS
+       ------------------------------------------------------------- */
+    *, *::before, *::after {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+
+    /* Safe Area Insets for iOS Notch & Home Bar */
+    .pb-safe {
+      padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+    }
+    .pt-safe {
+      padding-top: max(0.75rem, env(safe-area-inset-top, 0.75rem));
+    }
+
+    /* Hide ugly scrollbars on mobile horizontal rails */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent mobile double-tap zoom delay */
+    button, a, input, select {
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
        1. REACT BITS: SHINY TEXT COMPONENT STYLES
-       Exact styles from the React Bits specification
        ------------------------------------------------------------- */
     .shiny-text {
       position: relative;
@@ -84,6 +131,7 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
       transition: color 0.2s ease;
+      word-break: break-word;
     }
 
     .shiny-text__glow {
@@ -100,7 +148,6 @@
 
     /* -------------------------------------------------------------
        2. REACT BITS: SCROLL EXPAND COMPONENT STYLES
-       Exact styles from the React Bits specification
        ------------------------------------------------------------- */
     .scroll-expand {
       position: relative;
@@ -130,16 +177,22 @@
       top: 0;
       width: 100%;
       overflow: hidden;
-      --se-title-size: clamp(2.4rem, 6vw, 5.5rem);
+      --se-title-size: clamp(2rem, 6.5vw, 6rem);
     }
 
     .scroll-expand__frame {
       position: absolute;
       inset: 0;
-      clip-path: inset(21% 29% 21% 29% round 24px);
+      clip-path: inset(18% 7% 18% 7% round 20px);
       will-change: clip-path;
-      box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 35px 90px -15px rgba(0, 0, 0, 0.75);
       transition: box-shadow 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .scroll-expand__frame {
+        clip-path: inset(21% 29% 21% 29% round 28px);
+      }
     }
 
     .scroll-expand__media {
@@ -158,7 +211,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(to top, rgba(18, 17, 16, 0.95), rgba(18, 17, 16, 0.45) 45%, rgba(18, 17, 16, 0.7));
+      background: linear-gradient(to top, rgba(14, 13, 12, 0.96), rgba(14, 13, 12, 0.45) 45%, rgba(14, 13, 12, 0.75));
       opacity: 0;
     }
 
@@ -170,7 +223,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: clamp(1rem, 4vw, 3rem);
+      padding: clamp(1rem, 5vw, 3rem);
       opacity: 0;
       will-change: opacity, transform;
       z-index: 10;
@@ -183,14 +236,14 @@
       align-items: center;
       justify-content: center;
       margin: 0;
-      padding: 0 6%;
+      padding: 0 5%;
       text-align: center;
       font-size: var(--se-title-size);
       font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
       color: #fff;
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+      text-shadow: 0 4px 35px rgba(0, 0, 0, 0.85);
       pointer-events: none;
       will-change: opacity, transform;
       z-index: 5;
@@ -200,9 +253,9 @@
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 2rem;
+      bottom: max(1.5rem, env(safe-area-inset-bottom, 1.5rem));
       text-align: center;
-      font-size: 0.825rem;
+      font-size: 0.75rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 600;
@@ -213,13 +266,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     /* -------------------------------------------------------------
-       3. AESTHETICS & MICRO-INTERACTIONS
+       3. AMBIENT GRAPHICS & TOUCH POLISH
        ------------------------------------------------------------- */
-    /* Film Grain Layer */
     .grain-layer {
       position: fixed;
       inset: 0;
@@ -229,210 +281,258 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(217, 119, 87, 0.3);
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(217, 119, 87, 0.6);
+    #ambientCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
     }
 
-    /* Cursor Follower (Desktop only) */
+    /* Custom Scrollbar for Desktop */
+    @media (min-width: 768px) {
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(217, 119, 87, 0.35);
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(217, 119, 87, 0.75);
+      }
+    }
+
+    /* Custom Cursor ONLY on mouse devices */
     @media (hover: hover) and (pointer: fine) {
-      .custom-cursor-dot {
+      .cursor-dot {
         position: fixed;
         top: 0;
         left: 0;
         width: 6px;
         height: 6px;
-        background: #D97757;
+        background: #FF6B35;
         border-radius: 50%;
         pointer-events: none;
         z-index: 1000;
         transform: translate(-50%, -50%);
         transition: transform 0.08s ease, opacity 0.2s ease;
       }
-      .custom-cursor-ring {
+      .cursor-ring {
         position: fixed;
         top: 0;
         left: 0;
-        width: 32px;
-        height: 32px;
-        border: 1px solid rgba(217, 119, 87, 0.45);
+        width: 36px;
+        height: 36px;
+        border: 1.5px solid rgba(255, 107, 53, 0.45);
         border-radius: 50%;
         pointer-events: none;
         z-index: 999;
         transform: translate(-50%, -50%);
         transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.25s, height 0.25s, border-color 0.25s;
       }
-      .custom-cursor-ring.active {
-        width: 54px;
-        height: 54px;
-        background: rgba(217, 119, 87, 0.1);
-        border-color: #D97757;
+      .cursor-ring.active {
+        width: 58px;
+        height: 58px;
+        background: rgba(255, 107, 53, 0.12);
+        border-color: #FF6B35;
       }
     }
 
     /* 3D Tilt Card */
     .tilt-card {
       transform-style: preserve-3d;
-      perspective: 1000px;
+      perspective: 1200px;
       transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    .tilt-child {
-      transform: translateZ(24px);
-    }
 
-    /* Subtle Glassmorphism */
-    .claude-glass {
-      background: rgba(24, 23, 22, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    /* Glassmorphism Surfaces */
+    .trix-glass {
+      background: rgba(23, 22, 21, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    html:not(.dark) .claude-glass {
-      background: rgba(250, 249, 245, 0.82);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+    html:not(.dark) .trix-glass {
+      background: rgba(250, 249, 245, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.07);
     }
 
-    /* Glowing radial mesh backgrounds */
-    .terracotta-radial {
-      background: radial-gradient(circle 600px at 50% 0%, rgba(217, 119, 87, 0.16), transparent 70%);
+    /* Marquee Animation */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeSlide 36s linear infinite;
+      will-change: transform;
+    }
+    @keyframes marqueeSlide {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
-    /* Text selection */
+    /* Reveal On Scroll */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px) scale(0.99);
+      transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal-on-scroll.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
     ::selection {
-      background: rgba(217, 119, 87, 0.35);
+      background: rgba(217, 119, 87, 0.38);
       color: inherit;
     }
   </style>
 </head>
-<body class="bg-claude-warmIvory text-[#1F1E1D] dark:bg-claude-darkBg dark:text-claude-darkText font-sans transition-colors duration-300 antialiased selection:bg-claude-terracotta/30 overflow-x-hidden">
+<body class="bg-trix-warmIvory text-[#1F1E1D] dark:bg-trix-darkBg dark:text-trix-darkText font-sans transition-colors duration-300 antialiased selection:bg-trix-terracotta/30 overflow-x-hidden relative">
 
-  <!-- Grain Overlay -->
+  <!-- Interactive Ambient Canvas Background -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Film Grain Overlay -->
   <div class="grain-layer" aria-hidden="true"></div>
 
-  <!-- Custom Cursor Elements -->
-  <div class="custom-cursor-dot hidden md:block" id="cursorDot"></div>
-  <div class="custom-cursor-ring hidden md:block" id="cursorRing"></div>
+  <!-- Magnetic Custom Cursor (Hidden on touch mobile screens) -->
+  <div class="cursor-dot hidden md:block" id="cursorDot"></div>
+  <div class="cursor-ring hidden md:block" id="cursorRing"></div>
 
-  <!-- Top Scroll Progress Bar -->
-  <div id="scrollProgress" class="fixed top-0 left-0 h-[2.5px] bg-gradient-to-r from-claude-terracotta via-claude-coral to-claude-amber z-[110] transition-all duration-75" style="width: 0%;"></div>
+  <!-- Scroll Progress Indicator -->
+  <div id="scrollProgress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-trix-ember via-trix-terracotta to-trix-amber z-[110] transition-all duration-75" style="width: 0%;"></div>
 
   <!-- ==============================================================
-       NAVIGATION BAR
+       NAVIGATION BAR (MOBILE-OPTIMIZED)
        ============================================================== -->
   <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="mainHeader">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4">
-      <nav class="claude-glass rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-subtle-card">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-4">
+      <nav class="trix-glass rounded-2xl px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between shadow-subtle-card">
         
-        <!-- Brand & Creator -->
-        <a href="#top" class="flex items-center space-x-3 group">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E88D6D] via-[#D97757] to-[#AD4729] p-1.5 shadow-md shadow-claude-terracotta/30 border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
-            <!-- Claude Spark Icon -->
+        <!-- Brand Logo & Attribution -->
+        <a href="#top" class="flex items-center space-x-2 sm:space-x-3 group">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-[#FF6B35] via-[#D97757] to-[#AD4729] p-1.5 shadow-md shadow-trix-terracotta/30 border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
             <svg class="w-full h-full filter drop-shadow-xs" viewBox="0 0 32 32" fill="none">
               <path d="M16 4 C16 10.5 10.5 16 4 16 C10.5 16 16 21.5 16 28 C16 21.5 21.5 16 28 16 C21.5 16 16 10.5 16 4 Z" fill="#FFFFFF"/>
-              <path d="M16 8 C16 12.5 12.5 16 8 16 C12.5 16 16 19.5 16 24 C16 19.5 19.5 16 24 16 C19.5 16 16 12.5 16 8 Z" fill="#FFFFFF" opacity="0.4" transform="rotate(45 16 16)"/>
-              <circle cx="16" cy="16" r="2.2" fill="#D97757"/>
+              <circle cx="16" cy="16" r="2.4" fill="#D97757"/>
               <circle cx="16" cy="16" r="1.1" fill="#FFFFFF"/>
             </svg>
           </div>
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="font-serif font-bold text-xl sm:text-2xl tracking-tight text-[#1F1E1D] dark:text-white">TriXAI</span>
-              <span class="text-[10px] uppercase font-mono tracking-widest px-2 py-0.5 rounded-full bg-claude-terracotta/15 text-claude-terracotta border border-claude-terracotta/30 font-semibold">Claude OS</span>
+            <div class="flex items-center space-x-1.5">
+              <span class="font-serif font-bold text-lg sm:text-2xl tracking-tight text-[#1F1E1D] dark:text-white">TriXAI</span>
+              <span class="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider px-1.5 py-0.5 rounded-full bg-trix-terracotta/15 text-trix-terracotta border border-trix-terracotta/30 font-semibold hidden xs:inline">Core</span>
             </div>
-            <p class="text-[11px] text-claude-lightSubtext dark:text-claude-darkSubtext -mt-0.5 font-medium flex items-center gap-1">
+            <p class="text-[10px] sm:text-[11px] text-trix-lightSubtext dark:text-trix-darkSubtext -mt-0.5 font-medium flex items-center gap-1">
               <span>by</span>
-              <span class="text-claude-terracotta font-semibold hover:underline">Namith RN</span>
+              <span class="text-trix-terracotta font-semibold hover:underline">Namith RN</span>
             </p>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
         <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
-          <a href="#overview" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Overview</a>
-          <a href="#experience" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">ScrollStage</a>
-          <a href="#simulator" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Live Sandbox</a>
-          <a href="#shiny-lab" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">ShinyText Lab</a>
-          <a href="#architect" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Architect</a>
+          <a href="#overview" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Architecture</a>
+          <a href="#experience" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">ScrollStage</a>
+          <a href="#simulator" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Live Sandbox</a>
+          <a href="#shiny-lab" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">ShinyText Lab</a>
+          <a href="#architect" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Namith RN</a>
         </div>
 
-        <!-- Quick Actions & Try TriXAI CTA -->
-        <div class="flex items-center space-x-2.5">
-          <!-- Sound fx toggle -->
-          <button id="soundToggle" class="w-8 h-8 rounded-xl flex items-center justify-center text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white border border-claude-lightBorder dark:border-claude-darkBorder hover:bg-black/5 dark:hover:bg-white/5 transition text-xs" title="Toggle audio feedback" aria-label="Toggle audio feedback">
+        <!-- Quick Controls & CTA Button -->
+        <div class="flex items-center space-x-1.5 sm:space-x-2.5">
+          <!-- Audio Toggle (Desktop) -->
+          <button id="soundToggle" class="hidden xs:flex w-8 h-8 rounded-xl items-center justify-center text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta dark:hover:text-white border border-trix-lightBorder dark:border-trix-darkBorder hover:bg-black/5 dark:hover:bg-white/5 transition text-xs" title="Toggle audio feedback" aria-label="Toggle audio feedback">
             <i data-lucide="volume-2" class="w-4 h-4" id="soundIcon"></i>
           </button>
 
-          <!-- Theme toggle -->
-          <button id="themeToggle" class="w-8 h-8 rounded-xl flex items-center justify-center text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white border border-claude-lightBorder dark:border-claude-darkBorder hover:bg-black/5 dark:hover:bg-white/5 transition text-xs" title="Toggle light/dark theme" aria-label="Toggle theme">
+          <!-- Theme Toggle -->
+          <button id="themeToggle" class="w-8 h-8 rounded-xl flex items-center justify-center text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta dark:hover:text-white border border-trix-lightBorder dark:border-trix-darkBorder hover:bg-black/5 dark:hover:bg-white/5 transition text-xs" title="Toggle theme" aria-label="Toggle theme">
             <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
             <i data-lucide="sun" class="w-4 h-4 hidden dark:inline"></i>
           </button>
 
-          <!-- Try TrixAI Primary Button -->
-          <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="relative group inline-flex items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-claude-terracotta to-claude-coral hover:from-claude-terracottaHover hover:to-claude-terracotta text-white font-semibold text-xs tracking-wide shadow-md shadow-claude-terracotta/25 hover:shadow-claude-terracotta/40 transition-all duration-200 active:scale-95">
-            <span>Try TriXAI</span>
+          <!-- Try TriXAI CTA -->
+          <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="relative group inline-flex items-center justify-center space-x-1 sm:space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-trix-ember via-trix-terracotta to-trix-coral hover:from-trix-terracottaHover hover:to-trix-ember text-white font-semibold text-xs tracking-wide shadow-md shadow-trix-terracotta/30 hover:shadow-trix-terracotta/50 transition-all duration-200 active:scale-95">
+            <span>Try App</span>
             <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
           </a>
 
-          <!-- Mobile Hamburger -->
-          <button id="mobileMenuBtn" class="md:hidden w-8 h-8 rounded-xl flex items-center justify-center text-claude-lightSubtext dark:text-claude-darkSubtext border border-claude-lightBorder dark:border-claude-darkBorder" aria-label="Toggle menu">
-            <i data-lucide="menu" class="w-4 h-4"></i>
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobileMenuBtn" class="md:hidden w-8 h-8 rounded-xl flex items-center justify-center text-trix-lightSubtext dark:text-trix-darkSubtext border border-trix-lightBorder dark:border-trix-darkBorder active:scale-95 transition" aria-label="Open mobile navigation">
+            <i data-lucide="menu" class="w-4 h-4" id="mobileMenuIcon"></i>
           </button>
         </div>
       </nav>
 
-      <!-- Mobile Dropdown Menu -->
-      <div id="mobileMenu" class="hidden md:hidden mt-2 p-4 rounded-2xl claude-glass flex flex-col space-y-2 border border-claude-lightBorder dark:border-claude-darkBorder">
-        <a href="#overview" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">Overview</a>
-        <a href="#experience" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">ScrollStage</a>
-        <a href="#simulator" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">Live Sandbox</a>
-        <a href="#shiny-lab" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">ShinyText Lab</a>
-        <a href="#architect" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">Architect (Namith RN)</a>
-        <a href="https://namithrn.vercel.app/" target="_blank" class="px-3 py-2 rounded-xl text-sm font-medium text-claude-terracotta hover:bg-black/5 dark:hover:bg-white/5 flex items-center justify-between">
-          <span>Namith's Portfolio</span>
-          <i data-lucide="external-link" class="w-4 h-4"></i>
+      <!-- Mobile Full-Screen Glass Drawer Navigation -->
+      <div id="mobileMenu" class="hidden md:hidden mt-2 p-4 sm:p-6 rounded-3xl trix-glass flex flex-col space-y-3 border border-trix-lightBorder dark:border-trix-darkBorder shadow-2xl animate-fade-in">
+        <div class="flex items-center justify-between pb-3 border-b border-trix-lightBorder dark:border-trix-darkBorder">
+          <span class="text-xs font-mono uppercase tracking-wider text-trix-lightSubtext dark:text-trix-darkSubtext font-semibold">Navigation Menu</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-trix-terracotta/15 text-trix-terracotta font-semibold">TriXAI Mobile OS</span>
+        </div>
+        <a href="#overview" class="mobile-nav-link px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 flex items-center space-x-3 transition">
+          <i data-lucide="cpu" class="w-4 h-4 text-trix-terracotta"></i>
+          <span>Architecture Overview</span>
         </a>
+        <a href="#experience" class="mobile-nav-link px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 flex items-center space-x-3 transition">
+          <i data-lucide="maximize" class="w-4 h-4 text-trix-terracotta"></i>
+          <span>ScrollStage Expansion</span>
+        </a>
+        <a href="#simulator" class="mobile-nav-link px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 flex items-center space-x-3 transition">
+          <i data-lucide="sparkles" class="w-4 h-4 text-trix-terracotta"></i>
+          <span>Interactive Live Sandbox</span>
+        </a>
+        <a href="#shiny-lab" class="mobile-nav-link px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 flex items-center space-x-3 transition">
+          <i data-lucide="sliders" class="w-4 h-4 text-trix-terracotta"></i>
+          <span>ShinyText Laboratory</span>
+        </a>
+        <a href="#architect" class="mobile-nav-link px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5 flex items-center space-x-3 transition">
+          <i data-lucide="user" class="w-4 h-4 text-trix-terracotta"></i>
+          <span>Meet the Architect (Namith RN)</span>
+        </a>
+        <div class="pt-2 border-t border-trix-lightBorder dark:border-trix-darkBorder flex flex-col space-y-2">
+          <a href="https://namithrn.vercel.app/" target="_blank" class="px-3 py-2.5 rounded-xl text-sm font-semibold text-trix-terracotta bg-trix-terracotta/10 hover:bg-trix-terracotta/20 flex items-center justify-between transition">
+            <span>Namith RN Portfolio</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+          <a href="https://trixai.vercel.app/" target="_blank" class="px-3 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-trix-ember to-trix-terracotta flex items-center justify-between shadow-md transition">
+            <span>Launch TriXAI App</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- ==============================================================
-       HERO SECTION
-       Showcasing editorial Claude styling + React Bits <ShinyText />
+       HERO SECTION (MOBILE-FRIENDLY & RESPONSIVE)
        ============================================================== -->
-  <section id="top" class="relative pt-32 sm:pt-40 pb-20 sm:pb-28 terracotta-radial overflow-hidden">
-    <!-- Ambient glowing backdrop orbs -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-claude-terracotta/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
-
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+  <section id="top" class="relative pt-24 xs:pt-28 sm:pt-40 pb-16 sm:pb-32 overflow-hidden z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
-      <!-- Pill Badge -->
-      <div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-medium tracking-wide mb-8 shadow-xs animate-fade-in">
-        <span class="w-2 h-2 rounded-full bg-claude-terracotta animate-pulse"></span>
-        <span class="font-mono uppercase tracking-wider text-[11px]">Anthropic Claude Design Philosophy</span>
-        <span class="text-claude-terracotta/60">•</span>
-        <span class="font-mono text-[11px] text-claude-terracotta/90">Created by Namith RN</span>
+      <!-- Eyebrow Tag -->
+      <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-trix-terracotta/30 bg-trix-terracotta/10 text-trix-terracotta text-[11px] sm:text-xs font-medium tracking-wide mb-6 sm:mb-8 shadow-xs max-w-full overflow-hidden text-ellipsis">
+        <span class="w-2 h-2 rounded-full bg-trix-ember animate-ping flex-shrink-0"></span>
+        <span class="font-mono uppercase tracking-wider truncate">Soulful Next-Gen Intelligence</span>
+        <span class="text-trix-terracotta/60 hidden xs:inline">•</span>
+        <span class="font-mono text-trix-terracotta/90 truncate hidden xs:inline">by Namith RN</span>
       </div>
 
-      <!-- Main Headline using React Bits <ShinyText /> component -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-normal tracking-tight leading-[1.04] mb-6 max-w-5xl mx-auto">
-        <span class="block">Intelligence</span>
-        <span class="block italic text-claude-terracotta">Crafted with Soul.</span>
-        <!-- ShinyText Hero Banner -->
-        <span class="block mt-2 font-sans font-extrabold text-2xl sm:text-4xl md:text-5xl uppercase tracking-tighter">
+      <!-- Main Headline -->
+      <h1 class="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-normal tracking-tight leading-[1.05] sm:leading-[0.98] mb-4 sm:mb-6 max-w-5xl mx-auto break-words">
+        <span class="block">The Singularity of</span>
+        <span class="block italic text-trix-terracotta">Form & Thought.</span>
+        <!-- ShinyText Component -->
+        <span class="block mt-3 sm:mt-4 font-sans font-extrabold text-xl xs:text-2xl sm:text-4xl md:text-5xl uppercase tracking-tight sm:tracking-tighter break-words">
           <span class="shiny-target" 
-                data-text="TriXAI: Next-Gen Claude Interface"
+                data-text="TriXAI: Autonomous Neural Workspace"
                 data-color="#9E9D95"
                 data-shine-color="#FFFFFF"
                 data-speed="2.2"
@@ -440,84 +540,111 @@
                 data-softness="0.8"
                 data-glow="0.4"
                 data-trigger="loop">
-            TriXAI: Next-Gen Claude Interface
+            TriXAI: Autonomous Neural Workspace
           </span>
         </span>
       </h1>
 
-      <!-- Editorial Description -->
-      <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-claude-lightSubtext dark:text-claude-darkSubtext font-normal leading-relaxed mb-10 font-sans">
-        A tranquil, deeply thoughtful conversational workstation. Designed with Claude's warmth, transparent chain-of-thought, real-time code artifacts, and zero cognitive friction.
+      <!-- Description -->
+      <p class="max-w-2xl mx-auto text-sm sm:text-lg md:text-xl text-trix-lightSubtext dark:text-trix-darkSubtext font-normal leading-relaxed mb-8 sm:mb-10 px-2 font-sans">
+        A tranquil, deeply thoughtful conversational workstation. Featuring transparent chain-of-thought deductive reasoning, real-time code artifacts, and zero cognitive friction.
       </p>
 
-      <!-- Primary Action Buttons -->
-      <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-14">
-        <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-claude-terracotta to-claude-coral hover:from-claude-terracottaHover hover:to-claude-terracotta text-white font-medium text-sm sm:text-base tracking-tight shadow-lg shadow-claude-terracotta/30 hover:shadow-claude-terracotta/50 transition duration-200 flex items-center space-x-2 group">
+      <!-- Action Buttons (Mobile: full width touch friendly, Desktop: inline) -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-14 w-full max-w-md sm:max-w-none mx-auto">
+        <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-trix-ember to-trix-terracotta hover:from-trix-terracottaHover hover:to-trix-ember text-white font-semibold text-sm sm:text-base tracking-tight shadow-xl shadow-trix-terracotta/35 hover:shadow-trix-terracotta/60 transition duration-200 flex items-center justify-center space-x-2 group active:scale-95">
           <span>Launch TriXAI Live</span>
           <i data-lucide="sparkles" class="w-4 h-4 group-hover:rotate-12 transition-transform"></i>
         </a>
-        <a href="#experience" class="px-7 py-3.5 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white/50 dark:bg-claude-darkCard/50 hover:bg-black/5 dark:hover:bg-claude-darkCardHover font-medium text-sm sm:text-base tracking-tight transition duration-200 flex items-center space-x-2">
+        <a href="#experience" class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white/60 dark:bg-trix-darkCard/60 hover:bg-black/5 dark:hover:bg-trix-darkCardHover font-semibold text-sm sm:text-base tracking-tight transition duration-200 flex items-center justify-center space-x-2 active:scale-95">
           <span>Explore ScrollStage</span>
-          <i data-lucide="arrow-down" class="w-4 h-4 text-claude-terracotta"></i>
+          <i data-lucide="arrow-down" class="w-4 h-4 text-trix-terracotta animate-bounce"></i>
         </a>
-        <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-2xl border border-claude-terracotta/30 bg-claude-terracotta/5 hover:bg-claude-terracotta/15 text-claude-terracotta font-medium text-sm sm:text-base tracking-tight transition duration-200 flex items-center space-x-2">
+        <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-2xl border border-trix-terracotta/30 bg-trix-terracotta/10 hover:bg-trix-terracotta/20 text-trix-terracotta font-semibold text-sm sm:text-base tracking-tight transition duration-200 flex items-center justify-center space-x-2 active:scale-95">
           <i data-lucide="user" class="w-4 h-4"></i>
           <span>Namith's Portfolio</span>
         </a>
       </div>
 
-      <!-- Quick Interactive Prompt Bar (Try a question instantly) -->
-      <div class="max-w-2xl mx-auto claude-glass rounded-2xl p-2.5 sm:p-3 border border-claude-terracotta/30 shadow-subtle-card text-left">
-        <div class="flex items-center space-x-2 px-3 py-1 text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext mb-2">
-          <i data-lucide="terminal" class="w-3.5 h-3.5 text-claude-terracotta"></i>
-          <span>Sample Prompt Inquiries — Click to simulate:</span>
-        </div>
-        <div class="flex flex-wrap gap-2">
-          <button class="hero-prompt-chip text-left text-xs px-3 py-2 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-claude-terracotta hover:text-white transition flex items-center space-x-1.5" data-prompt="Design an interactive 3D WebGL particle constellation">
-            <i data-lucide="sparkle" class="w-3 h-3 text-claude-terracotta"></i>
-            <span>"Design an interactive 3D WebGL constellation"</span>
-          </button>
-          <button class="hero-prompt-chip text-left text-xs px-3 py-2 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-claude-terracotta hover:text-white transition flex items-center space-x-1.5" data-prompt="Analyze why Claude's design language evokes intellectual warmth">
-            <i data-lucide="feather" class="w-3 h-3 text-claude-terracotta"></i>
-            <span>"Why Claude's aesthetic evokes intellectual warmth"</span>
-          </button>
-          <button class="hero-prompt-chip text-left text-xs px-3 py-2 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-claude-terracotta hover:text-white transition flex items-center space-x-1.5" data-prompt="Write a production React Bits ShinyText vanilla engine">
-            <i data-lucide="code" class="w-3 h-3 text-claude-terracotta"></i>
-            <span>"React Bits ShinyText Vanilla Engine"</span>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==============================================================
-       OVERVIEW & HIGHLIGHT STATS
-       ============================================================== -->
-  <section id="overview" class="py-16 sm:py-20 border-y border-claude-lightBorder dark:border-claude-darkBorder bg-claude-warmCard/50 dark:bg-claude-darkSidebar/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
-        
-        <div class="p-4 rounded-2xl">
-          <div class="font-serif text-3xl sm:text-5xl font-bold text-[#1F1E1D] dark:text-white mb-1">
-            <span class="shiny-target" data-text="Claude 3.5" data-color="#D97757" data-shine-color="#FFFFFF" data-speed="2.5" data-glow="0.2">Claude 3.5</span>
+      <!-- Mobile Horizontal Swipeable Prompt Bar -->
+      <div class="max-w-2xl mx-auto trix-glass rounded-2xl p-3 border border-trix-terracotta/30 shadow-subtle-card text-left">
+        <div class="flex items-center justify-between px-2 py-1 text-xs font-mono text-trix-lightSubtext dark:text-trix-darkSubtext mb-2">
+          <div class="flex items-center space-x-1.5">
+            <i data-lucide="terminal" class="w-3.5 h-3.5 text-trix-terracotta"></i>
+            <span>Test Prompts:</span>
           </div>
-          <p class="text-xs sm:text-sm text-claude-lightSubtext dark:text-claude-darkSubtext font-mono uppercase tracking-wider">Sonnet & Opus Core</p>
+          <span class="text-[10px] text-trix-terracotta xs:hidden">Swipe →</span>
+        </div>
+        <!-- Horizontal Scrollable Container on Mobile -->
+        <div class="flex overflow-x-auto no-scrollbar gap-2 pb-1 sm:flex-wrap -mx-1 px-1">
+          <button class="hero-prompt-chip flex-shrink-0 text-left text-xs px-3.5 py-2.5 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-trix-terracotta hover:text-white transition flex items-center space-x-2 active:scale-95" data-prompt="Synthesize an interactive 3D WebGL particle constellation">
+            <i data-lucide="sparkle" class="w-3.5 h-3.5 text-trix-terracotta flex-shrink-0"></i>
+            <span class="whitespace-nowrap">"3D WebGL Constellation Engine"</span>
+          </button>
+          <button class="hero-prompt-chip flex-shrink-0 text-left text-xs px-3.5 py-2.5 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-trix-terracotta hover:text-white transition flex items-center space-x-2 active:scale-95" data-prompt="Analyze why TriXAI's spatial architecture minimizes cognitive load">
+            <i data-lucide="feather" class="w-3.5 h-3.5 text-trix-terracotta flex-shrink-0"></i>
+            <span class="whitespace-nowrap">"Why TriXAI minimizes cognitive load"</span>
+          </button>
+          <button class="hero-prompt-chip flex-shrink-0 text-left text-xs px-3.5 py-2.5 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-trix-terracotta hover:text-white transition flex items-center space-x-2 active:scale-95" data-prompt="Implement a custom React Bits ShinyText vanilla blending engine">
+            <i data-lucide="code" class="w-3.5 h-3.5 text-trix-terracotta flex-shrink-0"></i>
+            <span class="whitespace-nowrap">"ShinyText Vanilla Engine"</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       INFINITE VELOCITY-SENSITIVE SCROLL MARQUEE
+       ============================================================== -->
+  <section class="py-4 sm:py-6 border-y border-trix-lightBorder dark:border-trix-darkBorder bg-black/5 dark:bg-black/30 overflow-hidden relative z-10 w-full">
+    <div class="marquee-track flex items-center space-x-6 sm:space-x-8 text-[11px] sm:text-sm font-mono uppercase tracking-widest text-trix-lightSubtext dark:text-trix-darkSubtext select-none">
+      <span class="flex items-center gap-3"><span>TRIXAI CORE</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>ARCHITECTED BY NAMITH RN</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>200K CONTEXT REASONING</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>REACT BITS SHINYTEXT ENGINE</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>REACT BITS SCROLL-EXPAND STAGE</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>DYNAMIC ARTIFACTS 3.0</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>WORLD-RECORD UI POLISH</span><span class="text-trix-terracotta">✦</span></span>
+      <!-- Seamless Duplicate -->
+      <span class="flex items-center gap-3"><span>TRIXAI CORE</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>ARCHITECTED BY NAMITH RN</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>200K CONTEXT REASONING</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>REACT BITS SHINYTEXT ENGINE</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>REACT BITS SCROLL-EXPAND STAGE</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>DYNAMIC ARTIFACTS 3.0</span><span class="text-trix-terracotta">✦</span></span>
+      <span class="flex items-center gap-3"><span>WORLD-RECORD UI POLISH</span><span class="text-trix-terracotta">✦</span></span>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       METRICS SECTION
+       ============================================================== -->
+  <section id="overview" class="py-14 sm:py-24 border-b border-trix-lightBorder dark:border-trix-darkBorder bg-trix-warmCard/40 dark:bg-trix-darkSidebar/40 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
+        
+        <div class="p-3 sm:p-4 rounded-2xl reveal-on-scroll">
+          <div class="font-serif text-3xl sm:text-6xl font-bold text-[#1F1E1D] dark:text-white mb-1">
+            <span class="shiny-target" data-text="Dual-Kernel" data-color="#D97757" data-shine-color="#FFFFFF" data-speed="2.5" data-glow="0.3">Dual-Kernel</span>
+          </div>
+          <p class="text-[10px] sm:text-sm text-trix-lightSubtext dark:text-trix-darkSubtext font-mono uppercase tracking-wider">Neural Matrix Core</p>
         </div>
 
-        <div class="p-4 rounded-2xl">
-          <div class="font-serif text-3xl sm:text-5xl font-bold text-[#1F1E1D] dark:text-white mb-1">200K+</div>
-          <p class="text-xs sm:text-sm text-claude-lightSubtext dark:text-claude-darkSubtext font-mono uppercase tracking-wider">Tokens Context Fluidity</p>
+        <div class="p-3 sm:p-4 rounded-2xl reveal-on-scroll">
+          <div class="font-serif text-3xl sm:text-6xl font-bold text-[#1F1E1D] dark:text-white mb-1">200K+</div>
+          <p class="text-[10px] sm:text-sm text-trix-lightSubtext dark:text-trix-darkSubtext font-mono uppercase tracking-wider">Context Fluidity</p>
         </div>
 
-        <div class="p-4 rounded-2xl">
-          <div class="font-serif text-3xl sm:text-5xl font-bold text-[#1F1E1D] dark:text-white mb-1">0.12s</div>
-          <p class="text-xs sm:text-sm text-claude-lightSubtext dark:text-claude-darkSubtext font-mono uppercase tracking-wider">Streaming Time-to-First-Token</p>
+        <div class="p-3 sm:p-4 rounded-2xl reveal-on-scroll">
+          <div class="font-serif text-3xl sm:text-6xl font-bold text-[#1F1E1D] dark:text-white mb-1">0.08s</div>
+          <p class="text-[10px] sm:text-sm text-trix-lightSubtext dark:text-trix-darkSubtext font-mono uppercase tracking-wider">First-Token Latency</p>
         </div>
 
-        <div class="p-4 rounded-2xl">
-          <div class="font-serif text-3xl sm:text-5xl font-bold text-[#1F1E1D] dark:text-white mb-1">100%</div>
-          <p class="text-xs sm:text-sm text-claude-lightSubtext dark:text-claude-darkSubtext font-mono uppercase tracking-wider">Designed by Namith RN</p>
+        <div class="p-3 sm:p-4 rounded-2xl reveal-on-scroll">
+          <div class="font-serif text-3xl sm:text-6xl font-bold text-[#1F1E1D] dark:text-white mb-1">100%</div>
+          <p class="text-[10px] sm:text-sm text-trix-lightSubtext dark:text-trix-darkSubtext font-mono uppercase tracking-wider">By Namith RN</p>
         </div>
 
       </div>
@@ -525,15 +652,13 @@
   </section>
 
   <!-- ==============================================================
-       REACT BITS COMPONENT: <ScrollExpand />
-       Full scroll expansion stage with window scroll pinning
+       REACT BITS: <ScrollExpand /> (MOBILE ADAPTIVE)
        ============================================================== -->
-  <section id="experience" class="relative">
-    <!-- Component Container matching React Bits ScrollExpand -->
+  <section id="experience" class="relative z-20">
     <div class="scroll-expand" 
          id="scrollExpandContainer"
-         data-start-width="46"
-         data-start-height="62"
+         data-start-width="44"
+         data-start-height="60"
          data-start-radius="28"
          data-end-radius="0"
          data-media-zoom="1.38"
@@ -548,68 +673,66 @@
           
           <!-- Expanding Frame -->
           <div class="scroll-expand__frame" id="scrollFrame">
-            <!-- Media: Interactive TriXAI Workspace Visual Mockup -->
+            <!-- Media: High-Fidelity Cockpit Scene -->
             <div class="scroll-expand__media w-full h-full relative bg-[#121110] flex items-center justify-center overflow-hidden" id="scrollMedia">
-              <!-- Rich High-Fidelity TriXAI Cockpit Scene -->
               <div class="absolute inset-0 bg-gradient-to-tr from-[#141312] via-[#1D1B1A] to-[#2B231F]"></div>
               
-              <!-- Ambient Grid Lines -->
-              <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#D97757_1px,transparent_1px)] [background-size:24px_24px]"></div>
+              <!-- Grid Mesh -->
+              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#D97757_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
-              <!-- High-end Simulated Workspace UI in stage -->
-              <div class="relative w-full max-w-5xl mx-auto h-[82%] rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between overflow-hidden">
+              <!-- Cockpit Window -->
+              <div class="relative w-full max-w-5xl mx-auto h-[86%] sm:h-[82%] rounded-2xl border border-white/10 bg-black/75 backdrop-blur-2xl p-3 sm:p-6 shadow-2xl flex flex-col justify-between overflow-hidden m-2 sm:m-0">
                 
-                <!-- Mock Top bar -->
-                <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div class="flex items-center space-x-3">
-                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                    <span class="text-xs font-mono text-white/50 pl-3">trixai.workspace.app — Active Session</span>
+                <!-- Cockpit Top Bar -->
+                <div class="flex items-center justify-between border-b border-white/10 pb-2.5 sm:pb-4">
+                  <div class="flex items-center space-x-2 sm:space-x-3">
+                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                    <span class="text-[10px] sm:text-xs font-mono text-white/50 pl-1.5 sm:pl-3 truncate">trixai.workspace.app</span>
                   </div>
-                  <div class="flex items-center space-x-2">
-                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-claude-terracotta/20 text-claude-coral border border-claude-terracotta/30">Claude 3.5 Sonnet</span>
-                    <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 text-white/70">Artifacts ON</span>
+                  <div class="flex items-center space-x-1.5 sm:space-x-2">
+                    <span class="px-2 py-0.5 rounded-full text-[9px] sm:text-[11px] font-mono bg-trix-terracotta/20 text-trix-coral border border-trix-terracotta/30">TriX Core</span>
+                    <span class="px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-mono bg-white/10 text-white/70 hidden xs:inline">Artifacts ON</span>
                   </div>
                 </div>
 
-                <!-- Mock Split Content -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 my-4 flex-1 overflow-hidden">
-                  <!-- Left: Chat Stream -->
-                  <div class="md:col-span-5 flex flex-col justify-between space-y-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                    <div class="space-y-3 overflow-hidden text-xs">
-                      <div class="bg-claude-terracotta/20 border border-claude-terracotta/30 p-2.5 rounded-xl text-white/90 self-end">
-                        "Refactor the neural embedding visualizer with interactive canvas shaders..."
+                <!-- Cockpit Content (Mobile Stacked / Desktop Split) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 my-2 sm:my-4 flex-1 overflow-hidden">
+                  <!-- Stream Column -->
+                  <div class="md:col-span-5 flex flex-col justify-between space-y-2 p-2.5 sm:p-3 rounded-xl bg-white/5 border border-white/5 overflow-hidden">
+                    <div class="space-y-2 overflow-hidden text-[11px] sm:text-xs">
+                      <div class="bg-trix-terracotta/20 border border-trix-terracotta/30 p-2 rounded-xl text-white/90">
+                        "Synthesize an autonomous cognitive flow with live reactive artifact rendering..."
                       </div>
-                      <div class="p-2.5 rounded-xl bg-white/5 text-white/80 space-y-1.5 font-mono text-[11px]">
-                        <div class="flex items-center space-x-1.5 text-claude-coral">
+                      <div class="p-2 rounded-xl bg-white/5 text-white/80 space-y-1 font-mono text-[10px] sm:text-[11px] hidden xs:block">
+                        <div class="flex items-center space-x-1.5 text-trix-coral">
                           <i data-lucide="brain" class="w-3 h-3"></i>
-                          <span>Thinking Process (Expanded)</span>
+                          <span>TriX Deductive Vector</span>
                         </div>
-                        <p class="text-white/60 text-[10px]">1. Decompose vertex buffers into float32 array.<br>2. Hook requestAnimationFrame with smooth delta timing.<br>3. Render artifact preview live...</p>
+                        <p class="text-white/60 text-[9px] sm:text-[10px]">Ingest schema → Build DOM sandbox → Stream Artifact.</p>
                       </div>
                     </div>
-                    <div class="h-9 rounded-xl bg-white/10 border border-white/10 flex items-center px-3 text-white/40 text-xs">
-                      Send a message to TriXAI...
+                    <div class="h-8 sm:h-9 rounded-xl bg-white/10 border border-white/10 flex items-center px-2.5 text-white/40 text-[10px] sm:text-xs">
+                      Send message to TriXAI...
                     </div>
                   </div>
 
-                  <!-- Right: Live Artifact Canvas Window -->
-                  <div class="md:col-span-7 rounded-xl bg-[#0F0E0D] border border-claude-terracotta/30 p-4 flex flex-col justify-between relative overflow-hidden group">
-                    <div class="flex items-center justify-between border-b border-white/10 pb-2 mb-2">
+                  <!-- Artifact Canvas Window -->
+                  <div class="md:col-span-7 rounded-xl bg-[#0F0E0D] border border-trix-terracotta/30 p-3 sm:p-4 flex flex-col justify-between relative overflow-hidden">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-2 mb-1.5 sm:mb-2">
                       <div class="flex items-center space-x-2">
                         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                        <span class="text-xs font-mono text-white/90 font-semibold">Live Artifact: QuantumMesh.tsx</span>
+                        <span class="text-[10px] sm:text-xs font-mono text-white/90 font-semibold truncate">Artifact: NeuralCanvas.tsx</span>
                       </div>
-                      <div class="flex items-center space-x-1 text-[10px] font-mono text-white/60">
-                        <span class="px-2 py-0.5 rounded bg-white/10 text-white">Interactive View</span>
-                        <span class="px-2 py-0.5 rounded text-white/40">Code</span>
+                      <div class="flex items-center space-x-1 text-[9px] sm:text-[10px] font-mono text-white/60">
+                        <span class="px-2 py-0.5 rounded bg-white/10 text-white">Live View</span>
                       </div>
                     </div>
                     
                     <!-- Decorative Graphic Node Network -->
-                    <div class="flex-1 flex items-center justify-center relative">
-                      <svg class="w-full h-36 filter drop-shadow-[0_0_15px_rgba(217,119,87,0.4)]" viewBox="0 0 300 120" fill="none">
+                    <div class="flex-1 flex items-center justify-center relative min-h-[90px] sm:min-h-[140px]">
+                      <svg class="w-full h-28 sm:h-36 filter drop-shadow-[0_0_15px_rgba(217,119,87,0.4)]" viewBox="0 0 300 120" fill="none">
                         <circle cx="50" cy="60" r="14" fill="#D97757" fill-opacity="0.2" stroke="#D97757" stroke-width="2"/>
                         <circle cx="150" cy="30" r="18" fill="#E28768" fill-opacity="0.25" stroke="#E28768" stroke-width="2"/>
                         <circle cx="150" cy="90" r="14" fill="#AD4729" fill-opacity="0.2" stroke="#AD4729" stroke-width="2"/>
@@ -625,17 +748,17 @@
                       </svg>
                     </div>
 
-                    <div class="text-[11px] font-mono text-white/50 flex justify-between items-center pt-2 border-t border-white/5">
-                      <span>FPS: 120 · WebGL2 Standard</span>
-                      <span class="text-claude-terracotta">Ready to deploy</span>
+                    <div class="text-[10px] font-mono text-white/50 flex justify-between items-center pt-1.5 border-t border-white/5">
+                      <span>FPS: 120</span>
+                      <span class="text-trix-terracotta">Ready to deploy</span>
                     </div>
                   </div>
                 </div>
 
-                <!-- Footer status bar -->
-                <div class="flex items-center justify-between text-[11px] font-mono text-white/40 pt-2 border-t border-white/5">
-                  <span>Engine: TriXAI Dual-Kernel · Crafted by Namith RN</span>
-                  <span class="text-emerald-400">● Real-time sync enabled</span>
+                <!-- Cockpit Footer Status -->
+                <div class="flex items-center justify-between text-[10px] font-mono text-white/40 pt-1.5 sm:pt-2 border-t border-white/5">
+                  <span class="truncate">TriXAI Dual-Kernel · Namith RN</span>
+                  <span class="text-emerald-400 whitespace-nowrap pl-2">● Active</span>
                 </div>
 
               </div>
@@ -644,25 +767,25 @@
             <!-- Gradient Scrim for readable overlay -->
             <div class="scroll-expand__scrim" id="scrollScrim"></div>
 
-            <!-- Children / Overlay that fades in once expanded -->
+            <!-- Expanded Overlay Content -->
             <div class="scroll-expand__overlay" id="scrollOverlay">
-              <div class="max-w-3xl mx-auto space-y-4">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-mono text-white uppercase tracking-wider">
-                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-claude-terracotta"></i>
+              <div class="max-w-3xl mx-auto space-y-3 sm:space-y-4 px-2">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-mono text-white uppercase tracking-wider">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-trix-terracotta"></i>
                   <span>Full Bleed Experience Unveiled</span>
                 </div>
-                <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-normal leading-tight">
-                  Every pixel, meticulously calibrated for <span class="italic text-claude-coral">deep contemplation.</span>
+                <h2 class="font-serif text-2xl xs:text-3xl sm:text-5xl lg:text-6xl text-white font-normal leading-tight">
+                  Every pixel, meticulously calibrated for <span class="italic text-trix-coral">deep contemplation.</span>
                 </h2>
-                <p class="text-sm sm:text-base text-white/80 max-w-xl mx-auto">
+                <p class="text-xs sm:text-base text-white/80 max-w-xl mx-auto">
                   The frame expands as you scroll, dissolving all boundaries between thought, code, and computational creation.
                 </p>
-                <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
-                  <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-claude-terracotta hover:bg-claude-terracottaHover text-white font-medium text-xs sm:text-sm tracking-wide shadow-lg shadow-claude-terracotta/40 transition">
-                    Test TriXAI in Full Screen
+                <div class="pt-2 flex flex-col xs:flex-row items-center justify-center gap-2.5 sm:gap-3 w-full">
+                  <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full xs:w-auto px-5 py-2.5 sm:py-3 rounded-xl bg-trix-terracotta hover:bg-trix-terracottaHover text-white font-semibold text-xs sm:text-sm tracking-wide shadow-lg shadow-trix-terracotta/40 transition active:scale-95 text-center">
+                    Launch Full App
                   </a>
-                  <a href="#simulator" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs sm:text-sm tracking-wide border border-white/20 transition">
-                    Try Live Prompt Sandbox Below
+                  <a href="#simulator" class="w-full xs:w-auto px-5 py-2.5 sm:py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm tracking-wide border border-white/20 transition active:scale-95 text-center">
+                    Try Live Sandbox Below
                   </a>
                 </div>
               </div>
@@ -670,14 +793,14 @@
 
           </div>
 
-          <!-- Resting Title that lifts away as frame opens -->
+          <!-- Resting Title that lifts away -->
           <div class="scroll-expand__title font-serif" id="scrollTitle">
-            <span class="max-w-2xl">Crafted to elevate human cognition.</span>
+            <span class="max-w-2xl px-2">Crafted to elevate human cognition.</span>
           </div>
 
-          <!-- Scroll Hint that fades out immediately on scroll -->
+          <!-- Scroll Hint -->
           <div class="scroll-expand__hint" id="scrollHint">
-            <i data-lucide="chevron-down" class="w-4 h-4 text-claude-coral animate-bounce"></i>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-trix-coral animate-bounce"></i>
             <span>Scroll to expand workspace</span>
           </div>
 
@@ -688,229 +811,324 @@
   </section>
 
   <!-- ==============================================================
-       LIVE INTERACTIVE TRIXAI SIMULATOR & ARTIFACTS STUDIO
-       Experience Claude-style thinking and live artifacts directly
+       CAPABILITY BENTO CARDS (MOBILE RESPONSIVE GRID)
        ============================================================== -->
-  <section id="simulator" class="py-24 sm:py-32 relative">
+  <section class="py-16 sm:py-36 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-mono uppercase tracking-wider mb-4">
-          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-          <span>Interactive Artifact Engine</span>
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-trix-terracotta/30 bg-trix-terracotta/10 text-trix-terracotta text-xs font-mono uppercase tracking-wider mb-3 sm:mb-4">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span>Architectural Pillars</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-4">
-          Experience TriXAI in Action
+        <h2 class="text-3xl xs:text-4xl sm:text-6xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-3 sm:mb-4">
+          Crafted for the Thinking Mind
         </h2>
-        <p class="text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext">
-          Watch transparent Claude-style chain-of-thought unfold in real-time, accompanied by live renderable code artifacts.
+        <p class="text-xs sm:text-base text-trix-lightSubtext dark:text-trix-darkSubtext px-2">
+          Every layer of TriXAI was synthesized to eliminate cognitive drag and amplify creative momentum.
         </p>
       </div>
 
-      <!-- Simulator Cockpit Container -->
-      <div class="claude-glass rounded-3xl border border-claude-lightBorder dark:border-claude-darkBorder overflow-hidden shadow-deep-card">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
         
-        <!-- Cockpit Header -->
-        <div class="px-5 sm:px-6 py-4 border-b border-claude-lightBorder dark:border-claude-darkBorder bg-white/40 dark:bg-black/20 flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center space-x-3">
-            <div class="w-3 h-3 rounded-full bg-claude-terracotta animate-pulse"></div>
-            <span class="font-serif text-lg font-bold text-[#1F1E1D] dark:text-white">TriXAI Live Interactive Session</span>
-            <span class="text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">v2.4 Core</span>
+        <!-- Bento 1: Dynamic Artifacts 3.0 -->
+        <div class="md:col-span-2 trix-glass rounded-3xl p-5 sm:p-10 border border-trix-lightBorder dark:border-trix-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card reveal-on-scroll">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-trix-terracotta/15 text-trix-terracotta flex items-center justify-center">
+              <i data-lucide="code-2" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-4xl font-semibold text-[#1F1E1D] dark:text-white">
+              Dynamic Live Artifacts 3.0
+            </h3>
+            <p class="text-xs sm:text-base text-trix-lightSubtext dark:text-trix-darkSubtext leading-relaxed max-w-xl">
+              Write, render, and iterate on code, SVG diagrams, and interactive applications side-by-side with your thoughts. Zero context switching, instant sandboxed execution.
+            </p>
+          </div>
+
+          <div class="mt-6 sm:mt-8 p-3 sm:p-4 rounded-2xl bg-black/5 dark:bg-black/40 border border-trix-lightBorder dark:border-white/5 font-mono text-[11px] sm:text-xs text-trix-terracotta flex items-center justify-between">
+            <span class="truncate">&lt;Artifact type="react" renderer="instant" /&gt;</span>
+            <span class="text-emerald-500 font-semibold whitespace-nowrap pl-2">● Active</span>
+          </div>
+        </div>
+
+        <!-- Bento 2: Transparent Cognitive Graph -->
+        <div class="trix-glass rounded-3xl p-5 sm:p-10 border border-trix-lightBorder dark:border-trix-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card reveal-on-scroll">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-trix-terracotta/15 text-trix-terracotta flex items-center justify-center">
+              <i data-lucide="brain-circuit" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-4xl font-semibold text-[#1F1E1D] dark:text-white">
+              Cognitive Transparency
+            </h3>
+            <p class="text-xs sm:text-sm text-trix-lightSubtext dark:text-trix-darkSubtext leading-relaxed">
+              Peek inside the deductive reasoning chain. Inspect how each logical deduction was formulated before an answer is finalized.
+            </p>
+          </div>
+
+          <div class="mt-6 sm:mt-8 flex items-center space-x-2 text-[11px] sm:text-xs font-mono text-trix-lightSubtext dark:text-trix-darkSubtext">
+            <i data-lucide="check-check" class="w-4 h-4 text-trix-terracotta flex-shrink-0"></i>
+            <span>Verifiable Reasoning Paths</span>
+          </div>
+        </div>
+
+        <!-- Bento 3: 200k Context Fluidity -->
+        <div class="trix-glass rounded-3xl p-5 sm:p-10 border border-trix-lightBorder dark:border-trix-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card reveal-on-scroll">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-trix-terracotta/15 text-trix-terracotta flex items-center justify-center">
+              <i data-lucide="book-open" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-4xl font-semibold text-[#1F1E1D] dark:text-white">
+              200K Context Fluidity
+            </h3>
+            <p class="text-xs sm:text-sm text-trix-lightSubtext dark:text-trix-darkSubtext leading-relaxed">
+              Feed entire code repositories, financial books, or complex documentation. Needle-in-a-haystack recall with zero drift.
+            </p>
+          </div>
+
+          <div class="mt-6 sm:mt-8 flex items-center justify-between text-[11px] sm:text-xs font-mono text-trix-lightSubtext dark:text-trix-darkSubtext">
+            <span>Accuracy: 99.8%</span>
+            <span class="text-trix-terracotta">Zero drift</span>
+          </div>
+        </div>
+
+        <!-- Bento 4: Sovereign Privacy by Design -->
+        <div class="md:col-span-2 trix-glass rounded-3xl p-5 sm:p-10 border border-trix-lightBorder dark:border-trix-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card reveal-on-scroll">
+          <div class="space-y-3 sm:space-y-4">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-trix-terracotta/15 text-trix-terracotta flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-4xl font-semibold text-[#1F1E1D] dark:text-white">
+              Sovereign & Private by Default
+            </h3>
+            <p class="text-xs sm:text-base text-trix-lightSubtext dark:text-trix-darkSubtext leading-relaxed max-w-xl">
+              Your conversations are stored in your browser's encrypted sandbox. Direct API key integrations mean your thoughts remain strictly your sovereign property.
+            </p>
+          </div>
+
+          <div class="mt-6 sm:mt-8 flex flex-wrap items-center gap-2 sm:gap-3">
+            <span class="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono bg-trix-terracotta/10 text-trix-terracotta border border-trix-terracotta/25">Client-Side Encryption</span>
+            <span class="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono bg-trix-terracotta/10 text-trix-terracotta border border-trix-terracotta/25">Zero Telemetry</span>
+            <span class="px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono bg-trix-terracotta/10 text-trix-terracotta border border-trix-terracotta/25">Markdown Export</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       LIVE INTERACTIVE TRIXAI SIMULATOR (MOBILE TAB SWITCHER)
+       ============================================================== -->
+  <section id="simulator" class="py-16 sm:py-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-trix-terracotta/30 bg-trix-terracotta/10 text-trix-terracotta text-xs font-mono uppercase tracking-wider mb-3 sm:mb-4">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>Interactive Artifact Engine</span>
+        </div>
+        <h2 class="text-3xl xs:text-4xl sm:text-6xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-3 sm:mb-4">
+          Experience TriXAI in Real-Time
+        </h2>
+        <p class="text-xs sm:text-base text-trix-lightSubtext dark:text-trix-darkSubtext px-2">
+          Watch transparent deductive reasoning unfold in real-time, accompanied by live renderable code artifacts.
+        </p>
+      </div>
+
+      <!-- Simulator Card -->
+      <div class="trix-glass rounded-3xl border border-trix-lightBorder dark:border-trix-darkBorder overflow-hidden shadow-deep-card">
+        
+        <!-- Header -->
+        <div class="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-trix-lightBorder dark:border-trix-darkBorder bg-white/40 dark:bg-black/20 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center space-x-2.5 sm:space-x-3">
+            <div class="w-2.5 h-2.5 rounded-full bg-trix-terracotta animate-pulse"></div>
+            <span class="font-serif text-base sm:text-lg font-bold text-[#1F1E1D] dark:text-white truncate">TriXAI Live Interactive Session</span>
           </div>
           <div class="flex items-center space-x-2">
-            <button id="simClearBtn" class="px-3 py-1.5 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-medium hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center space-x-1.5">
+            <button id="simClearBtn" class="px-2.5 sm:px-3 py-1.5 rounded-xl border border-trix-lightBorder dark:border-trix-darkBorder text-[11px] sm:text-xs font-medium hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center space-x-1 active:scale-95">
               <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
               <span>Reset</span>
             </button>
-            <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-claude-terracotta text-white text-xs font-medium hover:bg-claude-terracottaHover transition flex items-center space-x-1.5 shadow-xs">
-              <span>Open in Full App</span>
+            <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-trix-terracotta text-white text-[11px] sm:text-xs font-semibold hover:bg-trix-terracottaHover transition flex items-center space-x-1 shadow-xs active:scale-95">
+              <span>Open App</span>
               <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
 
-        <!-- Split Screen: Left Chat stream | Right Artifact canvas -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[580px]">
+        <!-- Mobile Segmented View Controller (Visible only on < lg screens) -->
+        <div class="lg:hidden flex border-b border-trix-lightBorder dark:border-trix-darkBorder bg-black/5 dark:bg-black/30 p-1.5 gap-1.5">
+          <button id="mobileSimTabChat" class="flex-1 py-2 rounded-xl text-xs font-mono font-semibold bg-white dark:bg-trix-darkCard text-trix-terracotta shadow-xs flex items-center justify-center space-x-1.5 transition">
+            <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+            <span>Chat & Deductions</span>
+          </button>
+          <button id="mobileSimTabCanvas" class="flex-1 py-2 rounded-xl text-xs font-mono text-trix-lightSubtext dark:text-trix-darkSubtext flex items-center justify-center space-x-1.5 transition">
+            <i data-lucide="box" class="w-3.5 h-3.5"></i>
+            <span>Live Artifact Canvas</span>
+          </button>
+        </div>
+
+        <!-- Content Area: Chat on Left, Artifact on Right -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[500px] sm:min-h-[580px]">
           
-          <!-- Left Column: Conversational Stream (7 cols) -->
-          <div class="lg:col-span-6 p-5 sm:p-6 border-b lg:border-b-0 lg:border-r border-claude-lightBorder dark:border-claude-darkBorder flex flex-col justify-between space-y-4 bg-white/20 dark:bg-black/10">
+          <!-- Column 1: Chat Stream -->
+          <div id="simColChat" class="lg:col-span-6 p-4 sm:p-6 border-b lg:border-b-0 lg:border-r border-trix-lightBorder dark:border-trix-darkBorder flex flex-col justify-between space-y-4 bg-white/20 dark:bg-black/10">
             
-            <!-- Message List -->
-            <div class="space-y-4 overflow-y-auto max-h-[460px] pr-2" id="simChatHistory">
+            <div class="space-y-3.5 overflow-y-auto max-h-[420px] sm:max-h-[460px] pr-1.5" id="simChatHistory">
               
-              <!-- System Intro -->
-              <div class="p-3.5 rounded-2xl bg-claude-warmCard dark:bg-claude-darkCard border border-claude-lightBorder dark:border-claude-darkBorder text-xs space-y-1.5">
-                <div class="flex items-center space-x-2 text-claude-terracotta font-semibold">
+              <!-- Welcome Box -->
+              <div class="p-3 sm:p-3.5 rounded-2xl bg-trix-warmCard dark:bg-trix-darkCard border border-trix-lightBorder dark:border-trix-darkBorder text-xs space-y-1.5">
+                <div class="flex items-center space-x-2 text-trix-terracotta font-semibold">
                   <i data-lucide="sparkles" class="w-4 h-4"></i>
                   <span>TriXAI Kernel Initialized</span>
                 </div>
-                <p class="text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
-                  Welcome to the TriXAI preview environment. Select an archetype prompt or compose your own query below to watch the thinking process and live artifact generation.
+                <p class="text-trix-lightSubtext dark:text-trix-darkSubtext leading-relaxed">
+                  Welcome to the preview session. Test an archetype prompt or compose your query below to view deductive reasoning and live artifacts.
                 </p>
               </div>
 
-              <!-- Initial User Query -->
+              <!-- Default User Query -->
               <div class="flex justify-end">
-                <div class="max-w-[85%] px-4 py-3 rounded-2xl rounded-tr-xs bg-claude-terracotta text-white text-xs sm:text-sm font-medium shadow-xs">
+                <div class="max-w-[88%] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl rounded-tr-xs bg-trix-terracotta text-white text-xs sm:text-sm font-medium shadow-xs">
                   Generate an interactive color palette generator with harmonic contrasts and instant hex copy.
                 </div>
               </div>
 
-              <!-- Assistant Response with Claude Thinking Accordion -->
+              <!-- Assistant Message -->
               <div class="space-y-3">
-                <!-- Thinking Accordion -->
-                <div class="rounded-xl border border-claude-terracotta/25 bg-claude-terracotta/5 overflow-hidden">
-                  <button class="w-full px-3.5 py-2 text-left flex items-center justify-between text-xs font-mono text-claude-terracotta hover:bg-claude-terracotta/10 transition" id="simThinkingToggle">
+                <div class="rounded-xl border border-trix-terracotta/25 bg-trix-terracotta/5 overflow-hidden">
+                  <button class="w-full px-3.5 py-2 text-left flex items-center justify-between text-xs font-mono text-trix-terracotta hover:bg-trix-terracotta/10 transition" id="simThinkingToggle">
                     <div class="flex items-center space-x-2">
                       <i data-lucide="brain" class="w-3.5 h-3.5 animate-pulse"></i>
-                      <span>Thinking Process (2.4s)</span>
+                      <span>TriX Deductive Reasoning (2.4s)</span>
                     </div>
                     <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform" id="simThinkingChevron"></i>
                   </button>
-                  <div class="px-3.5 py-2.5 text-[11px] font-mono text-claude-lightSubtext dark:text-claude-darkSubtext space-y-1 border-t border-claude-terracotta/15 bg-white/20 dark:bg-black/20" id="simThinkingContent">
-                    <p>• Analyzing color harmony algorithms: Analogous, Triadic, and Monochromatic distributions.</p>
-                    <p>• Calculating WCAG 2.1 contrast ratios for accessible text over dynamic backgrounds.</p>
-                    <p>• Generating reactive Artifact sandbox with interactive shuffle buttons and clipboard API hooks.</p>
+                  <div class="px-3.5 py-2.5 text-[11px] font-mono text-trix-lightSubtext dark:text-trix-darkSubtext space-y-1 border-t border-trix-terracotta/15 bg-white/20 dark:bg-black/20" id="simThinkingContent">
+                    <p>• Analyzing color harmony algorithms: Analogous & Triadic distributions.</p>
+                    <p>• Calculating WCAG 2.1 contrast ratios for text accessibility.</p>
+                    <p>• Generating reactive Artifact sandbox with clipboard API hooks.</p>
                   </div>
                 </div>
 
-                <!-- Markdown Text -->
                 <div class="text-xs sm:text-sm leading-relaxed text-[#1F1E1D] dark:text-[#E8E6DF] space-y-2">
                   <p>Here is an interactive <strong>Harmonic Color Matrix</strong> artifact. You can explore complementary shades, inspect luminance scales, and click any swatch to copy its hex value.</p>
                 </div>
 
-                <!-- Artifact Callout Box -->
-                <div class="p-3 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white/60 dark:bg-claude-darkCard flex items-center justify-between">
-                  <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-lg bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
+                <div class="p-3 rounded-xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white/60 dark:bg-trix-darkCard flex items-center justify-between">
+                  <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-trix-terracotta/15 text-trix-terracotta flex items-center justify-center flex-shrink-0">
                       <i data-lucide="layout" class="w-4 h-4"></i>
                     </div>
                     <div>
-                      <h4 class="text-xs font-semibold text-[#1F1E1D] dark:text-white">Artifact: HarmonicPalette.html</h4>
-                      <p class="text-[10px] text-claude-lightSubtext dark:text-claude-darkSubtext">Interactive UI Component · Ready</p>
+                      <h4 class="text-xs font-semibold text-[#1F1E1D] dark:text-white truncate">Artifact: HarmonicPalette.html</h4>
+                      <p class="text-[10px] text-trix-lightSubtext dark:text-trix-darkSubtext">Interactive UI Component · Ready</p>
                     </div>
                   </div>
-                  <span class="text-[11px] font-mono text-claude-terracotta font-medium px-2 py-1 rounded bg-claude-terracotta/10">Active</span>
+                  <span class="text-[10px] font-mono text-trix-terracotta font-semibold px-2 py-0.5 rounded bg-trix-terracotta/10 flex-shrink-0">Active</span>
                 </div>
-
               </div>
 
             </div>
 
-            <!-- Input Box -->
+            <!-- Input Bar (Ensuring 16px font on mobile to prevent iOS Safari auto-zoom) -->
             <div class="space-y-2 pt-2">
               <div class="relative">
-                <input type="text" id="simInput" placeholder="Ask TriXAI anything (e.g. 'Show me a physics particle sim')..." class="w-full px-4 py-3 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard text-xs sm:text-sm focus:outline-none focus:border-claude-terracotta focus:ring-1 focus:ring-claude-terracotta transition pr-12 text-[#1F1E1D] dark:text-white placeholder:text-claude-lightSubtext dark:placeholder:text-claude-darkSubtext" />
-                <button id="simSendBtn" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-claude-terracotta hover:bg-claude-terracottaHover text-white flex items-center justify-center transition shadow-xs" aria-label="Send message">
+                <input type="text" id="simInput" placeholder="Ask TriXAI anything..." class="w-full px-4 py-3 rounded-2xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white dark:bg-trix-darkCard text-base sm:text-sm focus:outline-none focus:border-trix-terracotta focus:ring-1 focus:ring-trix-terracotta transition pr-12 text-[#1F1E1D] dark:text-white placeholder:text-trix-lightSubtext dark:placeholder:text-trix-darkSubtext shadow-xs" />
+                <button id="simSendBtn" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-8 sm:h-8 rounded-xl bg-trix-terracotta hover:bg-trix-terracottaHover text-white flex items-center justify-center transition shadow-xs active:scale-95" aria-label="Send message">
                   <i data-lucide="arrow-up" class="w-4 h-4"></i>
                 </button>
               </div>
-              <div class="flex items-center justify-between text-[11px] font-mono text-claude-lightSubtext dark:text-claude-darkSubtext px-1">
-                <span>Model: Sonnet 3.5 Engine</span>
+              <div class="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-trix-lightSubtext dark:text-trix-darkSubtext px-1">
+                <span>Model: TriX Pro Core</span>
                 <span class="flex items-center space-x-1">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  <span>Latency: 14ms</span>
+                  <span>Latency: 12ms</span>
                 </span>
               </div>
             </div>
 
           </div>
 
-          <!-- Right Column: Live Artifact Canvas Preview (5 cols) -->
-          <div class="lg:col-span-6 p-5 sm:p-6 flex flex-col justify-between bg-claude-warmCard/40 dark:bg-claude-darkSidebar/40">
+          <!-- Column 2: Live Artifact Canvas Preview -->
+          <div id="simColCanvas" class="hidden lg:flex lg:col-span-6 p-4 sm:p-6 flex-col justify-between bg-trix-warmCard/40 dark:bg-trix-darkSidebar/40">
             
-            <div class="flex items-center justify-between border-b border-claude-lightBorder dark:border-claude-darkBorder pb-3 mb-4">
+            <div class="flex items-center justify-between border-b border-trix-lightBorder dark:border-trix-darkBorder pb-3 mb-4">
               <div class="flex items-center space-x-2">
-                <i data-lucide="box" class="w-4 h-4 text-claude-terracotta"></i>
+                <i data-lucide="box" class="w-4 h-4 text-trix-terracotta"></i>
                 <span class="text-xs font-mono font-semibold uppercase tracking-wider text-[#1F1E1D] dark:text-white">Live Artifact Preview</span>
               </div>
-              <!-- Tab switchers -->
               <div class="flex items-center space-x-1 bg-black/5 dark:bg-white/5 p-1 rounded-xl text-xs font-mono">
-                <button class="px-2.5 py-1 rounded-lg bg-white dark:bg-claude-darkCard text-claude-terracotta font-semibold shadow-xs" id="artTabPreview">Preview</button>
-                <button class="px-2.5 py-1 rounded-lg text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta" id="artTabCode">Code</button>
+                <button class="px-2.5 py-1 rounded-lg bg-white dark:bg-trix-darkCard text-trix-terracotta font-semibold shadow-xs" id="artTabPreview">Preview</button>
+                <button class="px-2.5 py-1 rounded-lg text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta" id="artTabCode">Code</button>
               </div>
             </div>
 
-            <!-- Artifact Rendered Content Container -->
-            <div class="flex-1 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard p-4 sm:p-5 flex flex-col justify-center relative overflow-hidden" id="artifactCanvas">
+            <!-- Artifact Render Area -->
+            <div class="flex-1 rounded-2xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white dark:bg-trix-darkCard p-3 sm:p-5 flex flex-col justify-center relative overflow-hidden" id="artifactCanvas">
               
-              <!-- Color Palette Live Widget -->
+              <!-- Color Palette Widget -->
               <div id="artWidgetPalette" class="space-y-4">
                 <div class="flex items-center justify-between">
-                  <h4 class="text-sm font-semibold text-[#1F1E1D] dark:text-white flex items-center space-x-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-claude-terracotta"></span>
+                  <h4 class="text-xs sm:text-sm font-semibold text-[#1F1E1D] dark:text-white flex items-center space-x-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-trix-terracotta"></span>
                     <span>Terracotta & Sienna Harmony</span>
                   </h4>
-                  <button id="regenPaletteBtn" class="px-2.5 py-1 rounded-lg border border-claude-lightBorder dark:border-claude-darkBorder text-[11px] font-mono hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center space-x-1">
+                  <button id="regenPaletteBtn" class="px-2.5 py-1 rounded-lg border border-trix-lightBorder dark:border-trix-darkBorder text-[10px] sm:text-[11px] font-mono hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center space-x-1 active:scale-95">
                     <i data-lucide="refresh-cw" class="w-3 h-3"></i>
-                    <span>Regenerate</span>
+                    <span>Regen</span>
                   </button>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="paletteGrid">
-                  <!-- Swatch 1 -->
-                  <div class="swatch-card p-3 rounded-xl bg-[#D97757] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs" data-hex="#D97757">
-                    <span class="text-[10px] font-mono opacity-80 uppercase">Primary</span>
-                    <span class="text-xs font-mono font-bold">#D97757</span>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5" id="paletteGrid">
+                  <!-- Swatches -->
+                  <div class="swatch-card p-2.5 sm:p-3 rounded-xl bg-[#D97757] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-24 sm:h-28 shadow-xs active:scale-95" data-hex="#D97757">
+                    <span class="text-[9px] sm:text-[10px] font-mono opacity-80 uppercase">Primary</span>
+                    <span class="text-[11px] sm:text-xs font-mono font-bold">#D97757</span>
                   </div>
-                  <!-- Swatch 2 -->
-                  <div class="swatch-card p-3 rounded-xl bg-[#E28768] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs" data-hex="#E28768">
-                    <span class="text-[10px] font-mono opacity-80 uppercase">Coral</span>
-                    <span class="text-xs font-mono font-bold">#E28768</span>
+                  <div class="swatch-card p-2.5 sm:p-3 rounded-xl bg-[#E28768] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-24 sm:h-28 shadow-xs active:scale-95" data-hex="#E28768">
+                    <span class="text-[9px] sm:text-[10px] font-mono opacity-80 uppercase">Coral</span>
+                    <span class="text-[11px] sm:text-xs font-mono font-bold">#E28768</span>
                   </div>
-                  <!-- Swatch 3 -->
-                  <div class="swatch-card p-3 rounded-xl bg-[#AD4729] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs" data-hex="#AD4729">
-                    <span class="text-[10px] font-mono opacity-80 uppercase">Sienna</span>
-                    <span class="text-xs font-mono font-bold">#AD4729</span>
+                  <div class="swatch-card p-2.5 sm:p-3 rounded-xl bg-[#AD4729] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-24 sm:h-28 shadow-xs active:scale-95" data-hex="#AD4729">
+                    <span class="text-[9px] sm:text-[10px] font-mono opacity-80 uppercase">Sienna</span>
+                    <span class="text-[11px] sm:text-xs font-mono font-bold">#AD4729</span>
                   </div>
-                  <!-- Swatch 4 -->
-                  <div class="swatch-card p-3 rounded-xl bg-[#FAF9F5] text-[#1F1E1D] border border-black/10 cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs" data-hex="#FAF9F5">
-                    <span class="text-[10px] font-mono opacity-80 uppercase">Ivory</span>
-                    <span class="text-xs font-mono font-bold">#FAF9F5</span>
+                  <div class="swatch-card p-2.5 sm:p-3 rounded-xl bg-[#FAF9F5] text-[#1F1E1D] border border-black/10 cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-24 sm:h-28 shadow-xs active:scale-95" data-hex="#FAF9F5">
+                    <span class="text-[9px] sm:text-[10px] font-mono opacity-80 uppercase">Ivory</span>
+                    <span class="text-[11px] sm:text-xs font-mono font-bold">#FAF9F5</span>
                   </div>
                 </div>
 
-                <div class="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-[11px] font-mono flex items-center justify-between text-claude-lightSubtext dark:text-claude-darkSubtext">
-                  <span>Click swatch to copy hex code to clipboard</span>
+                <div class="p-2.5 sm:p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-trix-lightBorder dark:border-trix-darkBorder text-[10px] sm:text-[11px] font-mono flex items-center justify-between text-trix-lightSubtext dark:text-trix-darkSubtext">
+                  <span>Tap swatch to copy hex</span>
                   <span id="copiedToast" class="text-emerald-500 font-semibold opacity-0 transition-opacity">Copied!</span>
                 </div>
               </div>
 
-              <!-- Code View (Hidden by default) -->
+              <!-- Code View -->
               <div id="artCodeView" class="hidden h-full flex flex-col">
-                <pre class="bg-black/90 text-emerald-400 p-4 rounded-xl text-[11px] font-mono overflow-auto h-full border border-white/10"><code>&lt;!-- TriXAI Artifact Component: ColorHarmony.vue --&gt;
+                <pre class="bg-black/90 text-emerald-400 p-3 sm:p-4 rounded-xl text-[10px] sm:text-[11px] font-mono overflow-auto h-full border border-white/10"><code>&lt;!-- TriXAI Artifact Component: ColorHarmony.vue --&gt;
 &lt;template&gt;
   &lt;section class="palette-grid"&gt;
-    &lt;div v-for="color in harmony" :key="color.hex" 
-         :style="{ backgroundColor: color.hex }" 
-         @click="copyHex(color.hex)"&gt;
-      &lt;span&gt;{{ color.name }}&lt;/span&gt;
-      &lt;strong&gt;{{ color.hex }}&lt;/strong&gt;
+    &lt;div v-for="c in harmony" :key="c.hex" 
+         :style="{ background: c.hex }" 
+         @click="copy(c.hex)"&gt;
+      &lt;strong&gt;{{ c.hex }}&lt;/strong&gt;
     &lt;/div&gt;
   &lt;/section&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
-import { ref } from 'vue';
-const harmony = ref([
-  { name: 'Primary Terracotta', hex: '#D97757' },
-  { name: 'Warm Coral', hex: '#E28768' },
-  { name: 'Deep Sienna', hex: '#AD4729' },
-  { name: 'Claude Warm Ivory', hex: '#FAF9F5' }
-]);
-&lt;/script&gt;</code></pre>
+&lt;/template&gt;</code></pre>
               </div>
 
             </div>
 
-            <!-- Artifact Footer Info -->
-            <div class="pt-3 flex items-center justify-between text-[11px] font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">
+            <div class="pt-3 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-trix-lightSubtext dark:text-trix-darkSubtext">
               <span class="flex items-center space-x-1">
                 <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>
                 <span>Sandboxed Execution Complete</span>
               </span>
-              <span>TriXAI v2.4 Runtime</span>
+              <span>v2.4 Runtime</span>
             </div>
 
           </div>
@@ -923,36 +1141,33 @@ const harmony = ref([
   </section>
 
   <!-- ==============================================================
-       REACT BITS COMPONENT SHOWCASE & INTERACTIVE LAB: <ShinyText />
-       Full interactive laboratory to tweak and verify props
+       REACT BITS: <ShinyText /> INTERACTIVE LAB (MOBILE FRIENDLY)
        ============================================================== -->
-  <section id="shiny-lab" class="py-24 sm:py-32 border-t border-claude-lightBorder dark:border-claude-darkBorder bg-claude-warmCard/40 dark:bg-claude-darkSidebar/40">
+  <section id="shiny-lab" class="py-16 sm:py-32 border-t border-trix-lightBorder dark:border-trix-darkBorder bg-trix-warmCard/40 dark:bg-trix-darkSidebar/40 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-mono uppercase tracking-wider mb-4">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-trix-terracotta/30 bg-trix-terracotta/10 text-trix-terracotta text-xs font-mono uppercase tracking-wider mb-3 sm:mb-4">
           <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
           <span>React Bits Integration Laboratory</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-4">
-          The <span class="text-claude-terracotta italic">&lt;ShinyText /&gt;</span> Engine
+        <h2 class="text-3xl xs:text-4xl sm:text-6xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-3 sm:mb-4">
+          The <span class="text-trix-terracotta italic">&lt;ShinyText /&gt;</span> Engine
         </h2>
-        <p class="text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext">
+        <p class="text-xs sm:text-base text-trix-lightSubtext dark:text-trix-darkSubtext px-2">
           Direct implementation of the React Bits component specification. Multi-band gamma 2.2 color blending, pointer-tracking spring dynamics, and smoothstep falloffs.
         </p>
       </div>
 
-      <!-- Laboratory Card -->
-      <div class="claude-glass rounded-3xl border border-claude-lightBorder dark:border-claude-darkBorder p-6 sm:p-10 shadow-deep-card">
+      <div class="trix-glass rounded-3xl border border-trix-lightBorder dark:border-trix-darkBorder p-4 sm:p-10 shadow-deep-card">
         
         <!-- Live Shiny Preview Stage -->
-        <div class="min-h-[180px] sm:min-h-[220px] rounded-2xl bg-black/80 border border-white/10 flex flex-col items-center justify-center p-6 text-center mb-8 relative overflow-hidden group">
+        <div class="min-h-[140px] sm:min-h-[220px] rounded-2xl bg-black/85 border border-white/10 flex flex-col items-center justify-center p-4 sm:p-6 text-center mb-6 sm:mb-8 relative overflow-hidden group">
           <div class="absolute inset-0 bg-[radial-gradient(#D97757_1px,transparent_1px)] [background-size:20px_20px] opacity-15"></div>
           
-          <div class="relative z-10">
+          <div class="relative z-10 w-full px-2">
             <span id="labShinyElement" 
-                  class="font-serif text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight"
+                  class="font-serif text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight"
                   data-text="Refined Intelligence in Motion"
                   data-color="#b5b5b5"
                   data-shine-color="#ffffff"
@@ -967,96 +1182,88 @@ const harmony = ref([
             </span>
           </div>
 
-          <span class="absolute bottom-3 right-4 text-[10px] font-mono text-white/40">
-            Hover over text to interact with light sweep
+          <span class="absolute bottom-2.5 right-3 text-[9px] sm:text-[10px] font-mono text-white/40">
+            Interact with live sweep
           </span>
         </div>
 
-        <!-- Interactive Control Matrix -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-claude-lightBorder dark:border-claude-darkBorder">
+        <!-- Touch Controls Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-4 border-t border-trix-lightBorder dark:border-trix-darkBorder">
           
-          <!-- Control 1: Speed -->
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div class="flex justify-between text-xs font-mono">
-              <label for="ctrlSpeed" class="text-claude-lightSubtext dark:text-claude-darkSubtext">speed (s)</label>
-              <span id="valSpeed" class="font-semibold text-claude-terracotta">2.0s</span>
+              <label for="ctrlSpeed" class="text-trix-lightSubtext dark:text-trix-darkSubtext">speed (s)</label>
+              <span id="valSpeed" class="font-semibold text-trix-terracotta">2.0s</span>
             </div>
-            <input type="range" id="ctrlSpeed" min="0.5" max="5" step="0.1" value="2" class="w-full accent-claude-terracotta" />
+            <input type="range" id="ctrlSpeed" min="0.5" max="5" step="0.1" value="2" class="w-full accent-trix-terracotta h-2 rounded-lg cursor-pointer" />
           </div>
 
-          <!-- Control 2: Shine Width -->
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div class="flex justify-between text-xs font-mono">
-              <label for="ctrlWidth" class="text-claude-lightSubtext dark:text-claude-darkSubtext">shineWidth (%)</label>
-              <span id="valWidth" class="font-semibold text-claude-terracotta">40%</span>
+              <label for="ctrlWidth" class="text-trix-lightSubtext dark:text-trix-darkSubtext">shineWidth (%)</label>
+              <span id="valWidth" class="font-semibold text-trix-terracotta">40%</span>
             </div>
-            <input type="range" id="ctrlWidth" min="10" max="100" step="5" value="40" class="w-full accent-claude-terracotta" />
+            <input type="range" id="ctrlWidth" min="10" max="100" step="5" value="40" class="w-full accent-trix-terracotta h-2 rounded-lg cursor-pointer" />
           </div>
 
-          <!-- Control 3: Softness -->
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div class="flex justify-between text-xs font-mono">
-              <label for="ctrlSoftness" class="text-claude-lightSubtext dark:text-claude-darkSubtext">softness</label>
-              <span id="valSoftness" class="font-semibold text-claude-terracotta">0.8</span>
+              <label for="ctrlSoftness" class="text-trix-lightSubtext dark:text-trix-darkSubtext">softness</label>
+              <span id="valSoftness" class="font-semibold text-trix-terracotta">0.8</span>
             </div>
-            <input type="range" id="ctrlSoftness" min="0" max="1" step="0.05" value="0.8" class="w-full accent-claude-terracotta" />
+            <input type="range" id="ctrlSoftness" min="0" max="1" step="0.05" value="0.8" class="w-full accent-trix-terracotta h-2 rounded-lg cursor-pointer" />
           </div>
 
-          <!-- Control 4: Angle -->
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div class="flex justify-between text-xs font-mono">
-              <label for="ctrlAngle" class="text-claude-lightSubtext dark:text-claude-darkSubtext">angle (deg)</label>
-              <span id="valAngle" class="font-semibold text-claude-terracotta">120°</span>
+              <label for="ctrlAngle" class="text-trix-lightSubtext dark:text-trix-darkSubtext">angle (deg)</label>
+              <span id="valAngle" class="font-semibold text-trix-terracotta">120°</span>
             </div>
-            <input type="range" id="ctrlAngle" min="0" max="360" step="10" value="120" class="w-full accent-claude-terracotta" />
+            <input type="range" id="ctrlAngle" min="0" max="360" step="10" value="120" class="w-full accent-trix-terracotta h-2 rounded-lg cursor-pointer" />
           </div>
 
-          <!-- Control 5: Bands -->
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div class="flex justify-between text-xs font-mono">
-              <label for="ctrlBands" class="text-claude-lightSubtext dark:text-claude-darkSubtext">bands (reflection lines)</label>
-              <span id="valBands" class="font-semibold text-claude-terracotta">1</span>
+              <label for="ctrlBands" class="text-trix-lightSubtext dark:text-trix-darkSubtext">bands</label>
+              <span id="valBands" class="font-semibold text-trix-terracotta">1</span>
             </div>
-            <select id="ctrlBands" class="w-full px-3 py-1.5 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard text-xs font-mono">
+            <select id="ctrlBands" class="w-full px-3 py-2 rounded-xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white dark:bg-trix-darkCard text-xs font-mono">
               <option value="1" selected>1 Band (Clean Sweep)</option>
               <option value="2">2 Bands (Double Glint)</option>
               <option value="3">3 Bands (Chrome Reflection)</option>
             </select>
           </div>
 
-          <!-- Control 6: Trigger -->
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div class="flex justify-between text-xs font-mono">
-              <label for="ctrlTrigger" class="text-claude-lightSubtext dark:text-claude-darkSubtext">trigger</label>
-              <span id="valTrigger" class="font-semibold text-claude-terracotta">loop</span>
+              <label for="ctrlTrigger" class="text-trix-lightSubtext dark:text-trix-darkSubtext">trigger</label>
+              <span id="valTrigger" class="font-semibold text-trix-terracotta">loop</span>
             </div>
-            <select id="ctrlTrigger" class="w-full px-3 py-1.5 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard text-xs font-mono">
+            <select id="ctrlTrigger" class="w-full px-3 py-2 rounded-xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white dark:bg-trix-darkCard text-xs font-mono">
               <option value="loop" selected>loop (Continuous)</option>
-              <option value="hover">hover (On Pointer Enter)</option>
+              <option value="hover">hover (On Touch / Pointer)</option>
               <option value="view">view (On Intersection)</option>
             </select>
           </div>
 
-          <!-- Control 7: Shine Color -->
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div class="flex justify-between text-xs font-mono">
-              <label for="ctrlShineColor" class="text-claude-lightSubtext dark:text-claude-darkSubtext">shineColor</label>
-              <span id="valShineColor" class="font-semibold text-claude-terracotta">#ffffff</span>
+              <label for="ctrlShineColor" class="text-trix-lightSubtext dark:text-trix-darkSubtext">shineColor</label>
+              <span id="valShineColor" class="font-semibold text-trix-terracotta">#ffffff</span>
             </div>
             <div class="flex items-center space-x-2">
               <input type="color" id="ctrlShineColor" value="#ffffff" class="w-8 h-8 rounded-lg cursor-pointer border-0 p-0" />
-              <button class="px-2 py-1 rounded-lg text-[10px] font-mono bg-claude-terracotta/20 text-claude-coral" id="btnShineCoral">Claude Coral</button>
-              <button class="px-2 py-1 rounded-lg text-[10px] font-mono bg-white/10 text-white" id="btnShineWhite">Pure White</button>
+              <button class="px-2.5 py-1.5 rounded-lg text-[10px] font-mono bg-trix-terracotta/20 text-trix-coral" id="btnShineCoral">Terra Coral</button>
+              <button class="px-2.5 py-1.5 rounded-lg text-[10px] font-mono bg-white/10 text-white" id="btnShineWhite">Pure White</button>
             </div>
           </div>
 
-          <!-- Control 8: Text Content -->
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div class="flex justify-between text-xs font-mono">
-              <label for="ctrlText" class="text-claude-lightSubtext dark:text-claude-darkSubtext">sample text</label>
-              <span class="text-claude-terracotta text-[10px]">Live Edit</span>
+              <label for="ctrlText" class="text-trix-lightSubtext dark:text-trix-darkSubtext">sample text</label>
+              <span class="text-trix-terracotta text-[10px]">Live Edit</span>
             </div>
-            <input type="text" id="ctrlText" value="Refined Intelligence in Motion" class="w-full px-3 py-1.5 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard text-xs text-[#1F1E1D] dark:text-white" />
+            <input type="text" id="ctrlText" value="Refined Intelligence in Motion" class="w-full px-3 py-2 rounded-xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white dark:bg-trix-darkCard text-base sm:text-xs text-[#1F1E1D] dark:text-white" />
           </div>
 
         </div>
@@ -1067,219 +1274,101 @@ const harmony = ref([
   </section>
 
   <!-- ==============================================================
-       CORE PILLARS / BENTO GRID OF CAPABILITIES
+       MEET THE ARCHITECT: NAMITH RN (MOBILE RESPONSIVE)
        ============================================================== -->
-  <section class="py-24 sm:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-mono uppercase tracking-wider mb-4">
-          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span>Architectural Superiority</span>
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-4">
-          Crafted for the Thinking Mind
-        </h2>
-        <p class="text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext">
-          Every layer of TriXAI was synthesized to reduce cognitive load and augment creative output.
-        </p>
-      </div>
-
-      <!-- Bento Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Bento 1: Dynamic Artifacts 2.0 (Spans 2 cols) -->
-        <div class="md:col-span-2 claude-glass rounded-3xl p-6 sm:p-8 border border-claude-lightBorder dark:border-claude-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card">
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-2xl bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
-              <i data-lucide="code-2" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1E1D] dark:text-white">
-              Dynamic Live Artifacts 2.0
-            </h3>
-            <p class="text-sm text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed max-w-xl">
-              Write, render, and refine code, SVG diagrams, and interactive React applications side-by-side with your thoughts. Zero context switching, instant sandboxed previews.
-            </p>
-          </div>
-
-          <div class="mt-8 p-4 rounded-2xl bg-black/5 dark:bg-black/40 border border-claude-lightBorder dark:border-white/5 font-mono text-xs text-claude-terracotta flex items-center justify-between">
-            <span>&lt;Artifact type="react" renderer="instant" /&gt;</span>
-            <span class="text-emerald-500 font-semibold">● Hot Reloading Active</span>
-          </div>
-        </div>
-
-        <!-- Bento 2: Transparent Chain-of-Thought (1 col) -->
-        <div class="claude-glass rounded-3xl p-6 sm:p-8 border border-claude-lightBorder dark:border-claude-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card">
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-2xl bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
-              <i data-lucide="brain-circuit" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1E1D] dark:text-white">
-              Cognitive Transparency
-            </h3>
-            <p class="text-sm text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
-              Peek inside the reasoning chain. Inspect how each deduction was reached before a single token of answer is generated.
-            </p>
-          </div>
-
-          <div class="mt-8 flex items-center space-x-2 text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">
-            <i data-lucide="check-check" class="w-4 h-4 text-claude-terracotta"></i>
-            <span>Verifiable Reasoning Paths</span>
-          </div>
-        </div>
-
-        <!-- Bento 3: 200k Context Window (1 col) -->
-        <div class="claude-glass rounded-3xl p-6 sm:p-8 border border-claude-lightBorder dark:border-claude-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card">
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-2xl bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
-              <i data-lucide="book-open" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1E1D] dark:text-white">
-              200K Context Fluidity
-            </h3>
-            <p class="text-sm text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
-              Feed entire codebases, financial ledgers, or 500-page manuscripts. High needle-in-a-haystack recall with zero drift.
-            </p>
-          </div>
-
-          <div class="mt-8 flex items-center justify-between text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">
-            <span>Accuracy: 99.8%</span>
-            <span class="text-claude-terracotta">Zero degradation</span>
-          </div>
-        </div>
-
-        <!-- Bento 4: Privacy by Sovereign Design (Spans 2 cols) -->
-        <div class="md:col-span-2 claude-glass rounded-3xl p-6 sm:p-8 border border-claude-lightBorder dark:border-claude-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card">
-          <div class="space-y-4">
-            <div class="w-10 h-10 rounded-2xl bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
-              <i data-lucide="shield-check" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1E1D] dark:text-white">
-              Sovereign & Private by Default
-            </h3>
-            <p class="text-sm text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed max-w-xl">
-              Your conversations are stored in your browser's encrypted storage. Direct API key integration means your thoughts remain strictly between you and the model.
-            </p>
-          </div>
-
-          <div class="mt-8 flex flex-wrap items-center gap-3">
-            <span class="px-3 py-1 rounded-full text-xs font-mono bg-claude-terracotta/10 text-claude-terracotta border border-claude-terracotta/25">Client-Side Key Encryption</span>
-            <span class="px-3 py-1 rounded-full text-xs font-mono bg-claude-terracotta/10 text-claude-terracotta border border-claude-terracotta/25">No Ad Trackers</span>
-            <span class="px-3 py-1 rounded-full text-xs font-mono bg-claude-terracotta/10 text-claude-terracotta border border-claude-terracotta/25">Export in Markdown</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==============================================================
-       MEET THE ARCHITECT: NAMITH RN
-       Honoring the creator with photo, portfolio, and vision
-       ============================================================== -->
-  <section id="architect" class="py-24 sm:py-32 border-t border-claude-lightBorder dark:border-claude-darkBorder bg-claude-warmCard/30 dark:bg-claude-darkSidebar/30 relative overflow-hidden">
-    <!-- Ambient glow behind card -->
-    <div class="absolute right-10 top-1/2 -translate-y-1/2 w-96 h-96 bg-claude-terracotta/15 rounded-full blur-[120px] pointer-events-none"></div>
-
+  <section id="architect" class="py-16 sm:py-36 border-t border-trix-lightBorder dark:border-trix-darkBorder bg-trix-warmCard/30 dark:bg-trix-darkSidebar/30 relative overflow-hidden z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-16 items-center">
         
-        <!-- Left: Photo in 3D Tilting Glass Frame (5 cols) -->
+        <!-- Photo in 3D Card -->
         <div class="lg:col-span-5 flex justify-center">
-          <div class="relative w-full max-w-sm tilt-card group" id="photoTiltCard">
+          <div class="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-sm tilt-card group" id="photoTiltCard">
             
-            <!-- Radiant Border Frame -->
-            <div class="relative aspect-[4/5] rounded-[32px] overflow-hidden bg-claude-darkCard border border-claude-terracotta/40 shadow-2xl p-2 transition-transform duration-300">
+            <div class="relative aspect-[4/5] rounded-[28px] sm:rounded-[32px] overflow-hidden bg-trix-darkCard border border-trix-terracotta/40 shadow-2xl p-2 transition-transform duration-300">
               
-              <!-- Namith's Photo -->
               <img 
                 src="https://plain-apac-prod-public.komododecks.com/202610/10/xeNXT7AzxbFHHxMUAGbr/image.jpg" 
                 alt="Namith RN — Creator of TriXAI" 
-                class="w-full h-full object-cover rounded-[24px] filter saturate-[1.08] contrast-[1.04] group-hover:scale-105 transition-transform duration-500"
+                class="w-full h-full object-cover rounded-[22px] sm:rounded-[24px] filter saturate-[1.08] contrast-[1.04] group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
 
-              <!-- Subtle Specular Sheen Gradient -->
-              <div class="absolute inset-0 rounded-[24px] pointer-events-none bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+              <div class="absolute inset-0 rounded-[22px] sm:rounded-[24px] pointer-events-none bg-gradient-to-t from-black/85 via-transparent to-black/20"></div>
 
-              <!-- Floating badge on photo -->
-              <div class="absolute bottom-5 inset-x-5 p-3 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-between">
+              <!-- Name & Badge on Photo -->
+              <div class="absolute bottom-4 inset-x-4 p-3 rounded-2xl bg-black/65 backdrop-blur-md border border-white/15 flex items-center justify-between">
                 <div>
                   <h4 class="text-sm font-bold text-white flex items-center space-x-1.5">
                     <span>Namith RN</span>
-                    <i data-lucide="badge-check" class="w-4 h-4 text-claude-terracotta"></i>
+                    <i data-lucide="badge-check" class="w-4 h-4 text-trix-terracotta"></i>
                   </h4>
-                  <p class="text-[11px] font-mono text-white/70">Frontend & AI Architect</p>
+                  <p class="text-[10px] sm:text-[11px] font-mono text-white/70">Frontend & AI Architect</p>
                 </div>
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
               </div>
 
             </div>
 
-            <!-- Decorative floating chips around photo -->
-            <div class="absolute -top-4 -right-4 px-3.5 py-1.5 rounded-full bg-white dark:bg-claude-darkCard shadow-lg border border-claude-terracotta/30 text-xs font-mono text-claude-terracotta flex items-center space-x-1.5">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <!-- Floating Badges -->
+            <div class="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 px-3 py-1 rounded-full bg-white dark:bg-trix-darkCard shadow-lg border border-trix-terracotta/30 text-[10px] sm:text-xs font-mono text-trix-terracotta flex items-center space-x-1">
+              <i data-lucide="sparkles" class="w-3 h-3"></i>
               <span>Creator of TriXAI</span>
             </div>
 
-            <div class="absolute -bottom-4 -left-4 px-3.5 py-1.5 rounded-full bg-white dark:bg-claude-darkCard shadow-lg border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono text-[#1F1E1D] dark:text-white flex items-center space-x-1.5">
-              <i data-lucide="code" class="w-3.5 h-3.5 text-claude-terracotta"></i>
+            <div class="absolute -bottom-3 -left-2 sm:-bottom-4 sm:-left-4 px-3 py-1 rounded-full bg-white dark:bg-trix-darkCard shadow-lg border border-trix-lightBorder dark:border-trix-darkBorder text-[10px] sm:text-xs font-mono text-[#1F1E1D] dark:text-white flex items-center space-x-1">
+              <i data-lucide="code" class="w-3 h-3 text-trix-terracotta"></i>
               <span>Award-Winning Craft</span>
             </div>
 
           </div>
         </div>
 
-        <!-- Right: Story & Links (7 cols) -->
-        <div class="lg:col-span-7 space-y-6">
+        <!-- Story & CTAs -->
+        <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
           
-          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-mono uppercase tracking-wider">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-trix-terracotta/30 bg-trix-terracotta/10 text-trix-terracotta text-xs font-mono uppercase tracking-wider">
             <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
-            <span>The Developer Behind the Experience</span>
+            <span>The Developer Behind TriXAI</span>
           </div>
 
-          <h2 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white">
+          <h2 class="text-3xl xs:text-4xl sm:text-6xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white leading-tight">
             "Software should feel as thoughtful and natural as human dialogue."
           </h2>
 
-          <div class="space-y-4 text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
+          <div class="space-y-3 sm:space-y-4 text-xs sm:text-base text-trix-lightSubtext dark:text-trix-darkSubtext leading-relaxed">
             <p>
-              Hi, I’m <strong>Namith RN</strong>. I engineer high-craft interactive experiences and bespoke AI interfaces. I designed <strong>TriXAI</strong> to bring the aesthetic mindfulness and intellectual warmth of Anthropic’s Claude design philosophy to life in a fluid, single-page application.
+              Hi, I’m <strong>Namith RN</strong>. I engineer high-craft interactive experiences, sovereign AI architectures, and creative web platforms. I created <strong>TriXAI</strong> to set a new benchmark for how human beings converse, ideate, and build software alongside intelligent systems.
             </p>
             <p>
-              Every detail—from the multi-band light sweeps on the typography using React Bits to the smoothstep frame expansion as you scroll—was tuned with obsessive care for performance, typography, and developer joy.
+              Every detail—from the multi-band light sweeps on typography using React Bits to the smoothstep frame expansion as you scroll—was tuned with obsessive care for mobile responsiveness, performance, and developer joy.
             </p>
           </div>
 
-          <!-- Quick Skills & Technologies Tags -->
-          <div class="pt-2">
-            <h4 class="text-xs font-mono uppercase tracking-wider text-claude-terracotta mb-3">Core Toolset & Craftsmanship</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">React 19 & Next.js</span>
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">Tailwind CSS & CSS Canvas</span>
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">Claude 3.5 API Integrations</span>
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">WebGL & Three.js Shaders</span>
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">React Bits Components</span>
-              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">UI/UX Creative Direction</span>
+          <div class="pt-1 sm:pt-2">
+            <h4 class="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-trix-terracotta mb-2.5">Core Toolset & Craftsmanship</h4>
+            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+              <span class="px-2.5 sm:px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-trix-lightBorder dark:border-trix-darkBorder text-[10px] sm:text-xs font-mono">React 19 & Next.js</span>
+              <span class="px-2.5 sm:px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-trix-lightBorder dark:border-trix-darkBorder text-[10px] sm:text-xs font-mono">Tailwind CSS & WebGL</span>
+              <span class="px-2.5 sm:px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-trix-lightBorder dark:border-trix-darkBorder text-[10px] sm:text-xs font-mono">TriX Neural Core API</span>
+              <span class="px-2.5 sm:px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-trix-lightBorder dark:border-trix-darkBorder text-[10px] sm:text-xs font-mono">React Bits Components</span>
+              <span class="px-2.5 sm:px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-trix-lightBorder dark:border-trix-darkBorder text-[10px] sm:text-xs font-mono">Mobile UX Engineering</span>
             </div>
           </div>
 
-          <!-- Connect & Portfolio CTA Buttons -->
-          <div class="pt-4 flex flex-wrap items-center gap-3.5">
-            <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-claude-terracotta to-claude-coral hover:from-claude-terracottaHover hover:to-claude-terracotta text-white font-medium text-sm tracking-tight shadow-md shadow-claude-terracotta/30 transition flex items-center space-x-2 group">
+          <!-- Buttons -->
+          <div class="pt-3 sm:pt-4 flex flex-col xs:flex-row items-center gap-3 w-full">
+            <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full xs:w-auto px-6 py-3.5 rounded-2xl bg-gradient-to-r from-trix-ember to-trix-terracotta hover:from-trix-terracottaHover hover:to-trix-ember text-white font-medium text-xs sm:text-sm tracking-tight shadow-md shadow-trix-terracotta/30 transition flex items-center justify-center space-x-2 group active:scale-95">
               <span>Explore Namith's Portfolio</span>
               <i data-lucide="external-link" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
             </a>
 
-            <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white/50 dark:bg-claude-darkCard/50 hover:bg-black/5 dark:hover:bg-claude-darkCardHover text-[#1F1E1D] dark:text-white font-medium text-sm tracking-tight transition flex items-center space-x-2">
-              <i data-lucide="play" class="w-4 h-4 text-claude-terracotta"></i>
+            <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full xs:w-auto px-6 py-3.5 rounded-2xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white/50 dark:bg-trix-darkCard/50 hover:bg-black/5 dark:hover:bg-trix-darkCardHover text-[#1F1E1D] dark:text-white font-medium text-xs sm:text-sm tracking-tight transition flex items-center justify-center space-x-2 active:scale-95">
+              <i data-lucide="play" class="w-4 h-4 text-trix-terracotta"></i>
               <span>Launch TriXAI App</span>
             </a>
 
-            <a href="https://github.com/NamithRN" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-[#1F1E1D] dark:text-white transition" title="Namith's GitHub" aria-label="Namith's GitHub">
+            <a href="https://github.com/NamithRN" target="_blank" rel="noopener noreferrer" class="w-full xs:w-12 h-12 rounded-2xl border border-trix-lightBorder dark:border-trix-darkBorder flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-[#1F1E1D] dark:text-white transition active:scale-95" title="Namith's GitHub" aria-label="Namith's GitHub">
               <i data-lucide="github" class="w-5 h-5"></i>
             </a>
           </div>
@@ -1292,34 +1381,34 @@ const harmony = ref([
   </section>
 
   <!-- ==============================================================
-       MASSIVE CALL TO ACTION
+       FINAL CALL TO ACTION
        ============================================================== -->
-  <section class="py-24 sm:py-32 relative text-center">
+  <section class="py-16 sm:py-36 relative text-center z-10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="claude-glass rounded-3xl p-8 sm:p-14 border border-claude-terracotta/40 shadow-claude-glow relative overflow-hidden">
+      <div class="trix-glass rounded-3xl p-6 sm:p-14 border border-trix-terracotta/40 shadow-trix-glow relative overflow-hidden">
         
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E88D6D] to-[#AD4729] p-3 shadow-lg mx-auto mb-6 flex items-center justify-center">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#FF6B35] to-[#AD4729] p-3 shadow-lg mx-auto mb-5 sm:mb-6 flex items-center justify-center">
           <svg class="w-full h-full" viewBox="0 0 32 32" fill="none">
             <path d="M16 4 C16 10.5 10.5 16 4 16 C10.5 16 16 21.5 16 28 C16 21.5 21.5 16 28 16 C21.5 16 16 10.5 16 4 Z" fill="#FFFFFF"/>
             <circle cx="16" cy="16" r="2.2" fill="#D97757"/>
           </svg>
         </div>
 
-        <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#1F1E1D] dark:text-white font-normal mb-4">
-          Ready to experience <span class="italic text-claude-terracotta">TriXAI?</span>
+        <h2 class="font-serif text-3xl xs:text-4xl sm:text-6xl text-[#1F1E1D] dark:text-white font-normal mb-3 sm:mb-4">
+          Ready to experience <span class="italic text-trix-terracotta">TriXAI?</span>
         </h2>
 
-        <p class="text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext max-w-xl mx-auto mb-8">
-          Free to test, delightful to explore. Experience the convergence of Anthropic's design philosophy and modern web technology.
+        <p class="text-xs sm:text-base text-trix-lightSubtext dark:text-trix-darkSubtext max-w-xl mx-auto mb-6 sm:mb-8">
+          Free to test, delightful to explore. Experience the convergence of high-craft engineering and modern sovereign intelligence.
         </p>
 
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-2xl bg-claude-terracotta hover:bg-claude-terracottaHover text-white font-semibold text-base shadow-xl shadow-claude-terracotta/30 transition flex items-center space-x-2">
+        <div class="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4 w-full">
+          <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full xs:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-trix-terracotta hover:bg-trix-terracottaHover text-white font-semibold text-sm sm:text-base shadow-xl shadow-trix-terracotta/30 transition flex items-center justify-center space-x-2 active:scale-95">
             <span>Start Using TriXAI (Free)</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
-          <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-7 py-4 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white/40 dark:bg-black/20 hover:bg-black/5 dark:hover:bg-white/5 font-medium text-base transition">
+          <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full xs:w-auto px-7 py-3.5 sm:py-4 rounded-2xl border border-trix-lightBorder dark:border-trix-darkBorder bg-white/40 dark:bg-black/20 hover:bg-black/5 dark:hover:bg-white/5 font-medium text-sm sm:text-base transition active:scale-95 text-center">
             <span>Contact Namith RN</span>
           </a>
         </div>
@@ -1331,60 +1420,58 @@ const harmony = ref([
 
   <!-- ==============================================================
        FOOTER
-       Awwwards-level typographic finish
        ============================================================== -->
-  <footer class="py-12 border-t border-claude-lightBorder dark:border-claude-darkBorder bg-white/40 dark:bg-black/40">
+  <footer class="py-10 sm:py-12 border-t border-trix-lightBorder dark:border-trix-darkBorder bg-white/40 dark:bg-black/40 relative z-10 pb-safe">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-claude-lightBorder dark:border-claude-darkBorder">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-5 pb-6 sm:pb-8 border-b border-trix-lightBorder dark:border-trix-darkBorder text-center sm:text-left">
         
         <div class="flex items-center space-x-3">
-          <div class="w-7 h-7 rounded-lg bg-claude-terracotta flex items-center justify-center text-white">
-            <svg class="w-4 h-4" viewBox="0 0 32 32" fill="none">
+          <div class="w-8 h-8 rounded-lg bg-trix-terracotta flex items-center justify-center text-white flex-shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
               <path d="M16 4 C16 10.5 10.5 16 4 16 C10.5 16 16 21.5 16 28 C16 21.5 21.5 16 28 16 C21.5 16 16 10.5 16 4 Z" fill="#FFFFFF"/>
             </svg>
           </div>
           <div>
             <span class="font-serif font-bold text-lg text-[#1F1E1D] dark:text-white">TriXAI</span>
-            <span class="text-xs text-claude-lightSubtext dark:text-claude-darkSubtext ml-2">by Namith RN</span>
+            <span class="text-xs text-trix-lightSubtext dark:text-trix-darkSubtext ml-2">by Namith RN</span>
           </div>
         </div>
 
-        <div class="flex items-center space-x-6 text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">
-          <a href="https://trixai.vercel.app/" target="_blank" class="hover:text-claude-terracotta transition">TriXAI App</a>
-          <a href="https://namithrn.vercel.app/" target="_blank" class="hover:text-claude-terracotta transition">Namith's Portfolio</a>
-          <a href="https://github.com/NamithRN" target="_blank" class="hover:text-claude-terracotta transition">GitHub</a>
-          <a href="#top" class="hover:text-claude-terracotta transition">Back to Top ↑</a>
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-mono text-trix-lightSubtext dark:text-trix-darkSubtext">
+          <a href="https://trixai.vercel.app/" target="_blank" class="hover:text-trix-terracotta transition">TriXAI App</a>
+          <a href="https://namithrn.vercel.app/" target="_blank" class="hover:text-trix-terracotta transition">Namith's Portfolio</a>
+          <a href="https://github.com/NamithRN" target="_blank" class="hover:text-trix-terracotta transition">GitHub</a>
+          <a href="#top" class="hover:text-trix-terracotta transition">Top ↑</a>
         </div>
 
       </div>
 
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-claude-lightSubtext dark:text-claude-darkSubtext font-mono">
-        <p>© 2026 TriXAI. Architected & Developed with soul by <strong>Namith RN</strong>.</p>
-        <p class="flex items-center space-x-2">
-          <span>Awwwards-Honored Senior Creative Development</span>
-          <span>•</span>
-          <span class="text-claude-terracotta">Anthropic Aesthetic</span>
-        </p>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-trix-lightSubtext dark:text-trix-darkSubtext font-mono">
+        <p>© 2026 TriXAI. Architected & Developed by <strong>Namith RN</strong>.</p>
+        <p class="text-trix-terracotta">Autonomous Cognitive Studio</p>
       </div>
 
     </div>
   </footer>
 
-  <!-- Floating Scroll To Top Button -->
-  <button id="backToTopBtn" class="fixed right-6 bottom-6 w-11 h-11 rounded-full claude-glass shadow-lg flex items-center justify-center text-claude-lightSubtext dark:text-white hover:text-claude-terracotta dark:hover:text-claude-terracotta transition opacity-0 pointer-events-none z-40 active:scale-95" aria-label="Back to top">
-    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  <!-- Floating Scroll To Top Button with Circular Progress (Safe on mobile notch & navigation) -->
+  <button id="backToTopBtn" class="fixed right-4 sm:right-6 bottom-5 sm:bottom-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full trix-glass shadow-lg flex items-center justify-center text-trix-lightSubtext dark:text-white hover:text-trix-terracotta dark:hover:text-trix-terracotta transition opacity-0 pointer-events-none z-50 active:scale-95" aria-label="Back to top">
+    <svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="20" stroke="rgba(217, 119, 87, 0.2)" stroke-width="2.5" fill="none" />
+      <circle id="circleProgress" cx="24" cy="24" r="20" stroke="#FF6B35" stroke-width="2.5" fill="none" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+    </svg>
+    <i data-lucide="chevron-up" class="w-4 h-4 sm:w-5 sm:h-5 relative z-10"></i>
   </button>
 
 
   <!-- ==============================================================
        JAVASCRIPT LOGIC
-       1. React Bits <ShinyText /> Vanilla Engine
-       2. React Bits <ScrollExpand /> Vanilla Engine
-       3. Web Audio Micro-Interactions
-       4. Interactive TriXAI Simulator & Artifact Studio
-       5. Interactive ShinyText Lab Controls
-       6. 3D Tilt Card Physics & Custom Cursor
+       1. Mobile Responsive Simulator Tab Switcher
+       2. React Bits <ScrollExpand /> with Dynamic Mobile Ratios
+       3. React Bits <ShinyText /> Vanilla Engine
+       4. Ambient Background Canvas
+       5. Mobile Navigation Controller
        ============================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1395,8 +1482,121 @@ const harmony = ref([
       }
 
       /* -------------------------------------------------------------
-         1. REACT BITS: SHINY TEXT VANILLA IMPLEMENTATION
-         Faithful conversion of the exact source provided in user prompt
+         1. MOBILE SIMULATOR TAB SWITCHER (NATIVE MOBILE APP FEEL)
+         ------------------------------------------------------------- */
+      const mobileSimTabChat = document.getElementById('mobileSimTabChat');
+      const mobileSimTabCanvas = document.getElementById('mobileSimTabCanvas');
+      const simColChat = document.getElementById('simColChat');
+      const simColCanvas = document.getElementById('simColCanvas');
+
+      if (mobileSimTabChat && mobileSimTabCanvas && simColChat && simColCanvas) {
+        mobileSimTabChat.addEventListener('click', () => {
+          simColChat.classList.remove('hidden');
+          simColCanvas.classList.add('hidden');
+          mobileSimTabChat.className = 'flex-1 py-2 rounded-xl text-xs font-mono font-semibold bg-white dark:bg-trix-darkCard text-trix-terracotta shadow-xs flex items-center justify-center space-x-1.5 transition';
+          mobileSimTabCanvas.className = 'flex-1 py-2 rounded-xl text-xs font-mono text-trix-lightSubtext dark:text-trix-darkSubtext flex items-center justify-center space-x-1.5 transition';
+        });
+
+        mobileSimTabCanvas.addEventListener('click', () => {
+          simColChat.classList.add('hidden');
+          simColCanvas.classList.remove('hidden');
+          mobileSimTabCanvas.className = 'flex-1 py-2 rounded-xl text-xs font-mono font-semibold bg-white dark:bg-trix-darkCard text-trix-terracotta shadow-xs flex items-center justify-center space-x-1.5 transition';
+          mobileSimTabChat.className = 'flex-1 py-2 rounded-xl text-xs font-mono text-trix-lightSubtext dark:text-trix-darkSubtext flex items-center justify-center space-x-1.5 transition';
+        });
+
+        // Ensure proper state on window resize
+        window.addEventListener('resize', () => {
+          if (window.innerWidth >= 1024) {
+            simColChat.classList.remove('hidden');
+            simColCanvas.classList.remove('hidden');
+          }
+        });
+      }
+
+      /* -------------------------------------------------------------
+         2. AMBIENT PARTICLE CANVAS (MOBILE LIGHTWEIGHT OPTIMIZATION)
+         ------------------------------------------------------------- */
+      const canvas = document.getElementById('ambientCanvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        // Reduce particle count on mobile for smooth 60fps performance
+        const isMobileScreen = width < 768;
+        const particleCount = isMobileScreen ? 30 : Math.min(65, Math.floor(width / 22));
+        const particles = [];
+        let scrollSpeedMultiplier = 1;
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 1.6 + 0.8,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            alpha: Math.random() * 0.35 + 0.15
+          });
+        }
+
+        const resizeCanvas = () => {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        };
+        window.addEventListener('resize', resizeCanvas);
+
+        let lastScroll = window.scrollY;
+        window.addEventListener('scroll', () => {
+          const delta = Math.abs(window.scrollY - lastScroll);
+          scrollSpeedMultiplier = Math.min(3.5, 1 + delta * 0.06);
+          lastScroll = window.scrollY;
+        }, { passive: true });
+
+        const renderParticles = () => {
+          ctx.clearRect(0, 0, width, height);
+
+          scrollSpeedMultiplier += (1 - scrollSpeedMultiplier) * 0.05;
+
+          const isDark = document.documentElement.classList.contains('dark');
+          const pColor = isDark ? '217, 119, 87' : '180, 80, 50';
+
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx * scrollSpeedMultiplier;
+            p.y += p.vy * scrollSpeedMultiplier;
+
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
+            if (p.y < 0) p.y = height;
+            if (p.y > height) p.y = 0;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${pColor}, ${p.alpha})`;
+            ctx.fill();
+
+            // Connect nearby nodes
+            for (let j = i + 1; j < particles.length; j++) {
+              const p2 = particles[j];
+              const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+              const maxDist = isMobileScreen ? 80 : 110;
+              if (dist < maxDist) {
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.strokeStyle = `rgba(${pColor}, ${(1 - dist / maxDist) * 0.12})`;
+                ctx.stroke();
+              }
+            }
+          }
+
+          requestAnimationFrame(renderParticles);
+        };
+        renderParticles();
+      }
+
+      /* -------------------------------------------------------------
+         3. REACT BITS: SHINY TEXT VANILLA IMPLEMENTATION
          ------------------------------------------------------------- */
       const EASINGS = {
         linear: t => t,
@@ -1464,7 +1664,6 @@ const harmony = ref([
           this.root.classList.add('shiny-text');
           this.root.textContent = this.options.text;
 
-          // Glow element
           this.glowEl = document.createElement('span');
           this.glowEl.className = 'shiny-text__glow';
           this.glowEl.setAttribute('aria-hidden', 'true');
@@ -1675,8 +1874,10 @@ const harmony = ref([
           const dx = Math.sin(radians);
           const dy = -Math.cos(radians);
           const length = Math.abs(rect.width * dx) + Math.abs(rect.height * dy) || 1;
+          const clientX = event.clientX || (event.touches && event.touches[0] ? event.touches[0].clientX : 0);
+          const clientY = event.clientY || (event.touches && event.touches[0] ? event.touches[0].clientY : 0);
           const along =
-            (event.clientX - rect.left - rect.width / 2) * dx + (event.clientY - rect.top - rect.height / 2) * dy;
+            (clientX - rect.left - rect.width / 2) * dx + (clientY - rect.top - rect.height / 2) * dy;
           return 50 + (along / length) * 100;
         }
 
@@ -1733,13 +1934,10 @@ const harmony = ref([
         }
       }
 
-      // Instantiate all .shiny-target elements
-      const shinyInstances = [];
       document.querySelectorAll('.shiny-target').forEach(el => {
-        shinyInstances.push(new VanillaShinyText(el));
+        new VanillaShinyText(el);
       });
 
-      // Lab Shiny Instance for the interactive controls
       const labEl = document.getElementById('labShinyElement');
       let labShinyInstance = null;
       if (labEl) {
@@ -1747,8 +1945,7 @@ const harmony = ref([
       }
 
       /* -------------------------------------------------------------
-         2. REACT BITS: SCROLL EXPAND VANILLA IMPLEMENTATION
-         Faithful conversion of the exact source provided in user prompt
+         4. REACT BITS: SCROLL EXPAND (MOBILE ADAPTIVE CONFIG)
          ------------------------------------------------------------- */
       const smoothstep = (edge0, edge1, x) => {
         const t = clamp((x - edge0) / (edge1 - edge0 || 1e-6), 0, 1);
@@ -1768,18 +1965,29 @@ const harmony = ref([
 
         if (!root || !track || !stage || !frame || !media) return;
 
-        const config = {
-          startWidth: parseFloat(root.getAttribute('data-start-width')) || 44,
-          startHeight: parseFloat(root.getAttribute('data-start-height')) || 60,
-          startRadius: parseFloat(root.getAttribute('data-start-radius')) || 28,
-          endRadius: parseFloat(root.getAttribute('data-end-radius')) || 0,
-          mediaZoom: parseFloat(root.getAttribute('data-media-zoom')) || 1.38,
-          scrollDistance: parseFloat(root.getAttribute('data-scroll-distance')) || 1.35,
-          holdDistance: parseFloat(root.getAttribute('data-hold-distance')) || 0.4,
-          smoothing: parseFloat(root.getAttribute('data-smoothing')) || 0.12,
-          overlayScrim: parseFloat(root.getAttribute('data-overlay-scrim')) || 0.65,
-          useWindowScroll: root.getAttribute('data-use-window-scroll') === 'true',
+        let isMobile = window.innerWidth < 768;
+        let config = {
+          startWidth: isMobile ? 86 : 44,
+          startHeight: isMobile ? 52 : 60,
+          startRadius: isMobile ? 18 : 28,
+          endRadius: 0,
+          mediaZoom: isMobile ? 1.25 : 1.38,
+          scrollDistance: isMobile ? 1.05 : 1.35,
+          holdDistance: isMobile ? 0.25 : 0.4,
+          smoothing: 0.12,
+          overlayScrim: 0.65,
+          useWindowScroll: true,
           enabled: true
+        };
+
+        const updateResponsiveConfig = () => {
+          isMobile = window.innerWidth < 768;
+          config.startWidth = isMobile ? 86 : 44;
+          config.startHeight = isMobile ? 52 : 60;
+          config.startRadius = isMobile ? 18 : 28;
+          config.mediaZoom = isMobile ? 1.25 : 1.38;
+          config.scrollDistance = isMobile ? 1.05 : 1.35;
+          config.holdDistance = isMobile ? 0.25 : 0.4;
         };
 
         const applyProgress = p => {
@@ -1796,9 +2004,9 @@ const harmony = ref([
           if (scrim) scrim.style.opacity = `${config.overlayScrim * e}`;
 
           if (title) {
-            const out = smoothstep(0.4, 0.88, p);
+            const out = smoothstep(0.35, 0.85, p);
             title.style.opacity = `${1 - out}`;
-            title.style.transform = `translate3d(0, ${-28 * out}px, 0) scale(${1 + 0.06 * out})`;
+            title.style.transform = `translate3d(0, ${-24 * out}px, 0) scale(${1 + 0.05 * out})`;
           }
 
           if (hint) {
@@ -1808,9 +2016,9 @@ const harmony = ref([
           }
 
           if (overlay) {
-            const inn = smoothstep(0.68, 1, p);
+            const inn = smoothstep(0.65, 1, p);
             overlay.style.opacity = `${inn}`;
-            overlay.style.transform = `translate3d(0, ${18 * (1 - inn)}px, 0)`;
+            overlay.style.transform = `translate3d(0, ${16 * (1 - inn)}px, 0)`;
             overlay.style.pointerEvents = inn > 0.85 ? 'auto' : 'none';
           }
         };
@@ -1822,6 +2030,7 @@ const harmony = ref([
         let raf = 0;
 
         const measure = () => {
+          updateResponsiveConfig();
           stageH = window.innerHeight;
           stage.style.height = `${stageH}px`;
           track.style.height = `${stageH * (1 + config.scrollDistance + config.holdDistance)}px`;
@@ -1872,8 +2081,21 @@ const harmony = ref([
       initScrollExpand();
 
       /* -------------------------------------------------------------
-         3. WEB AUDIO SYNTHESIZER (MICRO-INTERACTIONS)
-         Pleasant synthetic click & glass glints
+         5. SCROLL REVEALS & VELOCITY TRACKING
+         ------------------------------------------------------------- */
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      /* -------------------------------------------------------------
+         6. WEB AUDIO MICRO-INTERACTIONS
          ------------------------------------------------------------- */
       let audioCtx = null;
       let soundEnabled = false;
@@ -1911,7 +2133,7 @@ const harmony = ref([
         soundBtn.addEventListener('click', () => {
           initAudio();
           soundEnabled = !soundEnabled;
-          soundBtn.classList.toggle('text-claude-terracotta', soundEnabled);
+          soundBtn.classList.toggle('text-trix-terracotta', soundEnabled);
           if (soundIcon) {
             soundIcon.setAttribute('data-lucide', soundEnabled ? 'volume-2' : 'volume-x');
             lucide.createIcons();
@@ -1920,14 +2142,13 @@ const harmony = ref([
         });
       }
 
-      // Add audio feedback on buttons
       document.querySelectorAll('button, a').forEach(el => {
         el.addEventListener('mouseenter', () => playClickSound(800));
         el.addEventListener('click', () => playClickSound(520, 'triangle'));
       });
 
       /* -------------------------------------------------------------
-         4. THEME TOGGLE (CLAUDE DARK / CLAUDE WARM IVORY)
+         7. THEME TOGGLE
          ------------------------------------------------------------- */
       const themeToggle = document.getElementById('themeToggle');
       if (themeToggle) {
@@ -1939,38 +2160,59 @@ const harmony = ref([
         });
       }
 
-      // Check stored preference
       if (localStorage.getItem('trixai-theme') === 'light') {
         document.documentElement.classList.remove('dark');
       }
 
       /* -------------------------------------------------------------
-         5. MOBILE MENU
+         8. MOBILE FULL-SCREEN NAVIGATION DRAWER
          ------------------------------------------------------------- */
       const mobileBtn = document.getElementById('mobileMenuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
       if (mobileBtn && mobileMenu) {
         mobileBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
+          const isHidden = mobileMenu.classList.toggle('hidden');
+          if (mobileMenuIcon) {
+            mobileMenuIcon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+            lucide.createIcons();
+          }
         });
-        mobileMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+
+        mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            if (mobileMenuIcon) {
+              mobileMenuIcon.setAttribute('data-lucide', 'menu');
+              lucide.createIcons();
+            }
+          });
         });
       }
 
       /* -------------------------------------------------------------
-         6. SCROLL PROGRESS BAR & BACK TO TOP
+         9. SCROLL PROGRESS BAR & BACK TO TOP BUTTON
          ------------------------------------------------------------- */
       const progressBar = document.getElementById('scrollProgress');
       const backToTopBtn = document.getElementById('backToTopBtn');
+      const circleProgress = document.getElementById('circleProgress');
+      const totalCircumference = 2 * Math.PI * 20;
 
       window.addEventListener('scroll', () => {
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (window.scrollY / (totalHeight || 1)) * 100;
-        if (progressBar) progressBar.style.width = `${progress}%`;
+        const progress = (window.scrollY / (totalHeight || 1));
+        const progressPct = progress * 100;
+
+        if (progressBar) progressBar.style.width = `${progressPct}%`;
+
+        if (circleProgress) {
+          const offset = totalCircumference - (progress * totalCircumference);
+          circleProgress.style.strokeDashoffset = `${offset}`;
+        }
 
         if (backToTopBtn) {
-          if (window.scrollY > 400) {
+          if (window.scrollY > 350) {
             backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
             backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
           } else {
@@ -1987,11 +2229,11 @@ const harmony = ref([
       }
 
       /* -------------------------------------------------------------
-         7. CUSTOM CURSOR TRACKING
+         10. MOUSE CURSOR ONLY ON FINE POINTER (DESKTOP)
          ------------------------------------------------------------- */
       const dot = document.getElementById('cursorDot');
       const ring = document.getElementById('cursorRing');
-      if (dot && ring) {
+      if (dot && ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         let mouseX = -100, mouseY = -100;
         let ringX = -100, ringY = -100;
 
@@ -2016,26 +2258,28 @@ const harmony = ref([
       }
 
       /* -------------------------------------------------------------
-         8. 3D CARD TILT EFFECT (NAMITH'S PHOTO & BENTO CARDS)
+         11. 3D CARD TILT (DESKTOP ONLY)
          ------------------------------------------------------------- */
-      const tiltCards = document.querySelectorAll('.tilt-card');
-      tiltCards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          const rotX = -(y / (rect.height / 2)) * 7;
-          const rotY = (x / (rect.width / 2)) * 7;
-          card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.01, 1.01, 1.01)`;
-        });
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+          card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const rotX = -(y / (rect.height / 2)) * 6;
+            const rotY = (x / (rect.width / 2)) * 6;
+            card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.01, 1.01, 1.01)`;
+          });
 
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+          });
         });
-      });
+      }
 
       /* -------------------------------------------------------------
-         9. LIVE INTERACTIVE SIMULATOR (CLAUDE STREAMING SIMULATION)
+         12. SIMULATOR LOGIC
          ------------------------------------------------------------- */
       const simInput = document.getElementById('simInput');
       const simSendBtn = document.getElementById('simSendBtn');
@@ -2056,7 +2300,7 @@ const harmony = ref([
         const msg = document.createElement('div');
         msg.className = 'flex justify-end';
         msg.innerHTML = `
-          <div class="max-w-[85%] px-4 py-3 rounded-2xl rounded-tr-xs bg-claude-terracotta text-white text-xs sm:text-sm font-medium shadow-xs">
+          <div class="max-w-[88%] px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl rounded-tr-xs bg-trix-terracotta text-white text-xs sm:text-sm font-medium shadow-xs">
             ${text}
           </div>
         `;
@@ -2068,26 +2312,24 @@ const harmony = ref([
         const respContainer = document.createElement('div');
         respContainer.className = 'space-y-3';
         
-        // Random thinking duration
         const duration = (Math.random() * 1.5 + 1.2).toFixed(1);
 
         respContainer.innerHTML = `
-          <div class="rounded-xl border border-claude-terracotta/25 bg-claude-terracotta/5 overflow-hidden">
-            <button class="w-full px-3.5 py-2 text-left flex items-center justify-between text-xs font-mono text-claude-terracotta hover:bg-claude-terracotta/10 transition dynamic-thinking-btn">
+          <div class="rounded-xl border border-trix-terracotta/25 bg-trix-terracotta/5 overflow-hidden">
+            <button class="w-full px-3.5 py-2 text-left flex items-center justify-between text-xs font-mono text-trix-terracotta hover:bg-trix-terracotta/10 transition dynamic-thinking-btn">
               <div class="flex items-center space-x-2">
                 <i data-lucide="brain" class="w-3.5 h-3.5 animate-pulse"></i>
-                <span>Thinking Process (${duration}s)</span>
+                <span>TriX Deductive Reasoning (${duration}s)</span>
               </div>
               <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
             </button>
-            <div class="px-3.5 py-2.5 text-[11px] font-mono text-claude-lightSubtext dark:text-claude-darkSubtext space-y-1 border-t border-claude-terracotta/15 bg-white/20 dark:bg-black/20">
-              <p>• Synthesizing domain logic for "${promptText.slice(0, 35)}..."</p>
-              <p>• Applying Anthropic Claude reasoning principles & design clarity.</p>
-              <p>• Streamed live artifact to sandbox engine.</p>
+            <div class="px-3.5 py-2.5 text-[11px] font-mono text-trix-lightSubtext dark:text-trix-darkSubtext space-y-1 border-t border-trix-terracotta/15 bg-white/20 dark:bg-black/20">
+              <p>• Synthesizing domain logic for "${promptText.slice(0, 30)}..."</p>
+              <p>• Generating reactive Artifact sandbox with real-time update loop.</p>
             </div>
           </div>
-          <div class="text-xs sm:text-sm leading-relaxed text-[#1F1E1D] dark:text-[#E8E6DF] space-y-1 assistant-typewriter">
-            <p>I have structured a comprehensive response for your query: <em>"${promptText}"</em>. Notice how TriXAI maintains clean chain-of-thought provenance and reactive artifact previewing.</p>
+          <div class="text-xs sm:text-sm leading-relaxed text-[#1F1E1D] dark:text-[#E8E6DF] space-y-1">
+            <p>I have structured a comprehensive response for your query: <em>"${promptText}"</em>. Notice how TriXAI maintains clean deductive reasoning and reactive artifact previewing.</p>
           </div>
         `;
 
@@ -2095,7 +2337,6 @@ const harmony = ref([
         simHistory.scrollTop = simHistory.scrollHeight;
         if (window.lucide) lucide.createIcons();
 
-        // Bind thinking fold
         const btn = respContainer.querySelector('.dynamic-thinking-btn');
         const fold = respContainer.querySelector('.dynamic-thinking-btn + div');
         if (btn && fold) {
@@ -2119,7 +2360,6 @@ const harmony = ref([
         });
       }
 
-      // Hero chips click handler
       document.querySelectorAll('.hero-prompt-chip').forEach(chip => {
         chip.addEventListener('click', () => {
           const prompt = chip.getAttribute('data-prompt');
@@ -2134,12 +2374,12 @@ const harmony = ref([
       if (simClearBtn) {
         simClearBtn.addEventListener('click', () => {
           simHistory.innerHTML = `
-            <div class="p-3.5 rounded-2xl bg-claude-warmCard dark:bg-claude-darkCard border border-claude-lightBorder dark:border-claude-darkBorder text-xs space-y-1.5">
-              <div class="flex items-center space-x-2 text-claude-terracotta font-semibold">
+            <div class="p-3 sm:p-3.5 rounded-2xl bg-trix-warmCard dark:bg-trix-darkCard border border-trix-lightBorder dark:border-trix-darkBorder text-xs space-y-1.5">
+              <div class="flex items-center space-x-2 text-trix-terracotta font-semibold">
                 <i data-lucide="sparkles" class="w-4 h-4"></i>
                 <span>TriXAI Kernel Re-initialized</span>
               </div>
-              <p class="text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
+              <p class="text-trix-lightSubtext dark:text-trix-darkSubtext leading-relaxed">
                 Environment reset to default state. Type a prompt below or test one of the archetypes.
               </p>
             </div>
@@ -2149,7 +2389,7 @@ const harmony = ref([
       }
 
       /* -------------------------------------------------------------
-         10. ARTIFACT TABS & SWATCH CLIPBOARD COPY
+         13. ARTIFACT TABS & COLOR SWATCHES
          ------------------------------------------------------------- */
       const tabPreview = document.getElementById('artTabPreview');
       const tabCode = document.getElementById('artTabCode');
@@ -2160,19 +2400,18 @@ const harmony = ref([
         tabPreview.addEventListener('click', () => {
           widgetPalette.classList.remove('hidden');
           codeView.classList.add('hidden');
-          tabPreview.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-claude-darkCard text-claude-terracotta font-semibold shadow-xs';
-          tabCode.className = 'px-2.5 py-1 rounded-lg text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta';
+          tabPreview.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-trix-darkCard text-trix-terracotta font-semibold shadow-xs';
+          tabCode.className = 'px-2.5 py-1 rounded-lg text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta';
         });
 
         tabCode.addEventListener('click', () => {
           widgetPalette.classList.add('hidden');
           codeView.classList.remove('hidden');
-          tabCode.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-claude-darkCard text-claude-terracotta font-semibold shadow-xs';
-          tabPreview.className = 'px-2.5 py-1 rounded-lg text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta';
+          tabCode.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-trix-darkCard text-trix-terracotta font-semibold shadow-xs';
+          tabPreview.className = 'px-2.5 py-1 rounded-lg text-trix-lightSubtext dark:text-trix-darkSubtext hover:text-trix-terracotta';
         });
       }
 
-      // Swatch Click Copy
       const copiedToast = document.getElementById('copiedToast');
       document.querySelectorAll('.swatch-card').forEach(card => {
         card.addEventListener('click', () => {
@@ -2187,7 +2426,6 @@ const harmony = ref([
         });
       });
 
-      // Regenerate Palette Button
       const regenBtn = document.getElementById('regenPaletteBtn');
       if (regenBtn) {
         const palettes = [
@@ -2198,13 +2436,13 @@ const harmony = ref([
             { name: 'Ivory', hex: '#FAF9F5', bg: '#FAF9F5', text: '#1F1E1D' }
           ],
           [
-            { name: 'Ember', hex: '#FF5A1F', bg: '#FF5A1F', text: '#FFFFFF' },
+            { name: 'Ember', hex: '#FF6B35', bg: '#FF6B35', text: '#FFFFFF' },
             { name: 'Charcoal', hex: '#1E1916', bg: '#1E1916', text: '#FFFFFF' },
             { name: 'Bone', hex: '#F1E8DE', bg: '#F1E8DE', text: '#1E1916' },
             { name: 'Blood', hex: '#D12A1C', bg: '#D12A1C', text: '#FFFFFF' }
           ],
           [
-            { name: 'Warm Amber', hex: '#E59866', bg: '#E59866', text: '#1F1E1D' },
+            { name: 'Amber', hex: '#E59866', bg: '#E59866', text: '#1F1E1D' },
             { name: 'Obsidian', hex: '#141312', bg: '#141312', text: '#FFFFFF' },
             { name: 'Terracotta', hex: '#C86849', bg: '#C86849', text: '#FFFFFF' },
             { name: 'Sand', hex: '#EFECE6', bg: '#EFECE6', text: '#141312' }
@@ -2218,13 +2456,12 @@ const harmony = ref([
           const grid = document.getElementById('paletteGrid');
           if (!grid) return;
           grid.innerHTML = current.map(item => `
-            <div class="swatch-card p-3 rounded-xl cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs border border-black/10" style="background-color: ${item.bg}; color: ${item.text};" data-hex="${item.hex}">
-              <span class="text-[10px] font-mono opacity-80 uppercase">${item.name}</span>
-              <span class="text-xs font-mono font-bold">${item.hex}</span>
+            <div class="swatch-card p-2.5 sm:p-3 rounded-xl cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-24 sm:h-28 shadow-xs border border-black/10 active:scale-95" style="background-color: ${item.bg}; color: ${item.text};" data-hex="${item.hex}">
+              <span class="text-[9px] sm:text-[10px] font-mono opacity-80 uppercase">${item.name}</span>
+              <span class="text-[11px] sm:text-xs font-mono font-bold">${item.hex}</span>
             </div>
           `).join('');
 
-          // Rebind copy
           grid.querySelectorAll('.swatch-card').forEach(c => {
             c.addEventListener('click', () => {
               const hex = c.getAttribute('data-hex');
@@ -2241,8 +2478,7 @@ const harmony = ref([
       }
 
       /* -------------------------------------------------------------
-         11. INTERACTIVE SHINY TEXT LAB CONTROLS
-         Real-time reactive testing of the React Bits component props
+         14. SHINY TEXT LAB CONTROLS
          ------------------------------------------------------------- */
       if (labShinyInstance) {
         const ctrlSpeed = document.getElementById('ctrlSpeed');
