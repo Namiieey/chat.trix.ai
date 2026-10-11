@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#191918" />
+  <meta name="description" content="TriXAI — A modern, soulful Claude-inspired AI workspace. Crafted with bespoke craftsmanship, artifacts engine, and intelligent reasoning by Namith RN." />
+  <meta name="keywords" content="TriXAI, Claude AI, Namith RN, AI Interface, React Bits, ShinyText, ScrollExpand, Awwwards, Creative Developer" />
+  <meta name="author" content="Namith RN" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TriXAI — Intelligence Crafted with Soul | by Namith RN" />
+  <meta property="og:description" content="A modern Claude-inspired AI experience engineered for deep work, live artifacts, and transparent reasoning. Created by Namith RN." />
+  <meta property="og:image" content="https://plain-apac-prod-public.komododecks.com/202610/10/xeNXT7AzxbFHHxMUAGbr/image.jpg" />
+  <meta property="og:url" content="https://trixai.vercel.app/" />
+
+  <title>TriXAI — Intelligence Crafted with Soul | by Namith RN</title>
+
+  <!-- Favicon: Claude-inspired Radiant Sparkle -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E88D6D'/%3E%3Cstop offset='45%25' stop-color='%23D97757'/%3E%3Cstop offset='100%25' stop-color='%23AD4729'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M32 12 C32 21 23 32 12 32 C23 32 32 43 32 52 C32 43 41 32 52 32 C41 32 32 21 32 12 Z' fill='%23FFFFFF'/%3E%3Ccircle cx='32' cy='32' r='3.2' fill='%23D97757'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Editorial Serif + Clean Sans + JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration matching Claude Aesthetic -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            claude: {
+              terracotta: '#D97757',
+              terracottaHover: '#C86849',
+              coral: '#E28768',
+              amber: '#E59866',
+              warmIvory: '#FAF9F5',
+              warmCard: '#F3F2EC',
+              lightBorder: '#E5E4DC',
+              lightSubtext: '#74726C',
+              darkBg: '#181716',
+              darkSidebar: '#141312',
+              darkCard: '#222120',
+              darkCardHover: '#2A2927',
+              darkBorder: '#343330',
+              darkSubtext: '#9E9D95',
+              darkText: '#F5F5F0',
+            }
+          },
+          boxShadow: {
+            'claude-glow': '0 0 35px -5px rgba(217, 119, 87, 0.28)',
+            'subtle-card': '0 12px 30px -10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.05)',
+            'deep-card': '0 25px 60px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.07)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* -------------------------------------------------------------
+       1. REACT BITS: SHINY TEXT COMPONENT STYLES
+       Exact styles from the React Bits specification
+       ------------------------------------------------------------- */
+    .shiny-text {
+      position: relative;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: color 0.2s ease;
+    }
+
+    .shiny-text__glow {
+      position: absolute;
+      inset: 0;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter: blur(0.14em);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* -------------------------------------------------------------
+       2. REACT BITS: SCROLL EXPAND COMPONENT STYLES
+       Exact styles from the React Bits specification
+       ------------------------------------------------------------- */
+    .scroll-expand {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .scroll-expand--scroller {
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      overscroll-behavior: contain;
+    }
+
+    .scroll-expand--scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroll-expand__track {
+      position: relative;
+      width: 100%;
+    }
+
+    .scroll-expand__stage {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+      --se-title-size: clamp(2.4rem, 6vw, 5.5rem);
+    }
+
+    .scroll-expand__frame {
+      position: absolute;
+      inset: 0;
+      clip-path: inset(21% 29% 21% 29% round 24px);
+      will-change: clip-path;
+      box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .scroll-expand__media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+      transform-origin: center;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .scroll-expand__scrim {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(18, 17, 16, 0.95), rgba(18, 17, 16, 0.45) 45%, rgba(18, 17, 16, 0.7));
+      opacity: 0;
+    }
+
+    .scroll-expand__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(1rem, 4vw, 3rem);
+      opacity: 0;
+      will-change: opacity, transform;
+      z-index: 10;
+    }
+
+    .scroll-expand__title {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0 6%;
+      text-align: center;
+      font-size: var(--se-title-size);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: #fff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+      will-change: opacity, transform;
+      z-index: 5;
+    }
+
+    .scroll-expand__hint {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2rem;
+      text-align: center;
+      font-size: 0.825rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+      pointer-events: none;
+      will-change: opacity, transform;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    /* -------------------------------------------------------------
+       3. AESTHETICS & MICRO-INTERACTIONS
+       ------------------------------------------------------------- */
+    /* Film Grain Layer */
+    .grain-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(217, 119, 87, 0.3);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(217, 119, 87, 0.6);
+    }
+
+    /* Cursor Follower (Desktop only) */
+    @media (hover: hover) and (pointer: fine) {
+      .custom-cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        background: #D97757;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1000;
+        transform: translate(-50%, -50%);
+        transition: transform 0.08s ease, opacity 0.2s ease;
+      }
+      .custom-cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        border: 1px solid rgba(217, 119, 87, 0.45);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.25s, height 0.25s, border-color 0.25s;
+      }
+      .custom-cursor-ring.active {
+        width: 54px;
+        height: 54px;
+        background: rgba(217, 119, 87, 0.1);
+        border-color: #D97757;
+      }
+    }
+
+    /* 3D Tilt Card */
+    .tilt-card {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .tilt-child {
+      transform: translateZ(24px);
+    }
+
+    /* Subtle Glassmorphism */
+    .claude-glass {
+      background: rgba(24, 23, 22, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    html:not(.dark) .claude-glass {
+      background: rgba(250, 249, 245, 0.82);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* Glowing radial mesh backgrounds */
+    .terracotta-radial {
+      background: radial-gradient(circle 600px at 50% 0%, rgba(217, 119, 87, 0.16), transparent 70%);
+    }
+
+    /* Text selection */
+    ::selection {
+      background: rgba(217, 119, 87, 0.35);
+      color: inherit;
+    }
+  </style>
+</head>
+<body class="bg-claude-warmIvory text-[#1F1E1D] dark:bg-claude-darkBg dark:text-claude-darkText font-sans transition-colors duration-300 antialiased selection:bg-claude-terracotta/30 overflow-x-hidden">
+
+  <!-- Grain Overlay -->
+  <div class="grain-layer" aria-hidden="true"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor-dot hidden md:block" id="cursorDot"></div>
+  <div class="custom-cursor-ring hidden md:block" id="cursorRing"></div>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="scrollProgress" class="fixed top-0 left-0 h-[2.5px] bg-gradient-to-r from-claude-terracotta via-claude-coral to-claude-amber z-[110] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- ==============================================================
+       NAVIGATION BAR
+       ============================================================== -->
+  <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4">
+      <nav class="claude-glass rounded-2xl px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-subtle-card">
+        
+        <!-- Brand & Creator -->
+        <a href="#top" class="flex items-center space-x-3 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#E88D6D] via-[#D97757] to-[#AD4729] p-1.5 shadow-md shadow-claude-terracotta/30 border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+            <!-- Claude Spark Icon -->
+            <svg class="w-full h-full filter drop-shadow-xs" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4 C16 10.5 10.5 16 4 16 C10.5 16 16 21.5 16 28 C16 21.5 21.5 16 28 16 C21.5 16 16 10.5 16 4 Z" fill="#FFFFFF"/>
+              <path d="M16 8 C16 12.5 12.5 16 8 16 C12.5 16 16 19.5 16 24 C16 19.5 19.5 16 24 16 C19.5 16 16 12.5 16 8 Z" fill="#FFFFFF" opacity="0.4" transform="rotate(45 16 16)"/>
+              <circle cx="16" cy="16" r="2.2" fill="#D97757"/>
+              <circle cx="16" cy="16" r="1.1" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-serif font-bold text-xl sm:text-2xl tracking-tight text-[#1F1E1D] dark:text-white">TriXAI</span>
+              <span class="text-[10px] uppercase font-mono tracking-widest px-2 py-0.5 rounded-full bg-claude-terracotta/15 text-claude-terracotta border border-claude-terracotta/30 font-semibold">Claude OS</span>
+            </div>
+            <p class="text-[11px] text-claude-lightSubtext dark:text-claude-darkSubtext -mt-0.5 font-medium flex items-center gap-1">
+              <span>by</span>
+              <span class="text-claude-terracotta font-semibold hover:underline">Namith RN</span>
+            </p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <a href="#overview" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Overview</a>
+          <a href="#experience" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">ScrollStage</a>
+          <a href="#simulator" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Live Sandbox</a>
+          <a href="#shiny-lab" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">ShinyText Lab</a>
+          <a href="#architect" class="px-3.5 py-1.5 rounded-xl text-xs font-medium text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition">Architect</a>
+        </div>
+
+        <!-- Quick Actions & Try TriXAI CTA -->
+        <div class="flex items-center space-x-2.5">
+          <!-- Sound fx toggle -->
+          <button id="soundToggle" class="w-8 h-8 rounded-xl flex items-center justify-center text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white border border-claude-lightBorder dark:border-claude-darkBorder hover:bg-black/5 dark:hover:bg-white/5 transition text-xs" title="Toggle audio feedback" aria-label="Toggle audio feedback">
+            <i data-lucide="volume-2" class="w-4 h-4" id="soundIcon"></i>
+          </button>
+
+          <!-- Theme toggle -->
+          <button id="themeToggle" class="w-8 h-8 rounded-xl flex items-center justify-center text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta dark:hover:text-white border border-claude-lightBorder dark:border-claude-darkBorder hover:bg-black/5 dark:hover:bg-white/5 transition text-xs" title="Toggle light/dark theme" aria-label="Toggle theme">
+            <i data-lucide="moon" class="w-4 h-4 dark:hidden"></i>
+            <i data-lucide="sun" class="w-4 h-4 hidden dark:inline"></i>
+          </button>
+
+          <!-- Try TrixAI Primary Button -->
+          <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="relative group inline-flex items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-claude-terracotta to-claude-coral hover:from-claude-terracottaHover hover:to-claude-terracotta text-white font-semibold text-xs tracking-wide shadow-md shadow-claude-terracotta/25 hover:shadow-claude-terracotta/40 transition-all duration-200 active:scale-95">
+            <span>Try TriXAI</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobileMenuBtn" class="md:hidden w-8 h-8 rounded-xl flex items-center justify-center text-claude-lightSubtext dark:text-claude-darkSubtext border border-claude-lightBorder dark:border-claude-darkBorder" aria-label="Toggle menu">
+            <i data-lucide="menu" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden md:hidden mt-2 p-4 rounded-2xl claude-glass flex flex-col space-y-2 border border-claude-lightBorder dark:border-claude-darkBorder">
+        <a href="#overview" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">Overview</a>
+        <a href="#experience" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">ScrollStage</a>
+        <a href="#simulator" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">Live Sandbox</a>
+        <a href="#shiny-lab" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">ShinyText Lab</a>
+        <a href="#architect" class="px-3 py-2 rounded-xl text-sm font-medium hover:bg-black/5 dark:hover:bg-white/5">Architect (Namith RN)</a>
+        <a href="https://namithrn.vercel.app/" target="_blank" class="px-3 py-2 rounded-xl text-sm font-medium text-claude-terracotta hover:bg-black/5 dark:hover:bg-white/5 flex items-center justify-between">
+          <span>Namith's Portfolio</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==============================================================
+       HERO SECTION
+       Showcasing editorial Claude styling + React Bits <ShinyText />
+       ============================================================== -->
+  <section id="top" class="relative pt-32 sm:pt-40 pb-20 sm:pb-28 terracotta-radial overflow-hidden">
+    <!-- Ambient glowing backdrop orbs -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-claude-terracotta/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <!-- Pill Badge -->
+      <div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-medium tracking-wide mb-8 shadow-xs animate-fade-in">
+        <span class="w-2 h-2 rounded-full bg-claude-terracotta animate-pulse"></span>
+        <span class="font-mono uppercase tracking-wider text-[11px]">Anthropic Claude Design Philosophy</span>
+        <span class="text-claude-terracotta/60">•</span>
+        <span class="font-mono text-[11px] text-claude-terracotta/90">Created by Namith RN</span>
+      </div>
+
+      <!-- Main Headline using React Bits <ShinyText /> component -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-normal tracking-tight leading-[1.04] mb-6 max-w-5xl mx-auto">
+        <span class="block">Intelligence</span>
+        <span class="block italic text-claude-terracotta">Crafted with Soul.</span>
+        <!-- ShinyText Hero Banner -->
+        <span class="block mt-2 font-sans font-extrabold text-2xl sm:text-4xl md:text-5xl uppercase tracking-tighter">
+          <span class="shiny-target" 
+                data-text="TriXAI: Next-Gen Claude Interface"
+                data-color="#9E9D95"
+                data-shine-color="#FFFFFF"
+                data-speed="2.2"
+                data-shine-width="45"
+                data-softness="0.8"
+                data-glow="0.4"
+                data-trigger="loop">
+            TriXAI: Next-Gen Claude Interface
+          </span>
+        </span>
+      </h1>
+
+      <!-- Editorial Description -->
+      <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-claude-lightSubtext dark:text-claude-darkSubtext font-normal leading-relaxed mb-10 font-sans">
+        A tranquil, deeply thoughtful conversational workstation. Designed with Claude's warmth, transparent chain-of-thought, real-time code artifacts, and zero cognitive friction.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 mb-14">
+        <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-claude-terracotta to-claude-coral hover:from-claude-terracottaHover hover:to-claude-terracotta text-white font-medium text-sm sm:text-base tracking-tight shadow-lg shadow-claude-terracotta/30 hover:shadow-claude-terracotta/50 transition duration-200 flex items-center space-x-2 group">
+          <span>Launch TriXAI Live</span>
+          <i data-lucide="sparkles" class="w-4 h-4 group-hover:rotate-12 transition-transform"></i>
+        </a>
+        <a href="#experience" class="px-7 py-3.5 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white/50 dark:bg-claude-darkCard/50 hover:bg-black/5 dark:hover:bg-claude-darkCardHover font-medium text-sm sm:text-base tracking-tight transition duration-200 flex items-center space-x-2">
+          <span>Explore ScrollStage</span>
+          <i data-lucide="arrow-down" class="w-4 h-4 text-claude-terracotta"></i>
+        </a>
+        <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-2xl border border-claude-terracotta/30 bg-claude-terracotta/5 hover:bg-claude-terracotta/15 text-claude-terracotta font-medium text-sm sm:text-base tracking-tight transition duration-200 flex items-center space-x-2">
+          <i data-lucide="user" class="w-4 h-4"></i>
+          <span>Namith's Portfolio</span>
+        </a>
+      </div>
+
+      <!-- Quick Interactive Prompt Bar (Try a question instantly) -->
+      <div class="max-w-2xl mx-auto claude-glass rounded-2xl p-2.5 sm:p-3 border border-claude-terracotta/30 shadow-subtle-card text-left">
+        <div class="flex items-center space-x-2 px-3 py-1 text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext mb-2">
+          <i data-lucide="terminal" class="w-3.5 h-3.5 text-claude-terracotta"></i>
+          <span>Sample Prompt Inquiries — Click to simulate:</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button class="hero-prompt-chip text-left text-xs px-3 py-2 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-claude-terracotta hover:text-white transition flex items-center space-x-1.5" data-prompt="Design an interactive 3D WebGL particle constellation">
+            <i data-lucide="sparkle" class="w-3 h-3 text-claude-terracotta"></i>
+            <span>"Design an interactive 3D WebGL constellation"</span>
+          </button>
+          <button class="hero-prompt-chip text-left text-xs px-3 py-2 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-claude-terracotta hover:text-white transition flex items-center space-x-1.5" data-prompt="Analyze why Claude's design language evokes intellectual warmth">
+            <i data-lucide="feather" class="w-3 h-3 text-claude-terracotta"></i>
+            <span>"Why Claude's aesthetic evokes intellectual warmth"</span>
+          </button>
+          <button class="hero-prompt-chip text-left text-xs px-3 py-2 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-claude-terracotta hover:text-white transition flex items-center space-x-1.5" data-prompt="Write a production React Bits ShinyText vanilla engine">
+            <i data-lucide="code" class="w-3 h-3 text-claude-terracotta"></i>
+            <span>"React Bits ShinyText Vanilla Engine"</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       OVERVIEW & HIGHLIGHT STATS
+       ============================================================== -->
+  <section id="overview" class="py-16 sm:py-20 border-y border-claude-lightBorder dark:border-claude-darkBorder bg-claude-warmCard/50 dark:bg-claude-darkSidebar/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+        
+        <div class="p-4 rounded-2xl">
+          <div class="font-serif text-3xl sm:text-5xl font-bold text-[#1F1E1D] dark:text-white mb-1">
+            <span class="shiny-target" data-text="Claude 3.5" data-color="#D97757" data-shine-color="#FFFFFF" data-speed="2.5" data-glow="0.2">Claude 3.5</span>
+          </div>
+          <p class="text-xs sm:text-sm text-claude-lightSubtext dark:text-claude-darkSubtext font-mono uppercase tracking-wider">Sonnet & Opus Core</p>
+        </div>
+
+        <div class="p-4 rounded-2xl">
+          <div class="font-serif text-3xl sm:text-5xl font-bold text-[#1F1E1D] dark:text-white mb-1">200K+</div>
+          <p class="text-xs sm:text-sm text-claude-lightSubtext dark:text-claude-darkSubtext font-mono uppercase tracking-wider">Tokens Context Fluidity</p>
+        </div>
+
+        <div class="p-4 rounded-2xl">
+          <div class="font-serif text-3xl sm:text-5xl font-bold text-[#1F1E1D] dark:text-white mb-1">0.12s</div>
+          <p class="text-xs sm:text-sm text-claude-lightSubtext dark:text-claude-darkSubtext font-mono uppercase tracking-wider">Streaming Time-to-First-Token</p>
+        </div>
+
+        <div class="p-4 rounded-2xl">
+          <div class="font-serif text-3xl sm:text-5xl font-bold text-[#1F1E1D] dark:text-white mb-1">100%</div>
+          <p class="text-xs sm:text-sm text-claude-lightSubtext dark:text-claude-darkSubtext font-mono uppercase tracking-wider">Designed by Namith RN</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       REACT BITS COMPONENT: <ScrollExpand />
+       Full scroll expansion stage with window scroll pinning
+       ============================================================== -->
+  <section id="experience" class="relative">
+    <!-- Component Container matching React Bits ScrollExpand -->
+    <div class="scroll-expand" 
+         id="scrollExpandContainer"
+         data-start-width="46"
+         data-start-height="62"
+         data-start-radius="28"
+         data-end-radius="0"
+         data-media-zoom="1.38"
+         data-scroll-distance="1.35"
+         data-hold-distance="0.4"
+         data-smoothing="0.12"
+         data-overlay-scrim="0.65"
+         data-use-window-scroll="true">
+
+      <div class="scroll-expand__track" id="scrollTrack">
+        <div class="scroll-expand__stage" id="scrollStage">
+          
+          <!-- Expanding Frame -->
+          <div class="scroll-expand__frame" id="scrollFrame">
+            <!-- Media: Interactive TriXAI Workspace Visual Mockup -->
+            <div class="scroll-expand__media w-full h-full relative bg-[#121110] flex items-center justify-center overflow-hidden" id="scrollMedia">
+              <!-- Rich High-Fidelity TriXAI Cockpit Scene -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-[#141312] via-[#1D1B1A] to-[#2B231F]"></div>
+              
+              <!-- Ambient Grid Lines -->
+              <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#D97757_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+              <!-- High-end Simulated Workspace UI in stage -->
+              <div class="relative w-full max-w-5xl mx-auto h-[82%] rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between overflow-hidden">
+                
+                <!-- Mock Top bar -->
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    <span class="text-xs font-mono text-white/50 pl-3">trixai.workspace.app — Active Session</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-claude-terracotta/20 text-claude-coral border border-claude-terracotta/30">Claude 3.5 Sonnet</span>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 text-white/70">Artifacts ON</span>
+                  </div>
+                </div>
+
+                <!-- Mock Split Content -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 my-4 flex-1 overflow-hidden">
+                  <!-- Left: Chat Stream -->
+                  <div class="md:col-span-5 flex flex-col justify-between space-y-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                    <div class="space-y-3 overflow-hidden text-xs">
+                      <div class="bg-claude-terracotta/20 border border-claude-terracotta/30 p-2.5 rounded-xl text-white/90 self-end">
+                        "Refactor the neural embedding visualizer with interactive canvas shaders..."
+                      </div>
+                      <div class="p-2.5 rounded-xl bg-white/5 text-white/80 space-y-1.5 font-mono text-[11px]">
+                        <div class="flex items-center space-x-1.5 text-claude-coral">
+                          <i data-lucide="brain" class="w-3 h-3"></i>
+                          <span>Thinking Process (Expanded)</span>
+                        </div>
+                        <p class="text-white/60 text-[10px]">1. Decompose vertex buffers into float32 array.<br>2. Hook requestAnimationFrame with smooth delta timing.<br>3. Render artifact preview live...</p>
+                      </div>
+                    </div>
+                    <div class="h-9 rounded-xl bg-white/10 border border-white/10 flex items-center px-3 text-white/40 text-xs">
+                      Send a message to TriXAI...
+                    </div>
+                  </div>
+
+                  <!-- Right: Live Artifact Canvas Window -->
+                  <div class="md:col-span-7 rounded-xl bg-[#0F0E0D] border border-claude-terracotta/30 p-4 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-2 mb-2">
+                      <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <span class="text-xs font-mono text-white/90 font-semibold">Live Artifact: QuantumMesh.tsx</span>
+                      </div>
+                      <div class="flex items-center space-x-1 text-[10px] font-mono text-white/60">
+                        <span class="px-2 py-0.5 rounded bg-white/10 text-white">Interactive View</span>
+                        <span class="px-2 py-0.5 rounded text-white/40">Code</span>
+                      </div>
+                    </div>
+                    
+                    <!-- Decorative Graphic Node Network -->
+                    <div class="flex-1 flex items-center justify-center relative">
+                      <svg class="w-full h-36 filter drop-shadow-[0_0_15px_rgba(217,119,87,0.4)]" viewBox="0 0 300 120" fill="none">
+                        <circle cx="50" cy="60" r="14" fill="#D97757" fill-opacity="0.2" stroke="#D97757" stroke-width="2"/>
+                        <circle cx="150" cy="30" r="18" fill="#E28768" fill-opacity="0.25" stroke="#E28768" stroke-width="2"/>
+                        <circle cx="150" cy="90" r="14" fill="#AD4729" fill-opacity="0.2" stroke="#AD4729" stroke-width="2"/>
+                        <circle cx="250" cy="60" r="20" fill="#FFFFFF" fill-opacity="0.1" stroke="#FFFFFF" stroke-width="2"/>
+                        <path d="M64 60 L132 30" stroke="#D97757" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        <path d="M64 60 L136 90" stroke="#D97757" stroke-width="1.5"/>
+                        <path d="M168 30 L230 60" stroke="#E28768" stroke-width="1.5"/>
+                        <path d="M164 90 L230 60" stroke="#AD4729" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        <circle cx="50" cy="60" r="4" fill="#FFFFFF"/>
+                        <circle cx="150" cy="30" r="5" fill="#FFFFFF"/>
+                        <circle cx="150" cy="90" r="4" fill="#FFFFFF"/>
+                        <circle cx="250" cy="60" r="6" fill="#D97757"/>
+                      </svg>
+                    </div>
+
+                    <div class="text-[11px] font-mono text-white/50 flex justify-between items-center pt-2 border-t border-white/5">
+                      <span>FPS: 120 · WebGL2 Standard</span>
+                      <span class="text-claude-terracotta">Ready to deploy</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Footer status bar -->
+                <div class="flex items-center justify-between text-[11px] font-mono text-white/40 pt-2 border-t border-white/5">
+                  <span>Engine: TriXAI Dual-Kernel · Crafted by Namith RN</span>
+                  <span class="text-emerald-400">● Real-time sync enabled</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Gradient Scrim for readable overlay -->
+            <div class="scroll-expand__scrim" id="scrollScrim"></div>
+
+            <!-- Children / Overlay that fades in once expanded -->
+            <div class="scroll-expand__overlay" id="scrollOverlay">
+              <div class="max-w-3xl mx-auto space-y-4">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-mono text-white uppercase tracking-wider">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-claude-terracotta"></i>
+                  <span>Full Bleed Experience Unveiled</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-normal leading-tight">
+                  Every pixel, meticulously calibrated for <span class="italic text-claude-coral">deep contemplation.</span>
+                </h2>
+                <p class="text-sm sm:text-base text-white/80 max-w-xl mx-auto">
+                  The frame expands as you scroll, dissolving all boundaries between thought, code, and computational creation.
+                </p>
+                <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+                  <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-claude-terracotta hover:bg-claude-terracottaHover text-white font-medium text-xs sm:text-sm tracking-wide shadow-lg shadow-claude-terracotta/40 transition">
+                    Test TriXAI in Full Screen
+                  </a>
+                  <a href="#simulator" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs sm:text-sm tracking-wide border border-white/20 transition">
+                    Try Live Prompt Sandbox Below
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Resting Title that lifts away as frame opens -->
+          <div class="scroll-expand__title font-serif" id="scrollTitle">
+            <span class="max-w-2xl">Crafted to elevate human cognition.</span>
+          </div>
+
+          <!-- Scroll Hint that fades out immediately on scroll -->
+          <div class="scroll-expand__hint" id="scrollHint">
+            <i data-lucide="chevron-down" class="w-4 h-4 text-claude-coral animate-bounce"></i>
+            <span>Scroll to expand workspace</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       LIVE INTERACTIVE TRIXAI SIMULATOR & ARTIFACTS STUDIO
+       Experience Claude-style thinking and live artifacts directly
+       ============================================================== -->
+  <section id="simulator" class="py-24 sm:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-mono uppercase tracking-wider mb-4">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>Interactive Artifact Engine</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-4">
+          Experience TriXAI in Action
+        </h2>
+        <p class="text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext">
+          Watch transparent Claude-style chain-of-thought unfold in real-time, accompanied by live renderable code artifacts.
+        </p>
+      </div>
+
+      <!-- Simulator Cockpit Container -->
+      <div class="claude-glass rounded-3xl border border-claude-lightBorder dark:border-claude-darkBorder overflow-hidden shadow-deep-card">
+        
+        <!-- Cockpit Header -->
+        <div class="px-5 sm:px-6 py-4 border-b border-claude-lightBorder dark:border-claude-darkBorder bg-white/40 dark:bg-black/20 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-3 h-3 rounded-full bg-claude-terracotta animate-pulse"></div>
+            <span class="font-serif text-lg font-bold text-[#1F1E1D] dark:text-white">TriXAI Live Interactive Session</span>
+            <span class="text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">v2.4 Core</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button id="simClearBtn" class="px-3 py-1.5 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-medium hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center space-x-1.5">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Reset</span>
+            </button>
+            <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-claude-terracotta text-white text-xs font-medium hover:bg-claude-terracottaHover transition flex items-center space-x-1.5 shadow-xs">
+              <span>Open in Full App</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Split Screen: Left Chat stream | Right Artifact canvas -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[580px]">
+          
+          <!-- Left Column: Conversational Stream (7 cols) -->
+          <div class="lg:col-span-6 p-5 sm:p-6 border-b lg:border-b-0 lg:border-r border-claude-lightBorder dark:border-claude-darkBorder flex flex-col justify-between space-y-4 bg-white/20 dark:bg-black/10">
+            
+            <!-- Message List -->
+            <div class="space-y-4 overflow-y-auto max-h-[460px] pr-2" id="simChatHistory">
+              
+              <!-- System Intro -->
+              <div class="p-3.5 rounded-2xl bg-claude-warmCard dark:bg-claude-darkCard border border-claude-lightBorder dark:border-claude-darkBorder text-xs space-y-1.5">
+                <div class="flex items-center space-x-2 text-claude-terracotta font-semibold">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                  <span>TriXAI Kernel Initialized</span>
+                </div>
+                <p class="text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
+                  Welcome to the TriXAI preview environment. Select an archetype prompt or compose your own query below to watch the thinking process and live artifact generation.
+                </p>
+              </div>
+
+              <!-- Initial User Query -->
+              <div class="flex justify-end">
+                <div class="max-w-[85%] px-4 py-3 rounded-2xl rounded-tr-xs bg-claude-terracotta text-white text-xs sm:text-sm font-medium shadow-xs">
+                  Generate an interactive color palette generator with harmonic contrasts and instant hex copy.
+                </div>
+              </div>
+
+              <!-- Assistant Response with Claude Thinking Accordion -->
+              <div class="space-y-3">
+                <!-- Thinking Accordion -->
+                <div class="rounded-xl border border-claude-terracotta/25 bg-claude-terracotta/5 overflow-hidden">
+                  <button class="w-full px-3.5 py-2 text-left flex items-center justify-between text-xs font-mono text-claude-terracotta hover:bg-claude-terracotta/10 transition" id="simThinkingToggle">
+                    <div class="flex items-center space-x-2">
+                      <i data-lucide="brain" class="w-3.5 h-3.5 animate-pulse"></i>
+                      <span>Thinking Process (2.4s)</span>
+                    </div>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform" id="simThinkingChevron"></i>
+                  </button>
+                  <div class="px-3.5 py-2.5 text-[11px] font-mono text-claude-lightSubtext dark:text-claude-darkSubtext space-y-1 border-t border-claude-terracotta/15 bg-white/20 dark:bg-black/20" id="simThinkingContent">
+                    <p>• Analyzing color harmony algorithms: Analogous, Triadic, and Monochromatic distributions.</p>
+                    <p>• Calculating WCAG 2.1 contrast ratios for accessible text over dynamic backgrounds.</p>
+                    <p>• Generating reactive Artifact sandbox with interactive shuffle buttons and clipboard API hooks.</p>
+                  </div>
+                </div>
+
+                <!-- Markdown Text -->
+                <div class="text-xs sm:text-sm leading-relaxed text-[#1F1E1D] dark:text-[#E8E6DF] space-y-2">
+                  <p>Here is an interactive <strong>Harmonic Color Matrix</strong> artifact. You can explore complementary shades, inspect luminance scales, and click any swatch to copy its hex value.</p>
+                </div>
+
+                <!-- Artifact Callout Box -->
+                <div class="p-3 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white/60 dark:bg-claude-darkCard flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
+                      <i data-lucide="layout" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-xs font-semibold text-[#1F1E1D] dark:text-white">Artifact: HarmonicPalette.html</h4>
+                      <p class="text-[10px] text-claude-lightSubtext dark:text-claude-darkSubtext">Interactive UI Component · Ready</p>
+                    </div>
+                  </div>
+                  <span class="text-[11px] font-mono text-claude-terracotta font-medium px-2 py-1 rounded bg-claude-terracotta/10">Active</span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Input Box -->
+            <div class="space-y-2 pt-2">
+              <div class="relative">
+                <input type="text" id="simInput" placeholder="Ask TriXAI anything (e.g. 'Show me a physics particle sim')..." class="w-full px-4 py-3 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard text-xs sm:text-sm focus:outline-none focus:border-claude-terracotta focus:ring-1 focus:ring-claude-terracotta transition pr-12 text-[#1F1E1D] dark:text-white placeholder:text-claude-lightSubtext dark:placeholder:text-claude-darkSubtext" />
+                <button id="simSendBtn" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-claude-terracotta hover:bg-claude-terracottaHover text-white flex items-center justify-center transition shadow-xs" aria-label="Send message">
+                  <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-claude-lightSubtext dark:text-claude-darkSubtext px-1">
+                <span>Model: Sonnet 3.5 Engine</span>
+                <span class="flex items-center space-x-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Latency: 14ms</span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Live Artifact Canvas Preview (5 cols) -->
+          <div class="lg:col-span-6 p-5 sm:p-6 flex flex-col justify-between bg-claude-warmCard/40 dark:bg-claude-darkSidebar/40">
+            
+            <div class="flex items-center justify-between border-b border-claude-lightBorder dark:border-claude-darkBorder pb-3 mb-4">
+              <div class="flex items-center space-x-2">
+                <i data-lucide="box" class="w-4 h-4 text-claude-terracotta"></i>
+                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-[#1F1E1D] dark:text-white">Live Artifact Preview</span>
+              </div>
+              <!-- Tab switchers -->
+              <div class="flex items-center space-x-1 bg-black/5 dark:bg-white/5 p-1 rounded-xl text-xs font-mono">
+                <button class="px-2.5 py-1 rounded-lg bg-white dark:bg-claude-darkCard text-claude-terracotta font-semibold shadow-xs" id="artTabPreview">Preview</button>
+                <button class="px-2.5 py-1 rounded-lg text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta" id="artTabCode">Code</button>
+              </div>
+            </div>
+
+            <!-- Artifact Rendered Content Container -->
+            <div class="flex-1 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard p-4 sm:p-5 flex flex-col justify-center relative overflow-hidden" id="artifactCanvas">
+              
+              <!-- Color Palette Live Widget -->
+              <div id="artWidgetPalette" class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-semibold text-[#1F1E1D] dark:text-white flex items-center space-x-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-claude-terracotta"></span>
+                    <span>Terracotta & Sienna Harmony</span>
+                  </h4>
+                  <button id="regenPaletteBtn" class="px-2.5 py-1 rounded-lg border border-claude-lightBorder dark:border-claude-darkBorder text-[11px] font-mono hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center space-x-1">
+                    <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+                    <span>Regenerate</span>
+                  </button>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5" id="paletteGrid">
+                  <!-- Swatch 1 -->
+                  <div class="swatch-card p-3 rounded-xl bg-[#D97757] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs" data-hex="#D97757">
+                    <span class="text-[10px] font-mono opacity-80 uppercase">Primary</span>
+                    <span class="text-xs font-mono font-bold">#D97757</span>
+                  </div>
+                  <!-- Swatch 2 -->
+                  <div class="swatch-card p-3 rounded-xl bg-[#E28768] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs" data-hex="#E28768">
+                    <span class="text-[10px] font-mono opacity-80 uppercase">Coral</span>
+                    <span class="text-xs font-mono font-bold">#E28768</span>
+                  </div>
+                  <!-- Swatch 3 -->
+                  <div class="swatch-card p-3 rounded-xl bg-[#AD4729] text-white cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs" data-hex="#AD4729">
+                    <span class="text-[10px] font-mono opacity-80 uppercase">Sienna</span>
+                    <span class="text-xs font-mono font-bold">#AD4729</span>
+                  </div>
+                  <!-- Swatch 4 -->
+                  <div class="swatch-card p-3 rounded-xl bg-[#FAF9F5] text-[#1F1E1D] border border-black/10 cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs" data-hex="#FAF9F5">
+                    <span class="text-[10px] font-mono opacity-80 uppercase">Ivory</span>
+                    <span class="text-xs font-mono font-bold">#FAF9F5</span>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-[11px] font-mono flex items-center justify-between text-claude-lightSubtext dark:text-claude-darkSubtext">
+                  <span>Click swatch to copy hex code to clipboard</span>
+                  <span id="copiedToast" class="text-emerald-500 font-semibold opacity-0 transition-opacity">Copied!</span>
+                </div>
+              </div>
+
+              <!-- Code View (Hidden by default) -->
+              <div id="artCodeView" class="hidden h-full flex flex-col">
+                <pre class="bg-black/90 text-emerald-400 p-4 rounded-xl text-[11px] font-mono overflow-auto h-full border border-white/10"><code>&lt;!-- TriXAI Artifact Component: ColorHarmony.vue --&gt;
+&lt;template&gt;
+  &lt;section class="palette-grid"&gt;
+    &lt;div v-for="color in harmony" :key="color.hex" 
+         :style="{ backgroundColor: color.hex }" 
+         @click="copyHex(color.hex)"&gt;
+      &lt;span&gt;{{ color.name }}&lt;/span&gt;
+      &lt;strong&gt;{{ color.hex }}&lt;/strong&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref } from 'vue';
+const harmony = ref([
+  { name: 'Primary Terracotta', hex: '#D97757' },
+  { name: 'Warm Coral', hex: '#E28768' },
+  { name: 'Deep Sienna', hex: '#AD4729' },
+  { name: 'Claude Warm Ivory', hex: '#FAF9F5' }
+]);
+&lt;/script&gt;</code></pre>
+              </div>
+
+            </div>
+
+            <!-- Artifact Footer Info -->
+            <div class="pt-3 flex items-center justify-between text-[11px] font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">
+              <span class="flex items-center space-x-1">
+                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                <span>Sandboxed Execution Complete</span>
+              </span>
+              <span>TriXAI v2.4 Runtime</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       REACT BITS COMPONENT SHOWCASE & INTERACTIVE LAB: <ShinyText />
+       Full interactive laboratory to tweak and verify props
+       ============================================================== -->
+  <section id="shiny-lab" class="py-24 sm:py-32 border-t border-claude-lightBorder dark:border-claude-darkBorder bg-claude-warmCard/40 dark:bg-claude-darkSidebar/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-mono uppercase tracking-wider mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>React Bits Integration Laboratory</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-4">
+          The <span class="text-claude-terracotta italic">&lt;ShinyText /&gt;</span> Engine
+        </h2>
+        <p class="text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext">
+          Direct implementation of the React Bits component specification. Multi-band gamma 2.2 color blending, pointer-tracking spring dynamics, and smoothstep falloffs.
+        </p>
+      </div>
+
+      <!-- Laboratory Card -->
+      <div class="claude-glass rounded-3xl border border-claude-lightBorder dark:border-claude-darkBorder p-6 sm:p-10 shadow-deep-card">
+        
+        <!-- Live Shiny Preview Stage -->
+        <div class="min-h-[180px] sm:min-h-[220px] rounded-2xl bg-black/80 border border-white/10 flex flex-col items-center justify-center p-6 text-center mb-8 relative overflow-hidden group">
+          <div class="absolute inset-0 bg-[radial-gradient(#D97757_1px,transparent_1px)] [background-size:20px_20px] opacity-15"></div>
+          
+          <div class="relative z-10">
+            <span id="labShinyElement" 
+                  class="font-serif text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight"
+                  data-text="Refined Intelligence in Motion"
+                  data-color="#b5b5b5"
+                  data-shine-color="#ffffff"
+                  data-speed="2"
+                  data-shine-width="40"
+                  data-softness="0.8"
+                  data-bands="1"
+                  data-glow="0.3"
+                  data-angle="120"
+                  data-trigger="loop">
+              Refined Intelligence in Motion
+            </span>
+          </div>
+
+          <span class="absolute bottom-3 right-4 text-[10px] font-mono text-white/40">
+            Hover over text to interact with light sweep
+          </span>
+        </div>
+
+        <!-- Interactive Control Matrix -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-claude-lightBorder dark:border-claude-darkBorder">
+          
+          <!-- Control 1: Speed -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-mono">
+              <label for="ctrlSpeed" class="text-claude-lightSubtext dark:text-claude-darkSubtext">speed (s)</label>
+              <span id="valSpeed" class="font-semibold text-claude-terracotta">2.0s</span>
+            </div>
+            <input type="range" id="ctrlSpeed" min="0.5" max="5" step="0.1" value="2" class="w-full accent-claude-terracotta" />
+          </div>
+
+          <!-- Control 2: Shine Width -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-mono">
+              <label for="ctrlWidth" class="text-claude-lightSubtext dark:text-claude-darkSubtext">shineWidth (%)</label>
+              <span id="valWidth" class="font-semibold text-claude-terracotta">40%</span>
+            </div>
+            <input type="range" id="ctrlWidth" min="10" max="100" step="5" value="40" class="w-full accent-claude-terracotta" />
+          </div>
+
+          <!-- Control 3: Softness -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-mono">
+              <label for="ctrlSoftness" class="text-claude-lightSubtext dark:text-claude-darkSubtext">softness</label>
+              <span id="valSoftness" class="font-semibold text-claude-terracotta">0.8</span>
+            </div>
+            <input type="range" id="ctrlSoftness" min="0" max="1" step="0.05" value="0.8" class="w-full accent-claude-terracotta" />
+          </div>
+
+          <!-- Control 4: Angle -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-mono">
+              <label for="ctrlAngle" class="text-claude-lightSubtext dark:text-claude-darkSubtext">angle (deg)</label>
+              <span id="valAngle" class="font-semibold text-claude-terracotta">120°</span>
+            </div>
+            <input type="range" id="ctrlAngle" min="0" max="360" step="10" value="120" class="w-full accent-claude-terracotta" />
+          </div>
+
+          <!-- Control 5: Bands -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-mono">
+              <label for="ctrlBands" class="text-claude-lightSubtext dark:text-claude-darkSubtext">bands (reflection lines)</label>
+              <span id="valBands" class="font-semibold text-claude-terracotta">1</span>
+            </div>
+            <select id="ctrlBands" class="w-full px-3 py-1.5 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard text-xs font-mono">
+              <option value="1" selected>1 Band (Clean Sweep)</option>
+              <option value="2">2 Bands (Double Glint)</option>
+              <option value="3">3 Bands (Chrome Reflection)</option>
+            </select>
+          </div>
+
+          <!-- Control 6: Trigger -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-mono">
+              <label for="ctrlTrigger" class="text-claude-lightSubtext dark:text-claude-darkSubtext">trigger</label>
+              <span id="valTrigger" class="font-semibold text-claude-terracotta">loop</span>
+            </div>
+            <select id="ctrlTrigger" class="w-full px-3 py-1.5 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard text-xs font-mono">
+              <option value="loop" selected>loop (Continuous)</option>
+              <option value="hover">hover (On Pointer Enter)</option>
+              <option value="view">view (On Intersection)</option>
+            </select>
+          </div>
+
+          <!-- Control 7: Shine Color -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-mono">
+              <label for="ctrlShineColor" class="text-claude-lightSubtext dark:text-claude-darkSubtext">shineColor</label>
+              <span id="valShineColor" class="font-semibold text-claude-terracotta">#ffffff</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <input type="color" id="ctrlShineColor" value="#ffffff" class="w-8 h-8 rounded-lg cursor-pointer border-0 p-0" />
+              <button class="px-2 py-1 rounded-lg text-[10px] font-mono bg-claude-terracotta/20 text-claude-coral" id="btnShineCoral">Claude Coral</button>
+              <button class="px-2 py-1 rounded-lg text-[10px] font-mono bg-white/10 text-white" id="btnShineWhite">Pure White</button>
+            </div>
+          </div>
+
+          <!-- Control 8: Text Content -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs font-mono">
+              <label for="ctrlText" class="text-claude-lightSubtext dark:text-claude-darkSubtext">sample text</label>
+              <span class="text-claude-terracotta text-[10px]">Live Edit</span>
+            </div>
+            <input type="text" id="ctrlText" value="Refined Intelligence in Motion" class="w-full px-3 py-1.5 rounded-xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white dark:bg-claude-darkCard text-xs text-[#1F1E1D] dark:text-white" />
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       CORE PILLARS / BENTO GRID OF CAPABILITIES
+       ============================================================== -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-mono uppercase tracking-wider mb-4">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span>Architectural Superiority</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white mb-4">
+          Crafted for the Thinking Mind
+        </h2>
+        <p class="text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext">
+          Every layer of TriXAI was synthesized to reduce cognitive load and augment creative output.
+        </p>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Bento 1: Dynamic Artifacts 2.0 (Spans 2 cols) -->
+        <div class="md:col-span-2 claude-glass rounded-3xl p-6 sm:p-8 border border-claude-lightBorder dark:border-claude-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card">
+          <div class="space-y-4">
+            <div class="w-10 h-10 rounded-2xl bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
+              <i data-lucide="code-2" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1E1D] dark:text-white">
+              Dynamic Live Artifacts 2.0
+            </h3>
+            <p class="text-sm text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed max-w-xl">
+              Write, render, and refine code, SVG diagrams, and interactive React applications side-by-side with your thoughts. Zero context switching, instant sandboxed previews.
+            </p>
+          </div>
+
+          <div class="mt-8 p-4 rounded-2xl bg-black/5 dark:bg-black/40 border border-claude-lightBorder dark:border-white/5 font-mono text-xs text-claude-terracotta flex items-center justify-between">
+            <span>&lt;Artifact type="react" renderer="instant" /&gt;</span>
+            <span class="text-emerald-500 font-semibold">● Hot Reloading Active</span>
+          </div>
+        </div>
+
+        <!-- Bento 2: Transparent Chain-of-Thought (1 col) -->
+        <div class="claude-glass rounded-3xl p-6 sm:p-8 border border-claude-lightBorder dark:border-claude-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card">
+          <div class="space-y-4">
+            <div class="w-10 h-10 rounded-2xl bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
+              <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1E1D] dark:text-white">
+              Cognitive Transparency
+            </h3>
+            <p class="text-sm text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
+              Peek inside the reasoning chain. Inspect how each deduction was reached before a single token of answer is generated.
+            </p>
+          </div>
+
+          <div class="mt-8 flex items-center space-x-2 text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">
+            <i data-lucide="check-check" class="w-4 h-4 text-claude-terracotta"></i>
+            <span>Verifiable Reasoning Paths</span>
+          </div>
+        </div>
+
+        <!-- Bento 3: 200k Context Window (1 col) -->
+        <div class="claude-glass rounded-3xl p-6 sm:p-8 border border-claude-lightBorder dark:border-claude-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card">
+          <div class="space-y-4">
+            <div class="w-10 h-10 rounded-2xl bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
+              <i data-lucide="book-open" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1E1D] dark:text-white">
+              200K Context Fluidity
+            </h3>
+            <p class="text-sm text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
+              Feed entire codebases, financial ledgers, or 500-page manuscripts. High needle-in-a-haystack recall with zero drift.
+            </p>
+          </div>
+
+          <div class="mt-8 flex items-center justify-between text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">
+            <span>Accuracy: 99.8%</span>
+            <span class="text-claude-terracotta">Zero degradation</span>
+          </div>
+        </div>
+
+        <!-- Bento 4: Privacy by Sovereign Design (Spans 2 cols) -->
+        <div class="md:col-span-2 claude-glass rounded-3xl p-6 sm:p-8 border border-claude-lightBorder dark:border-claude-darkBorder shadow-subtle-card flex flex-col justify-between tilt-card">
+          <div class="space-y-4">
+            <div class="w-10 h-10 rounded-2xl bg-claude-terracotta/15 text-claude-terracotta flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1E1D] dark:text-white">
+              Sovereign & Private by Default
+            </h3>
+            <p class="text-sm text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed max-w-xl">
+              Your conversations are stored in your browser's encrypted storage. Direct API key integration means your thoughts remain strictly between you and the model.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <span class="px-3 py-1 rounded-full text-xs font-mono bg-claude-terracotta/10 text-claude-terracotta border border-claude-terracotta/25">Client-Side Key Encryption</span>
+            <span class="px-3 py-1 rounded-full text-xs font-mono bg-claude-terracotta/10 text-claude-terracotta border border-claude-terracotta/25">No Ad Trackers</span>
+            <span class="px-3 py-1 rounded-full text-xs font-mono bg-claude-terracotta/10 text-claude-terracotta border border-claude-terracotta/25">Export in Markdown</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       MEET THE ARCHITECT: NAMITH RN
+       Honoring the creator with photo, portfolio, and vision
+       ============================================================== -->
+  <section id="architect" class="py-24 sm:py-32 border-t border-claude-lightBorder dark:border-claude-darkBorder bg-claude-warmCard/30 dark:bg-claude-darkSidebar/30 relative overflow-hidden">
+    <!-- Ambient glow behind card -->
+    <div class="absolute right-10 top-1/2 -translate-y-1/2 w-96 h-96 bg-claude-terracotta/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Photo in 3D Tilting Glass Frame (5 cols) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm tilt-card group" id="photoTiltCard">
+            
+            <!-- Radiant Border Frame -->
+            <div class="relative aspect-[4/5] rounded-[32px] overflow-hidden bg-claude-darkCard border border-claude-terracotta/40 shadow-2xl p-2 transition-transform duration-300">
+              
+              <!-- Namith's Photo -->
+              <img 
+                src="https://plain-apac-prod-public.komododecks.com/202610/10/xeNXT7AzxbFHHxMUAGbr/image.jpg" 
+                alt="Namith RN — Creator of TriXAI" 
+                class="w-full h-full object-cover rounded-[24px] filter saturate-[1.08] contrast-[1.04] group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+
+              <!-- Subtle Specular Sheen Gradient -->
+              <div class="absolute inset-0 rounded-[24px] pointer-events-none bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
+
+              <!-- Floating badge on photo -->
+              <div class="absolute bottom-5 inset-x-5 p-3 rounded-2xl bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-between">
+                <div>
+                  <h4 class="text-sm font-bold text-white flex items-center space-x-1.5">
+                    <span>Namith RN</span>
+                    <i data-lucide="badge-check" class="w-4 h-4 text-claude-terracotta"></i>
+                  </h4>
+                  <p class="text-[11px] font-mono text-white/70">Frontend & AI Architect</p>
+                </div>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+              </div>
+
+            </div>
+
+            <!-- Decorative floating chips around photo -->
+            <div class="absolute -top-4 -right-4 px-3.5 py-1.5 rounded-full bg-white dark:bg-claude-darkCard shadow-lg border border-claude-terracotta/30 text-xs font-mono text-claude-terracotta flex items-center space-x-1.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>Creator of TriXAI</span>
+            </div>
+
+            <div class="absolute -bottom-4 -left-4 px-3.5 py-1.5 rounded-full bg-white dark:bg-claude-darkCard shadow-lg border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono text-[#1F1E1D] dark:text-white flex items-center space-x-1.5">
+              <i data-lucide="code" class="w-3.5 h-3.5 text-claude-terracotta"></i>
+              <span>Award-Winning Craft</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Story & Links (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-claude-terracotta/30 bg-claude-terracotta/10 text-claude-terracotta text-xs font-mono uppercase tracking-wider">
+            <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
+            <span>The Developer Behind the Experience</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl font-serif font-normal tracking-tight text-[#1F1E1D] dark:text-white">
+            "Software should feel as thoughtful and natural as human dialogue."
+          </h2>
+
+          <div class="space-y-4 text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
+            <p>
+              Hi, I’m <strong>Namith RN</strong>. I engineer high-craft interactive experiences and bespoke AI interfaces. I designed <strong>TriXAI</strong> to bring the aesthetic mindfulness and intellectual warmth of Anthropic’s Claude design philosophy to life in a fluid, single-page application.
+            </p>
+            <p>
+              Every detail—from the multi-band light sweeps on the typography using React Bits to the smoothstep frame expansion as you scroll—was tuned with obsessive care for performance, typography, and developer joy.
+            </p>
+          </div>
+
+          <!-- Quick Skills & Technologies Tags -->
+          <div class="pt-2">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-claude-terracotta mb-3">Core Toolset & Craftsmanship</h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">React 19 & Next.js</span>
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">Tailwind CSS & CSS Canvas</span>
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">Claude 3.5 API Integrations</span>
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">WebGL & Three.js Shaders</span>
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">React Bits Components</span>
+              <span class="px-3 py-1 rounded-xl bg-black/5 dark:bg-white/5 border border-claude-lightBorder dark:border-claude-darkBorder text-xs font-mono">UI/UX Creative Direction</span>
+            </div>
+          </div>
+
+          <!-- Connect & Portfolio CTA Buttons -->
+          <div class="pt-4 flex flex-wrap items-center gap-3.5">
+            <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-claude-terracotta to-claude-coral hover:from-claude-terracottaHover hover:to-claude-terracotta text-white font-medium text-sm tracking-tight shadow-md shadow-claude-terracotta/30 transition flex items-center space-x-2 group">
+              <span>Explore Namith's Portfolio</span>
+              <i data-lucide="external-link" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </a>
+
+            <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white/50 dark:bg-claude-darkCard/50 hover:bg-black/5 dark:hover:bg-claude-darkCardHover text-[#1F1E1D] dark:text-white font-medium text-sm tracking-tight transition flex items-center space-x-2">
+              <i data-lucide="play" class="w-4 h-4 text-claude-terracotta"></i>
+              <span>Launch TriXAI App</span>
+            </a>
+
+            <a href="https://github.com/NamithRN" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 text-[#1F1E1D] dark:text-white transition" title="Namith's GitHub" aria-label="Namith's GitHub">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       MASSIVE CALL TO ACTION
+       ============================================================== -->
+  <section class="py-24 sm:py-32 relative text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="claude-glass rounded-3xl p-8 sm:p-14 border border-claude-terracotta/40 shadow-claude-glow relative overflow-hidden">
+        
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E88D6D] to-[#AD4729] p-3 shadow-lg mx-auto mb-6 flex items-center justify-center">
+          <svg class="w-full h-full" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4 C16 10.5 10.5 16 4 16 C10.5 16 16 21.5 16 28 C16 21.5 21.5 16 28 16 C21.5 16 16 10.5 16 4 Z" fill="#FFFFFF"/>
+            <circle cx="16" cy="16" r="2.2" fill="#D97757"/>
+          </svg>
+        </div>
+
+        <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#1F1E1D] dark:text-white font-normal mb-4">
+          Ready to experience <span class="italic text-claude-terracotta">TriXAI?</span>
+        </h2>
+
+        <p class="text-sm sm:text-base text-claude-lightSubtext dark:text-claude-darkSubtext max-w-xl mx-auto mb-8">
+          Free to test, delightful to explore. Experience the convergence of Anthropic's design philosophy and modern web technology.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://trixai.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-2xl bg-claude-terracotta hover:bg-claude-terracottaHover text-white font-semibold text-base shadow-xl shadow-claude-terracotta/30 transition flex items-center space-x-2">
+            <span>Start Using TriXAI (Free)</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="https://namithrn.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-7 py-4 rounded-2xl border border-claude-lightBorder dark:border-claude-darkBorder bg-white/40 dark:bg-black/20 hover:bg-black/5 dark:hover:bg-white/5 font-medium text-base transition">
+            <span>Contact Namith RN</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================
+       FOOTER
+       Awwwards-level typographic finish
+       ============================================================== -->
+  <footer class="py-12 border-t border-claude-lightBorder dark:border-claude-darkBorder bg-white/40 dark:bg-black/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-claude-lightBorder dark:border-claude-darkBorder">
+        
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-claude-terracotta flex items-center justify-center text-white">
+            <svg class="w-4 h-4" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4 C16 10.5 10.5 16 4 16 C10.5 16 16 21.5 16 28 C16 21.5 21.5 16 28 16 C21.5 16 16 10.5 16 4 Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-serif font-bold text-lg text-[#1F1E1D] dark:text-white">TriXAI</span>
+            <span class="text-xs text-claude-lightSubtext dark:text-claude-darkSubtext ml-2">by Namith RN</span>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-6 text-xs font-mono text-claude-lightSubtext dark:text-claude-darkSubtext">
+          <a href="https://trixai.vercel.app/" target="_blank" class="hover:text-claude-terracotta transition">TriXAI App</a>
+          <a href="https://namithrn.vercel.app/" target="_blank" class="hover:text-claude-terracotta transition">Namith's Portfolio</a>
+          <a href="https://github.com/NamithRN" target="_blank" class="hover:text-claude-terracotta transition">GitHub</a>
+          <a href="#top" class="hover:text-claude-terracotta transition">Back to Top ↑</a>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-claude-lightSubtext dark:text-claude-darkSubtext font-mono">
+        <p>© 2026 TriXAI. Architected & Developed with soul by <strong>Namith RN</strong>.</p>
+        <p class="flex items-center space-x-2">
+          <span>Awwwards-Honored Senior Creative Development</span>
+          <span>•</span>
+          <span class="text-claude-terracotta">Anthropic Aesthetic</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Scroll To Top Button -->
+  <button id="backToTopBtn" class="fixed right-6 bottom-6 w-11 h-11 rounded-full claude-glass shadow-lg flex items-center justify-center text-claude-lightSubtext dark:text-white hover:text-claude-terracotta dark:hover:text-claude-terracotta transition opacity-0 pointer-events-none z-40 active:scale-95" aria-label="Back to top">
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
+
+  <!-- ==============================================================
+       JAVASCRIPT LOGIC
+       1. React Bits <ShinyText /> Vanilla Engine
+       2. React Bits <ScrollExpand /> Vanilla Engine
+       3. Web Audio Micro-Interactions
+       4. Interactive TriXAI Simulator & Artifact Studio
+       5. Interactive ShinyText Lab Controls
+       6. 3D Tilt Card Physics & Custom Cursor
+       ============================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // Initialize Lucide Icons
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+      /* -------------------------------------------------------------
+         1. REACT BITS: SHINY TEXT VANILLA IMPLEMENTATION
+         Faithful conversion of the exact source provided in user prompt
+         ------------------------------------------------------------- */
+      const EASINGS = {
+        linear: t => t,
+        smooth: t => 0.5 - Math.cos(Math.PI * t) / 2,
+        snappy: t => (t < 0.5 ? 16 * Math.pow(t, 5) : 1 - Math.pow(-2 * t + 2, 5) / 2)
+      };
+      const FALLOFF = [0, 0.2, 0.4, 0.6, 0.8, 1];
+      const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+      let paint = null;
+      const parseColor = value => {
+        if (typeof document === 'undefined') return null;
+        if (!paint) paint = document.createElement('canvas').getContext('2d');
+        if (!paint) return null;
+        paint.fillStyle = '#000000';
+        paint.fillStyle = value;
+        const resolved = String(paint.fillStyle);
+        if (resolved.startsWith('#')) {
+          return [1, 3, 5].map(i => parseInt(resolved.slice(i, i + 2), 16)).concat(1);
+        }
+        const parts = resolved.match(/[\d.]+/g);
+        if (!parts || parts.length < 3) return null;
+        return [Number(parts[0]), Number(parts[1]), Number(parts[2]), parts.length > 3 ? Number(parts[3]) : 1];
+      };
+
+      const blend = (from, to, amount) => {
+        const channel = (a, b) =>
+          Math.round(Math.pow(Math.pow(a / 255, 2.2) * (1 - amount) + Math.pow(b / 255, 2.2) * amount, 1 / 2.2) * 255);
+        const alpha = from[3] * (1 - amount) + to[3] * amount;
+        if (alpha <= 0) return 'rgba(0, 0, 0, 0)';
+        const weigh = (a, b) => (a * from[3] * (1 - amount) + b * to[3] * amount) / alpha;
+        const r = from[3] === to[3] ? channel(from[0], to[0]) : Math.round(weigh(from[0], to[0]));
+        const g = from[3] === to[3] ? channel(from[1], to[1]) : Math.round(weigh(from[1], to[1]));
+        const b = from[3] === to[3] ? channel(from[2], to[2]) : Math.round(weigh(from[2], to[2]));
+        return `rgba(${r}, ${g}, ${b}, ${Math.round(alpha * 1000) / 1000})`;
+      };
+
+      class VanillaShinyText {
+        constructor(element, options = {}) {
+          this.root = element;
+          this.options = Object.assign({
+            text: element.getAttribute('data-text') || element.textContent.trim(),
+            color: element.getAttribute('data-color') || '#b5b5b5',
+            shineColor: element.getAttribute('data-shine-color') || '#ffffff',
+            speed: parseFloat(element.getAttribute('data-speed')) || 2,
+            delay: parseFloat(element.getAttribute('data-delay')) || 0,
+            angle: parseFloat(element.getAttribute('data-angle')) || 120,
+            shineWidth: parseFloat(element.getAttribute('data-shine-width')) || 40,
+            softness: parseFloat(element.getAttribute('data-softness')) || 0.8,
+            bands: parseInt(element.getAttribute('data-bands')) || 1,
+            glow: parseFloat(element.getAttribute('data-glow')) || 0,
+            direction: element.getAttribute('data-direction') || 'left',
+            easing: element.getAttribute('data-easing') || 'smooth',
+            trigger: element.getAttribute('data-trigger') || 'loop',
+            yoyo: element.getAttribute('data-yoyo') === 'true',
+            followPointer: element.getAttribute('data-follow-pointer') === 'true',
+            pauseOnHover: element.getAttribute('data-pause-on-hover') === 'true',
+            disabled: element.getAttribute('data-disabled') === 'true'
+          }, options);
+
+          this.init();
+        }
+
+        init() {
+          this.root.classList.add('shiny-text');
+          this.root.textContent = this.options.text;
+
+          // Glow element
+          this.glowEl = document.createElement('span');
+          this.glowEl.className = 'shiny-text__glow';
+          this.glowEl.setAttribute('aria-hidden', 'true');
+          this.glowEl.textContent = this.options.text;
+          this.root.appendChild(this.glowEl);
+
+          this.state = {
+            pos: null,
+            vel: 0,
+            phase: 'idle',
+            from: 0,
+            to: 0,
+            start: 0,
+            duration: 1,
+            resume: 0,
+            flip: false,
+            inside: false,
+            target: 0,
+            visible: true,
+            seen: false,
+            colors: ''
+          };
+
+          this.base = null;
+          this.shine = null;
+          this.clear = null;
+          this.raf = 0;
+          this.timer = 0;
+          this.last = 0;
+          this.alive = true;
+
+          this.bindEvents();
+          this.draw();
+          this.wake();
+        }
+
+        extent() {
+          const s = this.options;
+          return s.shineWidth / 2 + (s.bands - 1) * s.shineWidth * 1.3 + 2;
+        }
+
+        entry() {
+          return (this.options.direction === 'right' ? 1 : -1) > 0 ? -this.extent() : 100 + this.extent();
+        }
+
+        exit() {
+          return (this.options.direction === 'right' ? 1 : -1) > 0 ? 100 + this.extent() : -this.extent();
+        }
+
+        nearest() {
+          return this.state.target < 50 ? -this.extent() : 100 + this.extent();
+        }
+
+        gradient(pos, fill) {
+          const s = this.options;
+          const sign = s.direction === 'right' ? 1 : -1;
+          const half = s.shineWidth / 2;
+          const core = half * (1 - s.softness);
+          const fade = half - core;
+          const stops = [];
+
+          for (let band = 0; band < s.bands; band++) {
+            const center = pos - sign * band * s.shineWidth * 1.3;
+            const strength = 1 - band * 0.28;
+            for (const side of [-1, 1]) {
+              for (const f of FALLOFF) {
+                const at = center + side * (core + fade * (1 - f));
+                const amount = f * f * (3 - 2 * f) * strength;
+                stops.push([at, amount]);
+              }
+            }
+          }
+
+          stops.sort((a, b) => a[0] - b[0]);
+          const list = stops.map(([at, amount]) => `${blend(fill, this.shine, amount)} ${at.toFixed(2)}%`);
+          return `linear-gradient(${s.angle}deg, ${blend(fill, this.shine, 0)} 0%, ${list.join(', ')}, ${blend(fill, this.shine, 0)} 100%)`;
+        }
+
+        draw() {
+          const s = this.options;
+          const key = `${s.color}|${s.shineColor}`;
+          if (key !== this.state.colors) {
+            this.state.colors = key;
+            this.base = parseColor(s.color);
+            this.shine = parseColor(s.shineColor);
+            this.clear = this.shine ? [this.shine[0], this.shine[1], this.shine[2], 0] : null;
+          }
+
+          if (!this.base || !this.shine) {
+            this.root.style.backgroundImage = `linear-gradient(${s.color}, ${s.color})`;
+            return;
+          }
+
+          if (this.state.pos === null || s.disabled) {
+            this.root.style.backgroundImage = `linear-gradient(${s.color}, ${s.color})`;
+            if (this.glowEl) this.glowEl.style.backgroundImage = 'none';
+            return;
+          }
+
+          this.root.style.backgroundImage = this.gradient(this.state.pos, this.base);
+          if (this.glowEl && s.glow > 0) {
+            this.glowEl.style.backgroundImage = this.gradient(this.state.pos, this.clear);
+            this.glowEl.style.opacity = String(s.glow);
+          }
+        }
+
+        sweep(from, to, now) {
+          const s = this.options;
+          const span = Math.abs(this.exit() - this.entry()) || 1;
+          this.state.phase = 'sweep';
+          this.state.from = from;
+          this.state.to = to;
+          this.state.start = now;
+          this.state.duration = s.speed * 1000 * Math.max(0.15, Math.abs(to - from) / span);
+        }
+
+        wake() {
+          if (this.raf || !this.alive) return;
+          window.clearTimeout(this.timer);
+          this.timer = 0;
+          this.last = performance.now();
+          this.raf = requestAnimationFrame(this.tick.bind(this));
+        }
+
+        tick(now) {
+          this.raf = 0;
+          if (!this.alive) return;
+          const s = this.options;
+          const dt = Math.min(0.05, Math.max(0, (now - this.last) / 1000));
+          this.last = now;
+
+          if (s.disabled) {
+            this.state.pos = null;
+            this.state.phase = 'idle';
+            this.draw();
+            return;
+          }
+
+          const following = s.followPointer && this.state.inside;
+          if (following) {
+            if (this.state.pos === null) this.state.pos = this.nearest();
+            const stiffness = 220;
+            this.state.vel += ((this.state.target - this.state.pos) * stiffness - this.state.vel * 2 * Math.sqrt(stiffness)) * dt;
+            this.state.pos += this.state.vel * dt;
+            this.state.phase = 'follow';
+            this.draw();
+            this.raf = requestAnimationFrame(this.tick.bind(this));
+            return;
+          }
+
+          if (this.state.phase === 'follow') {
+            this.state.vel = 0;
+            this.sweep(this.state.pos ?? this.nearest(), this.nearest(), now);
+          }
+
+          if (this.state.phase === 'sweep') {
+            if (s.pauseOnHover && this.state.inside) {
+              this.state.start += dt * 1000;
+              this.raf = requestAnimationFrame(this.tick.bind(this));
+              return;
+            }
+            const easeFn = EASINGS[s.easing] || EASINGS.smooth;
+            const t = clamp((now - this.state.start) / this.state.duration, 0, 1);
+            this.state.pos = this.state.from + (this.state.to - this.state.from) * easeFn(t);
+            this.draw();
+            if (t < 1) {
+              this.raf = requestAnimationFrame(this.tick.bind(this));
+              return;
+            }
+            if (s.trigger !== 'loop') {
+              this.state.phase = 'idle';
+              this.state.pos = null;
+              this.draw();
+              return;
+            }
+            this.state.phase = 'wait';
+            this.state.resume = now + s.delay * 1000;
+          }
+
+          if (this.state.phase === 'wait') {
+            if (!this.state.visible) return;
+            if (now < this.state.resume) {
+              window.clearTimeout(this.timer);
+              this.timer = window.setTimeout(this.wake.bind(this), this.state.resume - now);
+              return;
+            }
+            if (s.yoyo) {
+              this.state.flip = !this.state.flip;
+              this.sweep(this.state.flip ? this.exit() : this.entry(), this.state.flip ? this.entry() : this.exit(), now);
+            } else {
+              this.sweep(this.entry(), this.exit(), now);
+            }
+            this.raf = requestAnimationFrame(this.tick.bind(this));
+            return;
+          }
+
+          if (this.state.phase === 'idle' && s.trigger === 'loop' && this.state.visible) {
+            this.state.flip = false;
+            this.sweep(this.entry(), this.exit(), now);
+            this.raf = requestAnimationFrame(this.tick.bind(this));
+          }
+        }
+
+        locate(event) {
+          const s = this.options;
+          const rect = this.root.getBoundingClientRect();
+          const radians = (s.angle * Math.PI) / 180;
+          const dx = Math.sin(radians);
+          const dy = -Math.cos(radians);
+          const length = Math.abs(rect.width * dx) + Math.abs(rect.height * dy) || 1;
+          const along =
+            (event.clientX - rect.left - rect.width / 2) * dx + (event.clientY - rect.top - rect.height / 2) * dy;
+          return 50 + (along / length) * 100;
+        }
+
+        bindEvents() {
+          this.onEnter = event => {
+            this.state.inside = true;
+            this.state.target = this.locate(event);
+            if (this.options.disabled) return;
+            if (this.options.followPointer) {
+              if (this.state.pos === null) this.state.pos = this.nearest();
+            } else if (this.options.trigger === 'hover' && this.state.phase === 'idle') {
+              this.sweep(this.entry(), this.exit(), performance.now());
+            }
+            this.wake();
+          };
+
+          this.onMove = event => {
+            this.state.target = this.locate(event);
+            if (this.options.followPointer) this.wake();
+          };
+
+          this.onLeave = () => {
+            this.state.inside = false;
+            this.wake();
+          };
+
+          this.observer = new IntersectionObserver(entries => {
+            const visible = entries.some(item => item.isIntersecting);
+            this.state.visible = visible;
+            if (!visible) return;
+            if (this.options.trigger === 'view' && !this.state.seen && !this.options.disabled) {
+              this.state.seen = true;
+              this.sweep(this.entry(), this.exit(), performance.now());
+            }
+            this.wake();
+          });
+
+          this.observer.observe(this.root);
+          this.root.addEventListener('pointerenter', this.onEnter);
+          this.root.addEventListener('pointermove', this.onMove);
+          this.root.addEventListener('pointerleave', this.onLeave);
+        }
+
+        updateOptions(newOptions) {
+          Object.assign(this.options, newOptions);
+          if (newOptions.text) {
+            this.root.firstChild.textContent = newOptions.text;
+            if (this.glowEl) this.glowEl.textContent = newOptions.text;
+          }
+          this.state.pos = null;
+          this.state.phase = 'idle';
+          this.draw();
+          this.wake();
+        }
+      }
+
+      // Instantiate all .shiny-target elements
+      const shinyInstances = [];
+      document.querySelectorAll('.shiny-target').forEach(el => {
+        shinyInstances.push(new VanillaShinyText(el));
+      });
+
+      // Lab Shiny Instance for the interactive controls
+      const labEl = document.getElementById('labShinyElement');
+      let labShinyInstance = null;
+      if (labEl) {
+        labShinyInstance = new VanillaShinyText(labEl);
+      }
+
+      /* -------------------------------------------------------------
+         2. REACT BITS: SCROLL EXPAND VANILLA IMPLEMENTATION
+         Faithful conversion of the exact source provided in user prompt
+         ------------------------------------------------------------- */
+      const smoothstep = (edge0, edge1, x) => {
+        const t = clamp((x - edge0) / (edge1 - edge0 || 1e-6), 0, 1);
+        return t * t * (3 - 2 * t);
+      };
+
+      const initScrollExpand = () => {
+        const root = document.getElementById('scrollExpandContainer');
+        const track = document.getElementById('scrollTrack');
+        const stage = document.getElementById('scrollStage');
+        const frame = document.getElementById('scrollFrame');
+        const media = document.getElementById('scrollMedia');
+        const title = document.getElementById('scrollTitle');
+        const hint = document.getElementById('scrollHint');
+        const overlay = document.getElementById('scrollOverlay');
+        const scrim = document.getElementById('scrollScrim');
+
+        if (!root || !track || !stage || !frame || !media) return;
+
+        const config = {
+          startWidth: parseFloat(root.getAttribute('data-start-width')) || 44,
+          startHeight: parseFloat(root.getAttribute('data-start-height')) || 60,
+          startRadius: parseFloat(root.getAttribute('data-start-radius')) || 28,
+          endRadius: parseFloat(root.getAttribute('data-end-radius')) || 0,
+          mediaZoom: parseFloat(root.getAttribute('data-media-zoom')) || 1.38,
+          scrollDistance: parseFloat(root.getAttribute('data-scroll-distance')) || 1.35,
+          holdDistance: parseFloat(root.getAttribute('data-hold-distance')) || 0.4,
+          smoothing: parseFloat(root.getAttribute('data-smoothing')) || 0.12,
+          overlayScrim: parseFloat(root.getAttribute('data-overlay-scrim')) || 0.65,
+          useWindowScroll: root.getAttribute('data-use-window-scroll') === 'true',
+          enabled: true
+        };
+
+        const applyProgress = p => {
+          const e = smoothstep(0, 1, p);
+          const w = config.startWidth + (100 - config.startWidth) * e;
+          const h = config.startHeight + (100 - config.startHeight) * e;
+          const ix = Math.max(0, (100 - w) / 2);
+          const iy = Math.max(0, (100 - h) / 2);
+          const r = config.startRadius + (config.endRadius - config.startRadius) * e;
+
+          frame.style.clipPath = `inset(${iy}% ${ix}% ${iy}% ${ix}% round ${r}px)`;
+          media.style.transform = `scale(${config.mediaZoom + (1 - config.mediaZoom) * e})`;
+
+          if (scrim) scrim.style.opacity = `${config.overlayScrim * e}`;
+
+          if (title) {
+            const out = smoothstep(0.4, 0.88, p);
+            title.style.opacity = `${1 - out}`;
+            title.style.transform = `translate3d(0, ${-28 * out}px, 0) scale(${1 + 0.06 * out})`;
+          }
+
+          if (hint) {
+            const gone = smoothstep(0, 0.14, p);
+            hint.style.opacity = `${1 - gone}`;
+            hint.style.transform = `translate3d(0, ${8 * gone}px, 0)`;
+          }
+
+          if (overlay) {
+            const inn = smoothstep(0.68, 1, p);
+            overlay.style.opacity = `${inn}`;
+            overlay.style.transform = `translate3d(0, ${18 * (1 - inn)}px, 0)`;
+            overlay.style.pointerEvents = inn > 0.85 ? 'auto' : 'none';
+          }
+        };
+
+        let current = 0;
+        let target = 0;
+        let stageH = 0;
+        let running = false;
+        let raf = 0;
+
+        const measure = () => {
+          stageH = window.innerHeight;
+          stage.style.height = `${stageH}px`;
+          track.style.height = `${stageH * (1 + config.scrollDistance + config.holdDistance)}px`;
+        };
+
+        const readProgress = () => {
+          const span = stageH * Math.max(0.01, config.scrollDistance);
+          const top = track.getBoundingClientRect().top;
+          return clamp(-top / span, 0, 1);
+        };
+
+        const tick = () => {
+          const k = config.smoothing <= 0 ? 1 : 1 - Math.exp(-1 / (60 * config.smoothing));
+          current += (target - current) * k;
+          if (Math.abs(target - current) < 0.0004) {
+            current = target;
+            running = false;
+          }
+          applyProgress(current);
+          if (running) raf = requestAnimationFrame(tick);
+        };
+
+        const kick = () => {
+          if (running) return;
+          running = true;
+          raf = requestAnimationFrame(tick);
+        };
+
+        const onScroll = () => {
+          target = readProgress();
+          kick();
+        };
+
+        measure();
+        target = readProgress();
+        current = target;
+        applyProgress(current);
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', () => {
+          measure();
+          target = readProgress();
+          current = target;
+          applyProgress(current);
+        });
+      };
+
+      initScrollExpand();
+
+      /* -------------------------------------------------------------
+         3. WEB AUDIO SYNTHESIZER (MICRO-INTERACTIONS)
+         Pleasant synthetic click & glass glints
+         ------------------------------------------------------------- */
+      let audioCtx = null;
+      let soundEnabled = false;
+
+      const initAudio = () => {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) audioCtx = new AudioContext();
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      };
+
+      const playClickSound = (freq = 440, type = 'sine') => {
+        if (!soundEnabled || !audioCtx) return;
+        try {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(freq * 0.5, audioCtx.currentTime + 0.06);
+          gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.06);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.06);
+        } catch (e) {}
+      };
+
+      const soundBtn = document.getElementById('soundToggle');
+      const soundIcon = document.getElementById('soundIcon');
+      if (soundBtn) {
+        soundBtn.addEventListener('click', () => {
+          initAudio();
+          soundEnabled = !soundEnabled;
+          soundBtn.classList.toggle('text-claude-terracotta', soundEnabled);
+          if (soundIcon) {
+            soundIcon.setAttribute('data-lucide', soundEnabled ? 'volume-2' : 'volume-x');
+            lucide.createIcons();
+          }
+          if (soundEnabled) playClickSound(620);
+        });
+      }
+
+      // Add audio feedback on buttons
+      document.querySelectorAll('button, a').forEach(el => {
+        el.addEventListener('mouseenter', () => playClickSound(800));
+        el.addEventListener('click', () => playClickSound(520, 'triangle'));
+      });
+
+      /* -------------------------------------------------------------
+         4. THEME TOGGLE (CLAUDE DARK / CLAUDE WARM IVORY)
+         ------------------------------------------------------------- */
+      const themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const html = document.documentElement;
+          html.classList.toggle('dark');
+          const isDark = html.classList.contains('dark');
+          localStorage.setItem('trixai-theme', isDark ? 'dark' : 'light');
+        });
+      }
+
+      // Check stored preference
+      if (localStorage.getItem('trixai-theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+      }
+
+      /* -------------------------------------------------------------
+         5. MOBILE MENU
+         ------------------------------------------------------------- */
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+      }
+
+      /* -------------------------------------------------------------
+         6. SCROLL PROGRESS BAR & BACK TO TOP
+         ------------------------------------------------------------- */
+      const progressBar = document.getElementById('scrollProgress');
+      const backToTopBtn = document.getElementById('backToTopBtn');
+
+      window.addEventListener('scroll', () => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / (totalHeight || 1)) * 100;
+        if (progressBar) progressBar.style.width = `${progress}%`;
+
+        if (backToTopBtn) {
+          if (window.scrollY > 400) {
+            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+          } else {
+            backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+          }
+        }
+      }, { passive: true });
+
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      /* -------------------------------------------------------------
+         7. CUSTOM CURSOR TRACKING
+         ------------------------------------------------------------- */
+      const dot = document.getElementById('cursorDot');
+      const ring = document.getElementById('cursorRing');
+      if (dot && ring) {
+        let mouseX = -100, mouseY = -100;
+        let ringX = -100, ringY = -100;
+
+        window.addEventListener('mousemove', e => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        });
+
+        const tickCursor = () => {
+          ringX += (mouseX - ringX) * 0.18;
+          ringY += (mouseY - ringY) * 0.18;
+          ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+          requestAnimationFrame(tickCursor);
+        };
+        tickCursor();
+
+        document.querySelectorAll('a, button, input, .swatch-card').forEach(el => {
+          el.addEventListener('mouseenter', () => ring.classList.add('active'));
+          el.addEventListener('mouseleave', () => ring.classList.remove('active'));
+        });
+      }
+
+      /* -------------------------------------------------------------
+         8. 3D CARD TILT EFFECT (NAMITH'S PHOTO & BENTO CARDS)
+         ------------------------------------------------------------- */
+      const tiltCards = document.querySelectorAll('.tilt-card');
+      tiltCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          const rotX = -(y / (rect.height / 2)) * 7;
+          const rotY = (x / (rect.width / 2)) * 7;
+          card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.01, 1.01, 1.01)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+      });
+
+      /* -------------------------------------------------------------
+         9. LIVE INTERACTIVE SIMULATOR (CLAUDE STREAMING SIMULATION)
+         ------------------------------------------------------------- */
+      const simInput = document.getElementById('simInput');
+      const simSendBtn = document.getElementById('simSendBtn');
+      const simHistory = document.getElementById('simChatHistory');
+      const thinkingToggle = document.getElementById('simThinkingToggle');
+      const thinkingContent = document.getElementById('simThinkingContent');
+      const thinkingChevron = document.getElementById('simThinkingChevron');
+      const simClearBtn = document.getElementById('simClearBtn');
+
+      if (thinkingToggle && thinkingContent) {
+        thinkingToggle.addEventListener('click', () => {
+          thinkingContent.classList.toggle('hidden');
+          if (thinkingChevron) thinkingChevron.classList.toggle('rotate-180');
+        });
+      }
+
+      const appendUserMessage = text => {
+        const msg = document.createElement('div');
+        msg.className = 'flex justify-end';
+        msg.innerHTML = `
+          <div class="max-w-[85%] px-4 py-3 rounded-2xl rounded-tr-xs bg-claude-terracotta text-white text-xs sm:text-sm font-medium shadow-xs">
+            ${text}
+          </div>
+        `;
+        simHistory.appendChild(msg);
+        simHistory.scrollTop = simHistory.scrollHeight;
+      };
+
+      const simulateAssistantResponse = promptText => {
+        const respContainer = document.createElement('div');
+        respContainer.className = 'space-y-3';
+        
+        // Random thinking duration
+        const duration = (Math.random() * 1.5 + 1.2).toFixed(1);
+
+        respContainer.innerHTML = `
+          <div class="rounded-xl border border-claude-terracotta/25 bg-claude-terracotta/5 overflow-hidden">
+            <button class="w-full px-3.5 py-2 text-left flex items-center justify-between text-xs font-mono text-claude-terracotta hover:bg-claude-terracotta/10 transition dynamic-thinking-btn">
+              <div class="flex items-center space-x-2">
+                <i data-lucide="brain" class="w-3.5 h-3.5 animate-pulse"></i>
+                <span>Thinking Process (${duration}s)</span>
+              </div>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+            <div class="px-3.5 py-2.5 text-[11px] font-mono text-claude-lightSubtext dark:text-claude-darkSubtext space-y-1 border-t border-claude-terracotta/15 bg-white/20 dark:bg-black/20">
+              <p>• Synthesizing domain logic for "${promptText.slice(0, 35)}..."</p>
+              <p>• Applying Anthropic Claude reasoning principles & design clarity.</p>
+              <p>• Streamed live artifact to sandbox engine.</p>
+            </div>
+          </div>
+          <div class="text-xs sm:text-sm leading-relaxed text-[#1F1E1D] dark:text-[#E8E6DF] space-y-1 assistant-typewriter">
+            <p>I have structured a comprehensive response for your query: <em>"${promptText}"</em>. Notice how TriXAI maintains clean chain-of-thought provenance and reactive artifact previewing.</p>
+          </div>
+        `;
+
+        simHistory.appendChild(respContainer);
+        simHistory.scrollTop = simHistory.scrollHeight;
+        if (window.lucide) lucide.createIcons();
+
+        // Bind thinking fold
+        const btn = respContainer.querySelector('.dynamic-thinking-btn');
+        const fold = respContainer.querySelector('.dynamic-thinking-btn + div');
+        if (btn && fold) {
+          btn.addEventListener('click', () => fold.classList.toggle('hidden'));
+        }
+      };
+
+      const handleSimSend = () => {
+        if (!simInput) return;
+        const text = simInput.value.trim();
+        if (!text) return;
+        appendUserMessage(text);
+        simInput.value = '';
+        setTimeout(() => simulateAssistantResponse(text), 600);
+      };
+
+      if (simSendBtn && simInput) {
+        simSendBtn.addEventListener('click', handleSimSend);
+        simInput.addEventListener('keydown', e => {
+          if (e.key === 'Enter') handleSimSend();
+        });
+      }
+
+      // Hero chips click handler
+      document.querySelectorAll('.hero-prompt-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const prompt = chip.getAttribute('data-prompt');
+          if (simInput) {
+            simInput.value = prompt;
+            document.getElementById('simulator').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(handleSimSend, 800);
+          }
+        });
+      });
+
+      if (simClearBtn) {
+        simClearBtn.addEventListener('click', () => {
+          simHistory.innerHTML = `
+            <div class="p-3.5 rounded-2xl bg-claude-warmCard dark:bg-claude-darkCard border border-claude-lightBorder dark:border-claude-darkBorder text-xs space-y-1.5">
+              <div class="flex items-center space-x-2 text-claude-terracotta font-semibold">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>TriXAI Kernel Re-initialized</span>
+              </div>
+              <p class="text-claude-lightSubtext dark:text-claude-darkSubtext leading-relaxed">
+                Environment reset to default state. Type a prompt below or test one of the archetypes.
+              </p>
+            </div>
+          `;
+          if (window.lucide) lucide.createIcons();
+        });
+      }
+
+      /* -------------------------------------------------------------
+         10. ARTIFACT TABS & SWATCH CLIPBOARD COPY
+         ------------------------------------------------------------- */
+      const tabPreview = document.getElementById('artTabPreview');
+      const tabCode = document.getElementById('artTabCode');
+      const widgetPalette = document.getElementById('artWidgetPalette');
+      const codeView = document.getElementById('artCodeView');
+
+      if (tabPreview && tabCode && widgetPalette && codeView) {
+        tabPreview.addEventListener('click', () => {
+          widgetPalette.classList.remove('hidden');
+          codeView.classList.add('hidden');
+          tabPreview.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-claude-darkCard text-claude-terracotta font-semibold shadow-xs';
+          tabCode.className = 'px-2.5 py-1 rounded-lg text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta';
+        });
+
+        tabCode.addEventListener('click', () => {
+          widgetPalette.classList.add('hidden');
+          codeView.classList.remove('hidden');
+          tabCode.className = 'px-2.5 py-1 rounded-lg bg-white dark:bg-claude-darkCard text-claude-terracotta font-semibold shadow-xs';
+          tabPreview.className = 'px-2.5 py-1 rounded-lg text-claude-lightSubtext dark:text-claude-darkSubtext hover:text-claude-terracotta';
+        });
+      }
+
+      // Swatch Click Copy
+      const copiedToast = document.getElementById('copiedToast');
+      document.querySelectorAll('.swatch-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const hex = card.getAttribute('data-hex');
+          navigator.clipboard.writeText(hex).then(() => {
+            if (copiedToast) {
+              copiedToast.textContent = `Copied ${hex}!`;
+              copiedToast.classList.remove('opacity-0');
+              setTimeout(() => copiedToast.classList.add('opacity-0'), 1800);
+            }
+          });
+        });
+      });
+
+      // Regenerate Palette Button
+      const regenBtn = document.getElementById('regenPaletteBtn');
+      if (regenBtn) {
+        const palettes = [
+          [
+            { name: 'Primary', hex: '#D97757', bg: '#D97757', text: '#FFFFFF' },
+            { name: 'Coral', hex: '#E28768', bg: '#E28768', text: '#FFFFFF' },
+            { name: 'Sienna', hex: '#AD4729', bg: '#AD4729', text: '#FFFFFF' },
+            { name: 'Ivory', hex: '#FAF9F5', bg: '#FAF9F5', text: '#1F1E1D' }
+          ],
+          [
+            { name: 'Ember', hex: '#FF5A1F', bg: '#FF5A1F', text: '#FFFFFF' },
+            { name: 'Charcoal', hex: '#1E1916', bg: '#1E1916', text: '#FFFFFF' },
+            { name: 'Bone', hex: '#F1E8DE', bg: '#F1E8DE', text: '#1E1916' },
+            { name: 'Blood', hex: '#D12A1C', bg: '#D12A1C', text: '#FFFFFF' }
+          ],
+          [
+            { name: 'Warm Amber', hex: '#E59866', bg: '#E59866', text: '#1F1E1D' },
+            { name: 'Obsidian', hex: '#141312', bg: '#141312', text: '#FFFFFF' },
+            { name: 'Terracotta', hex: '#C86849', bg: '#C86849', text: '#FFFFFF' },
+            { name: 'Sand', hex: '#EFECE6', bg: '#EFECE6', text: '#141312' }
+          ]
+        ];
+        let pIdx = 0;
+
+        regenBtn.addEventListener('click', () => {
+          pIdx = (pIdx + 1) % palettes.length;
+          const current = palettes[pIdx];
+          const grid = document.getElementById('paletteGrid');
+          if (!grid) return;
+          grid.innerHTML = current.map(item => `
+            <div class="swatch-card p-3 rounded-xl cursor-pointer hover:scale-105 transition-transform flex flex-col justify-between h-28 shadow-xs border border-black/10" style="background-color: ${item.bg}; color: ${item.text};" data-hex="${item.hex}">
+              <span class="text-[10px] font-mono opacity-80 uppercase">${item.name}</span>
+              <span class="text-xs font-mono font-bold">${item.hex}</span>
+            </div>
+          `).join('');
+
+          // Rebind copy
+          grid.querySelectorAll('.swatch-card').forEach(c => {
+            c.addEventListener('click', () => {
+              const hex = c.getAttribute('data-hex');
+              navigator.clipboard.writeText(hex).then(() => {
+                if (copiedToast) {
+                  copiedToast.textContent = `Copied ${hex}!`;
+                  copiedToast.classList.remove('opacity-0');
+                  setTimeout(() => copiedToast.classList.add('opacity-0'), 1800);
+                }
+              });
+            });
+          });
+        });
+      }
+
+      /* -------------------------------------------------------------
+         11. INTERACTIVE SHINY TEXT LAB CONTROLS
+         Real-time reactive testing of the React Bits component props
+         ------------------------------------------------------------- */
+      if (labShinyInstance) {
+        const ctrlSpeed = document.getElementById('ctrlSpeed');
+        const valSpeed = document.getElementById('valSpeed');
+        const ctrlWidth = document.getElementById('ctrlWidth');
+        const valWidth = document.getElementById('valWidth');
+        const ctrlSoftness = document.getElementById('ctrlSoftness');
+        const valSoftness = document.getElementById('valSoftness');
+        const ctrlAngle = document.getElementById('ctrlAngle');
+        const valAngle = document.getElementById('valAngle');
+        const ctrlBands = document.getElementById('ctrlBands');
+        const valBands = document.getElementById('valBands');
+        const ctrlTrigger = document.getElementById('ctrlTrigger');
+        const valTrigger = document.getElementById('valTrigger');
+        const ctrlShineColor = document.getElementById('ctrlShineColor');
+        const valShineColor = document.getElementById('valShineColor');
+        const ctrlText = document.getElementById('ctrlText');
+
+        if (ctrlSpeed) {
+          ctrlSpeed.addEventListener('input', e => {
+            const v = parseFloat(e.target.value);
+            valSpeed.textContent = `${v.toFixed(1)}s`;
+            labShinyInstance.updateOptions({ speed: v });
+          });
+        }
+
+        if (ctrlWidth) {
+          ctrlWidth.addEventListener('input', e => {
+            const v = parseFloat(e.target.value);
+            valWidth.textContent = `${v}%`;
+            labShinyInstance.updateOptions({ shineWidth: v });
+          });
+        }
+
+        if (ctrlSoftness) {
+          ctrlSoftness.addEventListener('input', e => {
+            const v = parseFloat(e.target.value);
+            valSoftness.textContent = v.toFixed(2);
+            labShinyInstance.updateOptions({ softness: v });
+          });
+        }
+
+        if (ctrlAngle) {
+          ctrlAngle.addEventListener('input', e => {
+            const v = parseFloat(e.target.value);
+            valAngle.textContent = `${v}°`;
+            labShinyInstance.updateOptions({ angle: v });
+          });
+        }
+
+        if (ctrlBands) {
+          ctrlBands.addEventListener('change', e => {
+            const v = parseInt(e.target.value);
+            valBands.textContent = v;
+            labShinyInstance.updateOptions({ bands: v });
+          });
+        }
+
+        if (ctrlTrigger) {
+          ctrlTrigger.addEventListener('change', e => {
+            const v = e.target.value;
+            valTrigger.textContent = v;
+            labShinyInstance.updateOptions({ trigger: v });
+          });
+        }
+
+        if (ctrlShineColor) {
+          ctrlShineColor.addEventListener('input', e => {
+            const v = e.target.value;
+            valShineColor.textContent = v;
+            labShinyInstance.updateOptions({ shineColor: v });
+          });
+        }
+
+        const btnCoral = document.getElementById('btnShineCoral');
+        const btnWhite = document.getElementById('btnShineWhite');
+        if (btnCoral) {
+          btnCoral.addEventListener('click', () => {
+            ctrlShineColor.value = '#E28768';
+            valShineColor.textContent = '#E28768';
+            labShinyInstance.updateOptions({ shineColor: '#E28768' });
+          });
+        }
+        if (btnWhite) {
+          btnWhite.addEventListener('click', () => {
+            ctrlShineColor.value = '#FFFFFF';
+            valShineColor.textContent = '#FFFFFF';
+            labShinyInstance.updateOptions({ shineColor: '#FFFFFF' });
+          });
+        }
+
+        if (ctrlText) {
+          ctrlText.addEventListener('input', e => {
+            labShinyInstance.updateOptions({ text: e.target.value });
+          });
+        }
+      }
+
+    });
+  </script>
+</body>
+</html>
